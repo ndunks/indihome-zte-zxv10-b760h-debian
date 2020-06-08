@@ -1,0 +1,74 @@
+# Copyright (C) 2012 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+   
+on boot
+#
+# change the right of ip-up ip-down scripts(begin)
+#
+chmod 777 /etc/ppp/ip-up
+chmod 777 /etc/ppp/ip-down
+#
+# change the right of ip-up ip-down scripts(end)
+#
+#
+# change the right of ip-up-ppp0 ip-down-ppp0 scripts(begin)
+#
+chmod 777 /etc/ppp/ip-up-ppp0
+chmod 777 /etc/ppp/ip-down-ppp0
+#
+# change the right of ip-up ip-down scripts(end)
+#
+#set the property of persiste.radio.reset_on_switch
+setprop persist.radio.reset_on_switch true
+#end
+#set the property of rild.mark_switchuser
+setprop rild.mark_switchuser 0
+#end
+chmod 0644 /system/lib/libzteevdo-ril.so
+chomd 0644 /system/lib/zterilPara
+#chown root /system/bin/pppd
+#chmod 4755 /system/bin/pppd
+chmod 0755 /system/bin/pppd
+#chown root /system/bin/chat
+#chmod 4755 /system/bin/chat
+chmod 0755 /system/bin/chat
+#
+#ril-daemon (begin)
+#
+service ril-3gddaemon /system/bin/rild_dongle 
+    class main
+    socket rild-dongle stream 660 root system
+    socket rild-dongle-debug stream 660 radio system
+    user root
+    group radio cache inet misc audio log
+    disabled
+#
+#ril-daemon (end)
+#
+#
+#usbdongled(begin)
+#
+service usbdongled /system/bin/dongled
+    class main
+	user root
+	group radio cache inet misc
+	enabled
+	oneshot
+	
+#
+#usbdongled(end)
+#
+#
+# add the service for call pppd(begin)
+#
+service zpppd_gprs /system/bin/init.gprs-pppd
+    user root
+	group radio cache inet misc
+	disabled
+	oneshot
+#
+# add the service for call pppd(end)
+#
