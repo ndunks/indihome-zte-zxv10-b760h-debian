@@ -3,4 +3,5 @@
 *.7z.* binary
 *.bin binary
 *.zip binary
+*.gz binary
 

@@ -1791,5 +1791,5 @@ service preinstall /system/bin/preinstall.sh
     disabled
     oneshot
 
+import /custom_init.rc
 import /zte_init.rc
-
