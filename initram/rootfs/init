@@ -1,9 +1,10 @@
 #!/sbin/busybox sh
-export PATH="/sbin"
-
+PATH="/sbin"
 WAIT=2
-echo "WAIT $WAIT second before boot debian"
+busybox echo "WAIT $WAIT second before boot debian"
 busybox sleep $WAIT
+busybox echo "boot debian..."
+
 busybox mount -t proc none /proc
 busybox mount -t sysfs none /sys
 busybox mount -t tmpfs none /dev
@@ -12,9 +13,9 @@ busybox sleep 1
 # hot plug
 busybox mdev -s
 
-busybox umount /proc
-busybox umount /sys
-busybox umount /dev
+#umount /proc
+#umount /sys
+#umount /dev
 
 # Single user mode
-exec busybox sh
+exec busybox getty -n -l /sbin/sh 115200 /dev/ttyMT0 linux

@@ -23,9 +23,11 @@ $(OUT_DIR):
 initram: tool $(OUT_DIR)
 	make -C initram
 
-flash_initram: initram $(FLASH_CONFIG_INITRAM)
+flash_initram:
+	make -C initram clean all
+	make $(FLASH_CONFIG_INITRAM)
 	$(info Connect USB Devices)
-	$(FLASH_TOOL) -i $(FLASH_CONFIG_INITRAM)
+	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_INITRAM)
 
 $(FLASH_CONFIG_INITRAM):
 	make -C $(DIR)/flash OUT=$@ PART_BOOTIMG=$(BOOT_IMG)

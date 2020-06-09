@@ -4,6 +4,8 @@ INITRAMFS= $(OUT_DIR)/initramfs.cpio.gz
 # these value from extract result with unmkbootimg
 BOARD_ID = 20181123.235335
 
+all: $(BOOT_IMG)
+
 $(BOOT_IMG): $(INITRAMFS)
 	$(info CREATING $(@F)..)
 
