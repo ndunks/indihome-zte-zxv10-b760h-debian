@@ -1,14 +1,7 @@
-
 ifndef OUT
 $(error No output file specified)
 endif
 
-ifndef FLASH_TOOL_DIR
-$(warning "No FLASH_TOOL_DIR specified, using default")
-override FLASH_TOOL_DIR = /ext4/SP-Flash-Tool
-endif
-
-DIR = $(shell pwd)
 PART = 
 
 ifdef PART_PRELOADER
@@ -149,8 +142,8 @@ $(OUT):
 	@echo '	<general>' >> $@
 	@echo '		<chip-name>MT8127</chip-name>' >> $@
 	@echo '		<storage-type>EMMC</storage-type>' >> $@
-	@echo '		<download-agent>$(FLASH_TOOL_DIR)/MTK_AllInOne_DA.bin</download-agent>' >> $@
-	@echo '		<scatter>$(DIR)/scatter.txt</scatter>' >> $@
+	@echo '		<download-agent>$(FLASH_TOOL_DIR)MTK_AllInOne_DA.bin</download-agent>' >> $@
+	@echo '		<scatter>$(shell pwd)/scatter.txt</scatter>' >> $@
 	@echo '		<authentication></authentication>' >> $@
 	@echo '		<certification></certification>' >> $@
 	@echo '		<rom-list>$(PART)</rom-list>' >> $@
@@ -163,5 +156,3 @@ $(OUT):
 	@echo '		</download-only>' >> $@
 	@echo '	</commands>' >> $@
 	@echo '</flashtool-config>' >> $@
-
-.PHONY: $(OUT)

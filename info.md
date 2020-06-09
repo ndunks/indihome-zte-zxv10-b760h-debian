@@ -29,6 +29,7 @@ Hardware  : MT8685
 Revision  : 0000
 Serial    : 0000000000000000
 ```
+
 ## DISK
 ```
 root@ztemt85_bx_kk:/ # blkid
@@ -45,4 +46,21 @@ root@ztemt85_bx_kk:/ # mount | grep mmc
 /emmc@usrdata /data ext4 rw,seclabel,nosuid,nodev,noatime,discard,noauto_da_alloc,errors=panic,data=ordered 0 0
 /emmc@protect_f /protect_f ext4 rw,seclabel,nosuid,nodev,noatime,nodelalloc,noauto_da_alloc,commit=1,data=ordered 0 0
 /emmc@protect_s /protect_s ext4 rw,seclabel,nosuid,nodev,noatime,nodelalloc,noauto_da_alloc,commit=1,data=ordered 0 0
+```
+
+## Partitions
+```
+ major minor  #blocks  name
+ 253        0     524288 zram0
+ 179        0    3795968 mmcblk0
+ 179        1          1 mmcblk0p1
+ 179        2      10240 mmcblk0p2
+ 179        3      10240 mmcblk0p3
+ 179        4       6144 mmcblk0p4
+ 179        5    1048576 mmcblk0p5
+ 179        6    1048576 mmcblk0p6
+ 179        7     771072 mmcblk0p7
+ 179        8     786432 mmcblk0p8
+ 179       64       4096 mmcblk0boot1
+ 179       32       4096 mmcblk0boot0
 ```

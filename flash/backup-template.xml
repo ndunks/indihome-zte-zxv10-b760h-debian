@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<flashtool-config version="2.0">
+	<general>
+		<chip-name>MT8127</chip-name>
+		<storage-type>EMMC</storage-type>
+		<download-agent>DOWNLOAD_AGENT</download-agent>
+		<scatter>SCATTER</scatter>
+		<authentication></authentication>
+		<certification></certification>
+		<rom-list> <rom index="0" enable="false"></rom></rom-list>
+		<connection type="BromUSB" high-speed="true" power="AutoDetect" da_log_level="Info" timeout-count="3600000" com-port="" />
+		<checksum-level>none</checksum-level>
+	</general>
+	<commands>
+		<readback>
+			<physical-readback is-physical-readback="true" />
+			<readback-list>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_BOOT_1" readback-index="0"  start-address="0x0"        readback-length="0x40000">BACKUP_DIR/PRELOADER</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="1"  start-address="0x0"        readback-length="0x80000">BACKUP_DIR/MBR</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="2"  start-address="0x80000"    readback-length="0x80000">BACKUP_DIR/EBR1</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="3"  start-address="0x100000"   readback-length="0x300000">BACKUP_DIR/PRO_INFO</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="4"  start-address="0x400000"   readback-length="0x500000">BACKUP_DIR/NVRAM</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="5"  start-address="0x900000"   readback-length="0x400000">BACKUP_DIR/ZTECFG</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="6"  start-address="0xd00000"   readback-length="0xa00000">BACKUP_DIR/PROTECT_F</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="7"  start-address="0x1700000"  readback-length="0xa00000">BACKUP_DIR/PROTECT_S</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="8"  start-address="0x2100000"  readback-length="0x20000">BACKUP_DIR/SECCFG</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="9"  start-address="0x2120000"  readback-length="0x60000">BACKUP_DIR/UBOOT</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="10" start-address="0x2180000"  readback-length="0x1000000">BACKUP_DIR/BOOTIMG</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="11" start-address="0x3180000"  readback-length="0x1000000">BACKUP_DIR/RECOVERY</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="12" start-address="0x4180000"  readback-length="0x600000">BACKUP_DIR/SEC_RO</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="13" start-address="0x4780000"  readback-length="0x80000">BACKUP_DIR/MISC</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="14" start-address="0x4800000"  readback-length="0x300000">BACKUP_DIR/LOGO</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="15" start-address="0x4B00000"  readback-length="0x80000">BACKUP_DIR/EBR2</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="16" start-address="0x4b80000"  readback-length="0xa00000">BACKUP_DIR/EXPDB</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="17" start-address="0x5580000"  readback-length="0x500000">BACKUP_DIR/TEE1</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="18" start-address="0x5a80000"  readback-length="0x500000">BACKUP_DIR/TEE2</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="19" start-address="0x5f80000"  readback-length="0x100000">BACKUP_DIR/KB</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="20" start-address="0x6080000"  readback-length="0x100000">BACKUP_DIR/DKB</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="21" start-address="0x6180000"  readback-length="0x40000000">BACKUP_DIR/ANDROID</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="22" start-address="0x46180000" readback-length="0x40000000">BACKUP_DIR/CACHE</readback-rom-item>
+				<readback-rom-item readback-enable="true" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="23" start-address="0x86180000" readback-length="0x2f100000">BACKUP_DIR/USRDATA</readback-rom-item>
+				<readback-rom-item readback-enable="false" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="24" start-address="0xB5280000" readback-length="0x32880000">BACKUP_DIR/FAT</readback-rom-item>
+				<readback-rom-item readback-enable="false" addr-flag="NUTL_ADDR_PHYSICAL" readback-flag="NUTL_READ_PAGE_ONLY" readback-partion="EMMC_USER"   readback-index="25" start-address="0xFFFF00a8" readback-length="0x1500000">BACKUP_DIR/BMTPOOL</readback-rom-item>
+			</readback-list>
+		</readback>
+	</commands>
+</flashtool-config>
