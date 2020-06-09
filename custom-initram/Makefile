@@ -1,32 +1,28 @@
+BOOT_IMG = $(OUT_DIR)/boot.img
+INITRAMFS= $(OUT_DIR)/initramfs.cpio.gz
 
-BOOT_IMG = boot.img
-INITRAMFS= initramfs_custom.cpio.gz
-
-ifndef FLASH_TOOL_DIR
-	override FLASH_TOOL_DIR := "/ext4/SP-Flash-Tool"
-endif
-
+# these value from extract result with unmkbootimg
+BOARD_ID = 20181123.235335
 
 $(BOOT_IMG): $(INITRAMFS)
-	@echo "Creating $(BOOT_IMG).."
-	@test -f $(BOOT_IMG) && unlink $(BOOT_IMG)
-	cp boot-header.bin $(BOOT_IMG)
-	@mkbootimg --kernel zImage --ramdisk $(INITRAMFS) --board '20181123.235335' -o $(BOOT_IMG).tmp
-	cat $(BOOT_IMG).tmp >> $(BOOT_IMG)
-	rm $(BOOT_IMG).tmp
+	$(info CREATING $(@F)..)
+
+	# Idon't know how to make mediatek img header, so I simply copy 96 first byte from original boot.img
+	cp boot-header.bin $@
+	mkbootimg --kernel zImage --ramdisk $(INITRAMFS) --board $(BOARD_ID) -o $@.tmp
+
+	# Combine header with img
+	cat $@.tmp >> $@
+
+	# Clean temp file
+	rm $@.tmp $(INITRAMFS).tmp
 
 $(INITRAMFS):
-	@echo "Creating $(INITRAMFS).."
-	$(shell cd rootfs && find . | cpio --quiet -H newc -o | gzip > ../$(INITRAMFS).tmp)
-	$(shell ./tools/mkimage $(INITRAMFS).tmp ROOTFS > $(INITRAMFS))
-	@rm $(INITRAMFS).tmp
-
-.PHONY: clean flash $(INITRAMFS)
+	$(info CREATING $(@F)..)
+	$(shell cd rootfs && find . | cpio --quiet -H newc -o | gzip > $@.tmp)
+	$(shell $(TOOL_DIR)/mkimage $@.tmp ROOTFS > $@)
 
 clean:
 	rm $(INITRAMFS) $(BOOT_IMG)
 
-flash:
-	@echo "Connect USB Devices"
-	@LD_LIBRARY_PATH="$(FLASH_TOOL_DIR):$(FLASH_TOOL_DIR)/lib" \
-	$(FLASH_TOOL_DIR)/flash_tool -c download -s flash_boot_scatter.txt
+.PHONY: clean

@@ -8,11 +8,6 @@ make
 
 ```
 
-## HOW TO FLASH
-
-```
-make flash
-```
 
 ## HOW TO EXTRACT
 

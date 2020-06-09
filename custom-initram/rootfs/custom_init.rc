@@ -1,4 +1,5 @@
 on boot
    write /proc/bootprof "INIT:CUSTOM:START"
    setenforce Permissive
+   write /proc/bootprof "INIT:CUSTOM:SE LINUX Disabled"
    write /proc/bootprof "INIT:CUSTOM:END"
