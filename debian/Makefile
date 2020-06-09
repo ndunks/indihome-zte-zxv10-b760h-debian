@@ -11,7 +11,7 @@ TMP_ROOTFS=$(TMP)/rootfs
 
 all: image
 	sync $(TMP_ROOTFS)
-	sudo umount $(TMP_ROOTFS)
+	@sudo umount $(TMP_ROOTFS) || exit 0
 	sync $(TMP_IMG)
 	cp $(TMP_IMG) ../result/
 

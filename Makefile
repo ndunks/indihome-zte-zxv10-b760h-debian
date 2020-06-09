@@ -10,6 +10,7 @@ export FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
 endif
 export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
 FLASH_CONFIG_INITRAM=$(OUT_DIR)/flash_config_initram.xml
+FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 
 all:
 	@echo "NOTHING TODO"
@@ -20,17 +21,29 @@ tool:
 $(OUT_DIR):
 	@test -d $@ || mkdir $@
 
-initram: tool $(OUT_DIR)
+initram: $(BOOT_IMG)
+
+debian: $(DEBIAN_IMG)
+
+$(BOOT_IMG): $(OUT_DIR) tool
 	make -C initram
 
-flash_initram:
-	make -C initram clean all
-	make $(FLASH_CONFIG_INITRAM)
+$(DEBIAN_IMG): $(OUT_DIR)
+	make -C debian
+
+flash_initram: initram $(FLASH_CONFIG_INITRAM)
 	$(info Connect USB Devices)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_INITRAM)
 
+flash_debian: debian $(FLASH_CONFIG_DEBIAN)
+	$(info Connect USB Devices)
+	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_DEBIAN)
+
 $(FLASH_CONFIG_INITRAM):
 	make -C $(DIR)/flash OUT=$@ PART_BOOTIMG=$(BOOT_IMG)
+
+$(FLASH_CONFIG_DEBIAN):
+	make -C $(DIR)/flash OUT=$@ PART_USRDATA=$(DEBIAN_IMG)
 
 backup/config.xml:
 	@test -d $(@D) || mkdir $(@D)
@@ -50,4 +63,4 @@ clean: clean_initram
 	
 	rmdir $(OUT_DIR) > /dev/null || exit 0
 
-.PHONY: clean all tool flash_initramfs clean_initram backup
+.PHONY: clean all tool flash_initramfs flash_debian clean_initram backup debian initram

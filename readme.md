@@ -24,8 +24,6 @@ make initram
 ```
 Output is `result/boot.img` and `result/initramfs.gzip.cpio`.
 
-
-
 ### Flash initram
 
 ``` bash
