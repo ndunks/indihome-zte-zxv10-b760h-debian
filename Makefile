@@ -63,6 +63,8 @@ clean_debian:
 	make -C debian clean > /dev/null || exit 0
 	rm -f $(DEBIAN_IMG) || exit 0
 
+update_initram: clean_initram flash_initram
+
 clean: clean_initram clean_debian
 	rm $(FLASH_CONFIG_INITRAM) backup/config.xml > /dev/null || exit 0
 	

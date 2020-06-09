@@ -1,21 +1,20 @@
 #!/sbin/busybox sh
 PATH="/sbin"
-WAIT=2
-busybox echo "WAIT $WAIT second before boot debian"
-busybox sleep $WAIT
-busybox echo "boot debian..."
-
 busybox mount -t proc none /proc
 busybox mount -t sysfs none /sys
 busybox mount -t tmpfs none /dev
-busybox sleep 1
-
+busybox echo -16 > /proc/1/oom_adj
 # hot plug
 busybox mdev -s
 
-#umount /proc
-#umount /sys
-#umount /dev
+./init.debian > /dev/console 2>&1 &
 
-# Single user mode
+
+busybox umount /proc
+busybox umount /sys
+busybox umount /dev
+exec /init.android
+# Single user mode fallback
+busybox mdev -s
 exec busybox getty -n -l /sbin/sh 115200 /dev/ttyMT0 linux
+
