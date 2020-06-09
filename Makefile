@@ -31,11 +31,11 @@ $(BOOT_IMG): $(OUT_DIR) tool
 $(DEBIAN_IMG): $(OUT_DIR)
 	make -C debian
 
-flash_initram: initram $(FLASH_CONFIG_INITRAM)
+flash_initram: $(BOOT_IMG) $(FLASH_CONFIG_INITRAM)
 	$(info Connect USB Devices)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_INITRAM)
 
-flash_debian: debian $(FLASH_CONFIG_DEBIAN)
+flash_debian: $(DEBIAN_IMG) $(FLASH_CONFIG_DEBIAN)
 	$(info Connect USB Devices)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_DEBIAN)
 
@@ -57,8 +57,13 @@ backup: backup/config.xml
 
 clean_initram:
 	make -C initram clean > /dev/null || exit 0
+	rm -f $(BOOT_IMG) || exit 0
 
-clean: clean_initram
+clean_debian:
+	make -C debian clean > /dev/null || exit 0
+	rm -f $(DEBIAN_IMG) || exit 0
+
+clean: clean_initram clean_debian
 	rm $(FLASH_CONFIG_INITRAM) backup/config.xml > /dev/null || exit 0
 	
 	rmdir $(OUT_DIR) > /dev/null || exit 0
