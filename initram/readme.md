@@ -23,12 +23,12 @@ gunzip unmkbootimg.gz
 chmod +x unmkbootimg
 ```
 
-**Extract ../original/boot.img**
+**Extract original/boot.img**
 
 ```
-./tools/unmkbootimg ../original/boot.img 
+./tool/unmkbootimg original/boot.img 
 unmkbootimg version 1.2 - Mikael Q Kuisma <kuisma@ping.se>
-File ../original/boot.img not a plain boot image, seeking for embedded image ... found!
+File original/boot.img not a plain boot image, seeking for embedded image ... found!
 Kernel size 3920752
 Kernel address 0x10008000
 Ramdisk size 863292

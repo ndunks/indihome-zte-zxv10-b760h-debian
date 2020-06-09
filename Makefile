@@ -9,6 +9,7 @@ ifndef FLASH_TOOL
 export FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
 endif
 export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
+FLASH_CONFIG_INITRAM=$(OUT_DIR)/flash_config_initram.xml
 
 all:
 	@echo "NOTHING TODO"
@@ -22,12 +23,11 @@ $(OUT_DIR):
 initram: tool $(OUT_DIR)
 	make -C initram
 
-flash_initram: initram
-	make -C flash OUT=$(OUT_DIR)/flash_config_initram.xml
+flash_initram: initram $(FLASH_CONFIG_INITRAM)
 	$(info Connect USB Devices)
-	$(FLASH_TOOL) -i $(OUT_DIR)/flash_config_initram.xml
+	$(FLASH_TOOL) -i $(FLASH_CONFIG_INITRAM)
 
-$(OUT_DIR)/flash_config_initram.xml:
+$(FLASH_CONFIG_INITRAM):
 	make -C $(DIR)/flash OUT=$@ PART_BOOTIMG=$(BOOT_IMG)
 
 backup/config.xml:
@@ -44,7 +44,7 @@ clean_initram:
 	make -C initram clean > /dev/null || exit 0
 
 clean: clean_initram
-	rm $(OUT_DIR)/flash_config_initram.xml backup/config.xml > /dev/null || exit 0
+	rm $(FLASH_CONFIG_INITRAM) backup/config.xml > /dev/null || exit 0
 	
 	rmdir $(OUT_DIR) > /dev/null || exit 0
 
