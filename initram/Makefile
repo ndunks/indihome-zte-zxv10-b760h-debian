@@ -1,4 +1,4 @@
-BOOT_IMG = $(OUT_DIR)/boot.img
+
 INITRAMFS= $(OUT_DIR)/initramfs.cpio.gz
 
 # these value from extract result with unmkbootimg

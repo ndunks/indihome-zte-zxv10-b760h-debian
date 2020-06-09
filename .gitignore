@@ -1,4 +1,5 @@
 /tmp
 # To large to commit this on github
 /original/system.img
-/custom-initram/*.cpio.gz
+/result/
+/tool/mkimage
