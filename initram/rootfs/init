@@ -1,0 +1,20 @@
+#!/sbin/busybox sh
+PATH="/sbin"
+busybox mount -t proc none /proc
+busybox mount -t sysfs none /sys
+busybox mount -t tmpfs none /dev
+busybox echo -16 > /proc/1/oom_adj
+# hot plug
+busybox mdev -s
+
+./init.debian > /dev/console 2>&1 &
+
+
+busybox umount /proc
+busybox umount /sys
+busybox umount /dev
+exec /init.android
+# Single user mode fallback
+busybox mdev -s
+exec busybox getty -n -l /sbin/sh 115200 /dev/ttyMT0 linux
+
