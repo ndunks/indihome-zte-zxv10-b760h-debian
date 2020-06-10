@@ -1,20 +1,42 @@
-#!/sbin/busybox sh
-PATH="/sbin"
+#!/bin/busybox sh
+echo "Android Hybrid Linux"
+busybox mkdir proc sys linux
 busybox mount -t proc none /proc
 busybox mount -t sysfs none /sys
 busybox mount -t tmpfs none /dev
-busybox echo -16 > /proc/1/oom_adj
+set
+fallback(){
+    # Single user mode fallback
+    [ -e /dev/null ] || busybox mdev -s
+    [ -e sh ] || busybox ln -s busybox /sh
+    exec busybox getty -n -l /sh 115200 /dev/ttyMT0 linux
+}
+
 # hot plug
 busybox mdev -s
 
-./init.debian > /dev/console 2>&1 &
+# mount usr data as linux linux rootfs
+busybox mount -t ext4 -o noatime,errors=panic /dev/mmcblk0p7 /linux
 
+# halt here debug
+# trap "fallback" ERR
+# trap "fallback" INT
+# echo "Wait before init."
+# for i in `busybox seq 1 2`; do
+#     busybox sleep 1
+#     echo -n "."
+# done
+
+busybox cp -a /init /linux/init
+busybox ln -s /init /linux/init.linux
+busybox ln -s /init /linux/init.android
+
+fallback
 
 busybox umount /proc
 busybox umount /sys
 busybox umount /dev
-exec /init.android
-# Single user mode fallback
-busybox mdev -s
-exec busybox getty -n -l /sbin/sh 115200 /dev/ttyMT0 linux
+
+ exec busybox switch_root /linux /init.linux
+
 
