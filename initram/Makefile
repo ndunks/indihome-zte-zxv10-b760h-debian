@@ -1,12 +1,13 @@
 
-INITRAMFS= $(OUT_DIR)/initramfs.cpio.gz
+INITRAMFS=$(OUT_DIR)/initramfs.cpio.gz
+ANDROIDRAMFS=android.cpio
 
 # these value from extract result with unmkbootimg
 BOARD_ID = 20181123.235335
 
 all: $(BOOT_IMG)
 
-$(BOOT_IMG): $(INITRAMFS)
+$(BOOT_IMG): $(ANDROIDRAMFS) $(INITRAMFS)
 	$(info CREATING $(@F)..)
 
 	# Idon't know how to make mediatek img header, so I simply copy 96 first byte from original boot.img
@@ -21,10 +22,15 @@ $(BOOT_IMG): $(INITRAMFS)
 
 $(INITRAMFS):
 	$(info CREATING $(@F)..)
+	cp $(ANDROIDRAMFS) rootfs/
 	$(shell cd rootfs && find . | cpio --quiet -H newc -o | gzip > $@.tmp)
 	$(shell $(TOOL_DIR)/mkimage $@.tmp ROOTFS > $@)
 
+$(ANDROIDRAMFS):
+	$(info CREATING $(@F)..)
+	$(shell cd android && find . | cpio -H newc -o -F ../$@)
+
 clean:
-	rm $(INITRAMFS) $(BOOT_IMG)
+	rm $(ANDROIDRAMFS) $(INITRAMFS) $(BOOT_IMG)
 
 .PHONY: clean

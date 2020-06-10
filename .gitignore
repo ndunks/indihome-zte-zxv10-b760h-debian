@@ -5,3 +5,4 @@
 /tool/mkimage
 /backup
 /debian/tmp
+initram/android.cpio

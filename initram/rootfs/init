@@ -1,42 +1,87 @@
 #!/bin/busybox sh
-echo "Android Hybrid Linux"
-busybox mkdir proc sys linux
-busybox mount -t proc none /proc
-busybox mount -t sysfs none /sys
-busybox mount -t tmpfs none /dev
-set
+
+L(){
+    echo -e "\e[33m$@\e[0m"
+}
+
+init(){
+    L "INIT: $0"
+    busybox mkdir proc sys linux
+    busybox mount -t proc none /proc
+    busybox mount -t sysfs none /sys
+    busybox mount -t tmpfs none /dev
+    # hot plug
+    busybox mdev -s
+
+    # mount usr data as linux linux rootfs
+    busybox mount -t ext4 -o noatime,errors=panic /dev/mmcblk0p7 /linux
+
+    [ -d /linux/data ] || busybox mkdir /linux/data
+    [ -d /linux/android/data ] || busybox mkdir /linux/android/data
+    busybox mount -o bind /linux/data /linux/android/data
+
+    # Extract android initramfs
+    [ -d /linux/android ] || busybox mkdir /linux/android
+    cd /linux/android
+    busybox cpio -idv -F /android.cpio
+    #busybox ls -alh
+    cd /
+    
+
+    # copy this script and link as multicall
+    busybox cp -a /init /linux/init    
+    [ -e /linux/init_linux ] || busybox ln -s init /linux/init_linux
+    [ -e /linux/init_wait ] || busybox ln -s init /linux/init_wait
+    
+    [ -e /linux/bin/busybox ] || busybox cp -a /bin/busybox /linux/bin/
+
+    busybox umount /proc
+    busybox umount /sys
+    #busybox umount /dev
+    busybox mount -o bind /dev /linux/dev
+
+    exec /bin/switch_root /linux /init_linux
+}
+# your are in /linux 
+init_linux(){
+    ./init_wait 2>&1 > /dev/console &
+    #busybox sh -i
+    echo "Starting Android init"
+    exec busybox chroot /android /init
+}
+
+init_wait(){
+
+    echo "Waiting Android init"
+    C=0
+    #while [ -z $(busybox grep 'BOOT_Animation:END' /android/proc/bootprof || echo "") ]; do
+    while [ ! -e /android/dev/.coldboot_done ]; do
+        busybox sleep 1
+        C=$(($C+1))
+        echo "wait $C"
+    done
+    echo "Android init done"
+    #busybox mount -o remount,rw,noatime /data
+    #/sbin/busybox sleep 1
+    busybox mount -t proc none /proc
+    busybox mount -t sysfs none /sys
+    busybox mount -o bind /android/dev /dev
+    busybox mount -o bind /android/dev/pts /dev/pts
+    busybox mount -o bind /android/dev/socket /dev/socket
+    grep android /proc/mounts
+    echo "Done init wait"
+}
+
 fallback(){
     # Single user mode fallback
     [ -e /dev/null ] || busybox mdev -s
-    [ -e sh ] || busybox ln -s busybox /sh
-    exec busybox getty -n -l /sh 115200 /dev/ttyMT0 linux
+    exec busybox getty -8 -n -l /bin/sh 115200 /dev/ttyMT0 linux    
 }
 
-# hot plug
-busybox mdev -s
+L "INIT: $0  ${0##*/}"
 
-# mount usr data as linux linux rootfs
-busybox mount -t ext4 -o noatime,errors=panic /dev/mmcblk0p7 /linux
+${0##*/} || fallback
 
-# halt here debug
-# trap "fallback" ERR
-# trap "fallback" INT
-# echo "Wait before init."
-# for i in `busybox seq 1 2`; do
-#     busybox sleep 1
-#     echo -n "."
-# done
 
-busybox cp -a /init /linux/init
-busybox ln -s /init /linux/init.linux
-busybox ln -s /init /linux/init.android
-
-fallback
-
-busybox umount /proc
-busybox umount /sys
-busybox umount /dev
-
- exec busybox switch_root /linux /init.linux
 
 

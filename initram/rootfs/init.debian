@@ -1,7 +1,8 @@
-#!/sbin/busybox sh
+#!/bin/bash
 
+# this running in USRDATA /debian as / after swith_root
 echo "--- INIT DEBIAN ---"
-echo "--- INIT DEBIAN COnsole---" > /dev/console
+
 echo $PATH
 
 if [ -z "$PATH" ]; then
