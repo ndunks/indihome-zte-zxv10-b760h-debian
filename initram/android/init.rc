@@ -220,10 +220,11 @@ on fs_property:ro.mount.fs=EXT4
     exec /sbin/tune2fs -O has_journal /emmc@cache
     mount ext4 /emmc@cache /cache noatime nosuid nodev wait noauto_da_alloc,discard
 
-    exec /sbin/e2fsck -pfD /emmc@usrdata
-    exec /sbin/tune2fs -O has_journal /emmc@usrdata
-    exec /system/bin/ext4_resize
-    mount ext4 /emmc@usrdata /data noatime nosuid nodev wait noauto_da_alloc,discard,errors=panic
+    # no mount data, handle linux init
+    #exec /sbin/e2fsck -pfD /emmc@usrdata
+    #exec /sbin/tune2fs -O has_journal /emmc@usrdata
+    #exec /system/bin/ext4_resize
+    #mount ext4 /emmc@usrdata /data noatime nosuid nodev wait noauto_da_alloc,discard,errors=panic
 
     write /proc/bootprof "INIT:eMMC:Mount_END"
 
