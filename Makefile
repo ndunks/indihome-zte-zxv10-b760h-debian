@@ -3,7 +3,7 @@ export TOOL_DIR = $(DIR)/tool
 export OUT_DIR = $(DIR)/result
 export BOOT_IMG = $(OUT_DIR)/boot.img
 export DEBIAN_IMG = $(OUT_DIR)/debian.img
-include .env
+-include .env
 ifndef FLASH_TOOL
 # you can change it using: make FLASH_TOOL=/path/to/sp_flash_tools or in .env file
 export FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
@@ -20,7 +20,7 @@ all:
 	@echo "\e[33mNOTHING TODO YET\e[0m"
 
 tool:
-	make -C $(TOOL_DIR)
+	@make -C $(TOOL_DIR)
 
 $(OUT_DIR):
 	@test -d $@ || mkdir $@
