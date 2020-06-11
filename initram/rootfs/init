@@ -16,13 +16,11 @@ init(){
     # mount usr data as linux linux rootfs
     mount -t ext4 -o noatime,errors=panic /dev/mmcblk0p7 /linux
 
-    [ -d /linux/data ] || mkdir /linux/data
-    [ -d /linux/android/data ] || mkdir /linux/android/data
-    mount -o bind /linux/data /linux/android/data
+    [ -d /linux/android/linux ] || mkdir -p /linux/android/linux
+    mount -o bind /linux /linux/android/linux
 
     # Extract android initramfs if contain android initrams
     if [ -e /android.cpio ]; then
-        [ -d /linux/android ] || mkdir /linux/android
         cd /linux/android
         cpio -idv -F /android.cpio
         chmod 700 * 2>/dev/null
@@ -33,10 +31,8 @@ init(){
     # copy this script and link as multicall
     cp -a /init /linux/init    
     [ -e /linux/init_linux ] || ln -s init /linux/init_linux
-    [ -e /linux/init_wait ] || ln -s init /linux/init_wait
-    
+    [ -e /linux/init_wait ] || ln -s init /linux/init_wait    
     [ -e /linux/bin/busybox ] || cp -a /bin/busybox /linux/bin/
-    
     # uncomment if you want terminal before init,ctrl+D to continue
     #getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 
@@ -48,7 +44,7 @@ init(){
     fi
 
     L "No /android/init. not booting. entering interactive mode."
-    exec  getty -nl /bin/sh 115200 /dev/ttyMT0 linux
+    exec getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 }
 
 # your are in switched root
@@ -61,28 +57,23 @@ init_linux(){
 init_wait(){
     echo "Waiting Android init"    
     C=0
-    #while [ -z $(busybox grep 'BOOT_Animation:END' /android/proc/bootprof || echo "") ]; do
     #while [ ! -e /android/dev/.coldboot_done ]; do
-    LAST_LINE=""
-    while [ LAST_LINE != '*BOOT_Animation:END' ]; do
-        LAST_LINE=`tail -n 2 /android/proc/bootprof 2>/dev/null`
-        sleep 1
+    while [ -z $(grep 'BOOT_Animation:END' /android/proc/bootprof || echo "") ]; do
         C=$(($C+1))
-        echo "$C: $LAST_LINE"
+        L "init_wait: $C"
         if [ "$(($C % 10))" == "0" ]; then
             cat /android/proc/bootprof
         fi
+        sleep 1
     done
     echo "Android init done"
-    #busybox mount -o remount,rw,noatime /data
+
     mount -t proc none /proc
     mount -t sysfs none /sys
     mount -o bind /android/dev /dev
     mount -o bind /android/dev/pts /dev/pts
-    mount -o bind /android/dev/socket /dev/socket
-    grep android /proc/mounts
-    echo "Done init wait"
-    echo "Done init wait" > /dev/console
+    mount -o bind /android/dev/socket /dev/socket    
+    echo "Done init wait, linux is ready! access linux rootfs on /linux"
 }
 
 # call function based on this filename

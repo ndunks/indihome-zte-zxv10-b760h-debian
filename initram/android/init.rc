@@ -222,8 +222,10 @@ on fs_property:ro.mount.fs=EXT4
     exec /sbin/tune2fs -O has_journal /emmc@cache
     mount ext4 /emmc@cache /cache noatime nosuid nodev wait noauto_da_alloc,discard
 
-    # no mount data, handle linux init
+    # no mount data, data merged with cache. data is contain linux/debian
     write /proc/bootprof "INIT:eMMC: no mounting data"
+    mkdir /cache/data 0771 system system
+    mount none /cache/data /data bind
     #exec /sbin/e2fsck -pfD /emmc@usrdata
     #exec /sbin/tune2fs -O has_journal /emmc@usrdata
     #exec /system/bin/ext4_resize
@@ -1079,10 +1081,10 @@ service mobile_log_d /system/bin/mobile_log_d
     class main
     
 # bugreport is triggered by ctl.start bugreport
-service bugreport /system/bin/bugmailer.sh -v
-	class main
-	disabled
-	oneshot
+# service bugreport /system/bin/bugmailer.sh -v
+# 	class main
+# 	disabled
+# 	oneshot
 
 service servicemanager /system/bin/servicemanager
     class core
@@ -1495,6 +1497,7 @@ service flash_recovery /system/etc/install-recovery.sh
 service sbchk /sbchk/sec_chk.sh
     user nvram
     group system
+    disabled
     oneshot
 
 service racoon /system/bin/racoon
@@ -1770,30 +1773,30 @@ service MtkCodecService /system/bin/MtkCodecService
     user root
     group audio media sdcard_r
 
-service installapp /system/bin/installapp
-    user root
-	disabled
-	oneshot
+# service installapp /system/bin/installapp
+#     user root
+# 	disabled
+# 	oneshot
 	
-service uninstallapp /system/bin/uninstallapp
-    user root
-	disabled
-	oneshot		
+# service uninstallapp /system/bin/uninstallapp
+#     user root
+# 	disabled
+# 	oneshot		
 
 #Xiezj added 	
-service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
-    user root
-    oneshot
-on property:sys.boot_completed=1
-    start basicService
+# service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
+#     user root
+#     oneshot
+# on property:sys.boot_completed=1
+#     start basicService
     
 #Xiezj added end 
 
-service preinstall /system/bin/preinstall.sh
-    user root
-    group root
-    disabled
-    oneshot
+# service preinstall /system/bin/preinstall.sh
+#     user root
+#     group root
+#     disabled
+#     oneshot
 
-import /zte_init.rc
+#import /zte_init.rc
 

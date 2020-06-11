@@ -63,6 +63,16 @@ root@ztemt85_bx_kk:/ # mount | grep mmc
  179        8     786432 mmcblk0p8
  179       64       4096 mmcblk0boot1
  179       32       4096 mmcblk0boot0
+
+partno:    start_sect   nr_sects  partition_name
+emmc_p1: 00000400 00000002 "ebr1"
+emmc_p2: 00006800 00005000 "protect_f"
+emmc_p3: 0000b800 00005000 "protect_s"
+emmc_p4: 00020c00 00003000 "sec_ro"
+emmc_p5: 00030c00 00200000 "android"
+emmc_p6: 00230c00 00200000 "cache"
+emmc_p7: 00430c00 00178800 "usrdata"
+emmc_p8: 005a9400 00180000 "fat"
 ```
 
 ## Process
