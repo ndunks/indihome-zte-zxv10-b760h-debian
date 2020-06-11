@@ -20,13 +20,13 @@ init(){
     [ -d /linux/android/data ] || busybox mkdir /linux/android/data
     busybox mount -o bind /linux/data /linux/android/data
 
-    # Extract android initramfs
-    [ -d /linux/android ] || busybox mkdir /linux/android
-    cd /linux/android
-    busybox cpio -idv -F /android.cpio
-    #busybox ls -alh
-    cd /
-    
+    # Extract android initramfs if contain android initrams
+    if [ -e /android.cpio ]; then
+        [ -d /linux/android ] || busybox mkdir /linux/android
+        cd /linux/android
+        busybox cpio -idv -F /android.cpio
+        cd /
+    fi
 
     # copy this script and link as multicall
     busybox cp -a /init /linux/init    
@@ -35,30 +35,41 @@ init(){
     
     [ -e /linux/bin/busybox ] || busybox cp -a /bin/busybox /linux/bin/
 
-    busybox umount /proc
-    busybox umount /sys
-    #busybox umount /dev
-    busybox mount -o bind /dev /linux/dev
+    if [ -e /linux/android/init ]; then
+        busybox umount /proc
+        busybox umount /sys
+        busybox umount /dev
+        #busybox mount -o bind /dev /linux/dev
+        exec /bin/switch_root /linux /init_linux
+    fi
 
-    exec /bin/switch_root /linux /init_linux
+    L "No /android/init. not booting. entering interactive mode."
+    exec busybox getty -nl /bin/sh 115200 /dev/ttyMT0 linux  
 }
 # your are in /linux 
 init_linux(){
-    ./init_wait 2>&1 > /dev/console &
-    #busybox sh -i
-    echo "Starting Android init"
-    exec busybox chroot /android /init
+        echo "Starting Android init"
+        ./init_wait 2>&1 > /dev/console &
+        exec busybox chroot /android /init
 }
 
 init_wait(){
-
-    echo "Waiting Android init"
+    echo "Waiting Android init"    
     C=0
     #while [ -z $(busybox grep 'BOOT_Animation:END' /android/proc/bootprof || echo "") ]; do
-    while [ ! -e /android/dev/.coldboot_done ]; do
+    #while [ ! -e /android/dev/.coldboot_done ]; do
+    LAST_LINE=""
+    while [ LAST_LINE != 'BOOT_Animation:END' ]; do
+        LAST_LINE=`tail -n 2 /android/proc/bootprof 2>/dev/null`
         busybox sleep 1
         C=$(($C+1))
-        echo "wait $C"
+        echo "$C: $LAST_LINE"
+        if [ "$C" == "120" ]; then
+            echo "Tired"
+            tail -n 500 /android/proc/kmsg
+            # chroot /android /bin/busybox sh -i
+            # chroot /android /bin/busybox kill 1
+        fi
     done
     echo "Android init done"
     #busybox mount -o remount,rw,noatime /data
@@ -72,16 +83,6 @@ init_wait(){
     echo "Done init wait"
 }
 
-fallback(){
-    # Single user mode fallback
-    [ -e /dev/null ] || busybox mdev -s
-    exec busybox getty -8 -n -l /bin/sh 115200 /dev/ttyMT0 linux    
-}
-
 L "INIT: $0  ${0##*/}"
 
 ${0##*/} || fallback
-
-
-
-

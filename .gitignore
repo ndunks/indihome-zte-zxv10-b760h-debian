@@ -6,3 +6,4 @@
 /backup
 /debian/tmp
 initram/android.cpio
+initram/rootfs/android.cpio

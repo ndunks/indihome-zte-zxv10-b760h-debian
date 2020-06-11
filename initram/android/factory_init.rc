@@ -95,7 +95,7 @@ on fs_property:ro.mount.fs=YAFFS
     write /proc/bootprof "INIT:NAND:Mount_END 6589"
 
 on fs_property:ro.mount.fs=EXT4
-    write /proc/bootprof "INIT:eMMC:Mount_START"
+    write /proc/bootprof "INIT:eMMC:Mount_START factory_init"
     exec /sbin/e2fsck -p /emmc@android
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     #mount ext4 emmc@android /system wait commit=1,data=journal,noauto_da_alloc
@@ -108,7 +108,7 @@ on fs_property:ro.mount.fs=EXT4
     exec /sbin/e2fsck -p /emmc@cache
     exec /sbin/tune2fs -O has_journal /emmc@cache
     mount ext4 emmc@cache /cache noatime nosuid nodev wait noauto_da_alloc
-    write /proc/bootprof "INIT:eMMC:Mount_END"
+    write /proc/bootprof "INIT:eMMC:Mount_END factory_init"
 
 on fs_property:ro.mount.fs=UBIFS
     write /proc/bootprof "INIT:NAND:Mount_START"

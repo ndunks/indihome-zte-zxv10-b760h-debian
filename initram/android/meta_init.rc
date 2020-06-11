@@ -105,7 +105,7 @@ on fs_property:ro.mount.fs=YAFFS
     write /proc/bootprof "INIT:NAND:Mount_END"
 
 on fs_property:ro.mount.fs=EXT4
-    write /proc/bootprof "INIT:eMMC:Mount_START"
+    write /proc/bootprof "INIT:eMMC:Mount_START meta_init"
     exec /sbin/e2fsck -p /emmc@android
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
     #mount ext4 emmc@android /system wait commit=1,data=journal,noauto_da_alloc
@@ -118,7 +118,7 @@ on fs_property:ro.mount.fs=EXT4
     # mount cip partitions
     exec /sbin/e2fsck -p /emmc@custom
 	mount ext4 /emmc@custom /custom
-    write /proc/bootprof "INIT:eMMC:Mount_END"
+    write /proc/bootprof "INIT:eMMC:Mount_END meta_init"
 
 on fs_property:ro.mount.fs=UBIFS
     write /proc/bootprof "INIT:NAND:Mount_START"

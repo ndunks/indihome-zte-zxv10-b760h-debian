@@ -13,6 +13,8 @@ import /init.trace.rc
 on early-init
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_adj -16
+    write /proc/bootprof "INIT:setenforce_Permissive"
+    setenforce Permissive
 
     # Set the security context for the init process.
     # This should occur before anything else (e.g. ueventd) is started.
@@ -201,7 +203,7 @@ on fs_property:ro.mount.fs=YAFFS
     write /proc/bootprof "INIT:NAND:Mount_END"
 
 on fs_property:ro.mount.fs=EXT4
-    write /proc/bootprof "INIT:eMMC:Mount_START"
+    write /proc/bootprof "INIT:eMMC:Mount_system_START"
     exec /sbin/e2fsck -p /emmc@android
     exec /sbin/fsck_msdos -p –f /dev/block/mmcblk0p8
     # Mount /system rw first to give the filesystem a chance to save a checkpoint
@@ -221,12 +223,13 @@ on fs_property:ro.mount.fs=EXT4
     mount ext4 /emmc@cache /cache noatime nosuid nodev wait noauto_da_alloc,discard
 
     # no mount data, handle linux init
+    write /proc/bootprof "INIT:eMMC: no mounting data"
     #exec /sbin/e2fsck -pfD /emmc@usrdata
     #exec /sbin/tune2fs -O has_journal /emmc@usrdata
     #exec /system/bin/ext4_resize
     #mount ext4 /emmc@usrdata /data noatime nosuid nodev wait noauto_da_alloc,discard,errors=panic
 
-    write /proc/bootprof "INIT:eMMC:Mount_END"
+    write /proc/bootprof "INIT:eMMC:Mount_system_END"
 
 on fs_property:ro.mount.fs=UBIFS
     write /proc/bootprof "INIT:NAND:Mount_START"

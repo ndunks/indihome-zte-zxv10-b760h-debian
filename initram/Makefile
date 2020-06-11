@@ -22,13 +22,21 @@ $(BOOT_IMG): $(ANDROIDRAMFS) $(INITRAMFS)
 
 $(INITRAMFS):
 	$(info CREATING $(@F)..)
+ifdef NO_ANDROIDINITRAMFS
+	$(shell test -e rootfs/$(ANDROIDRAMFS) && rm -f rootfs/$(ANDROIDRAMFS))
+else
 	cp $(ANDROIDRAMFS) rootfs/
+endif
 	$(shell cd rootfs && find . | cpio --quiet -H newc -o | gzip > $@.tmp)
 	$(shell $(TOOL_DIR)/mkimage $@.tmp ROOTFS > $@)
 
 $(ANDROIDRAMFS):
+ifndef NO_ANDROIDINITRAMFS
 	$(info CREATING $(@F)..)
 	$(shell cd android && find . | cpio -H newc -o -F ../$@)
+else
+	$(info NO $(@F)..)
+endif
 
 clean:
 	rm $(ANDROIDRAMFS) $(INITRAMFS) $(BOOT_IMG)

@@ -40,6 +40,12 @@ make flash_initram FLASH_TOOL=/your/path/flash_tool.sh
 make backup
 ```
 
+
+### USB-TTL Tips
+
+if device fail boot, press CTRL-F to activate fiq-debug, then run command `reboot`. If there's SP_Flash_Tool waiting, the flashing will occured. So you
+don't need to re-attach your USB port
+
 file stored on `backup` directory
 
 ## TODOS
