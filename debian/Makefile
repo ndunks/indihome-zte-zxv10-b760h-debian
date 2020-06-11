@@ -33,43 +33,42 @@ endif
 
 TMP=$(shell pwd)/tmp
 TMP_IMG=$(TMP)/debian.img
-TMP_ROOTFS=$(TMP)/rootfs
+TMP_ROOTFS=$(TMP)/rootfs/
 FS_FEATURE_ENABLE=has_journal,ext_attr,resize_inode,filetype,extent,sparse_super,large_file,uninit_bg
 FS_FEATURE_DISABLE=^dir_index,^64bit,^flex_bg,^huge_file,^dir_nlink,^extra_isize,^metadata_csum
 
 all: image
 	sync $(TMP_ROOTFS)
 	@sudo umount $(TMP_ROOTFS) || exit 0
+ifdef MIN
+	e2fsck -p $(TMP_IMG)
+	resize2fs -M $(TMP_IMG) 
+endif
 	sync $(TMP_IMG)
 	cp $(TMP_IMG) ../result/
+	sync
 
-image: $(TMP) $(TMP_IMG) build
+image: $(TMP) $(TMP_IMG) $(TMP_ROOTFS)
 
 print_packages: $(TMP)
 	[ -d $(TMP)/debs ] || mkdir $(TMP)/debs
 	$(write Please wait..)
 	sudo debootstrap $(ARGS) --print-debs $(DEBIAN_VER) $(TMP)/debs $(DEBIAN_REPO) 2>/dev/null
 
-build: $(TMP_ROOTFS)
-	$(info Debootstrap $(<F))
-	sudo debootstrap $(ARGS) --foreign $(DEBIAN_VER) $(TMP_ROOTFS) $(DEBIAN_REPO)
-	$(info running stage2.sh)
-	sudo ./chroot.sh < stage2.sh
-	@sudo du -sh $<
-
 $(TMP_ROOTFS):
 	@[ -d $@ ] || mkdir $@
 	@if [ -z "$$(losetup -l | grep $(TMP_IMG))" ]; then \
 		echo Mounting $(TMP_IMG) ; \
 		sudo mount -o loop,sync,noatime $(TMP_IMG) $@ ;\
-		sudo rm -rf $@/* ;\
 	fi
+	$(info Debootstrap $(@F))
+	sudo debootstrap $(ARGS) --foreign $(DEBIAN_VER) $(TMP_ROOTFS) $(DEBIAN_REPO)
+	sudo ./chroot.sh < stage2.sh
+	@sudo du -sh $@
 
 $(TMP_IMG):
-	@if [ ! -f $@ ]; then \
-		dd if=/dev/zero bs=1M count=753 of=$@ ;\
-		mkfs.ext4 -O $(FS_FEATURE_ENABLE),$(FS_FEATURE_DISABLE) $@ ;\
-	fi
+	dd if=/dev/zero bs=1M count=753 of=$@
+	mkfs.ext4 -O $(FS_FEATURE_ENABLE),$(FS_FEATURE_DISABLE) $@
 
 $(TMP):
 	@test -d $@ || mkdir $@
@@ -89,4 +88,4 @@ clean:
 	sudo umount $(TMP) || exit 0
 	rm -rf $(TMP) || exit 0
 
-.PHONY: clean clean_rootfs all image print_packages build
+.PHONY: clean clean_rootfs all image print_packages
