@@ -34,7 +34,8 @@ init(){
     [ -e /linux/init_wait ] || busybox ln -s init /linux/init_wait
     
     [ -e /linux/bin/busybox ] || busybox cp -a /bin/busybox /linux/bin/
-
+    # stop here for debug
+    busybox getty -nl /bin/sh 115200 /dev/ttyMT0 linux
     if [ -e /linux/android/init ]; then
         busybox umount /proc
         busybox umount /sys
@@ -44,7 +45,7 @@ init(){
     fi
 
     L "No /android/init. not booting. entering interactive mode."
-    exec busybox getty -nl /bin/sh 115200 /dev/ttyMT0 linux  
+    exec busybox getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 }
 # your are in /linux 
 init_linux(){
@@ -64,10 +65,12 @@ init_wait(){
         busybox sleep 1
         C=$(($C+1))
         echo "$C: $LAST_LINE"
-        if [ "$C" == "120" ]; then
+        if [ "$(($C % 10))" == "0" ]; then
+            cat /android/proc/bootprof
+        fi
+        if [ "$C" == "20" ]; then
             echo "Tired"
-            tail -n 500 /android/proc/kmsg
-            # chroot /android /bin/busybox sh -i
+            chroot /android /system/bin/sh -i
             # chroot /android /bin/busybox kill 1
         fi
     done
@@ -85,4 +88,4 @@ init_wait(){
 
 L "INIT: $0  ${0##*/}"
 
-${0##*/} || fallback
+${0##*/} || sh -i

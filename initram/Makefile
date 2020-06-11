@@ -27,13 +27,13 @@ ifdef NO_ANDROIDINITRAMFS
 else
 	cp $(ANDROIDRAMFS) rootfs/
 endif
-	$(shell cd rootfs && find . | cpio --quiet -H newc -o | gzip > $@.tmp)
+	$(shell cd rootfs && find . | cpio  --owner 0:0 --quiet -H newc -o | gzip > $@.tmp)
 	$(shell mkimage $@.tmp ROOTFS > $@)
 
 $(ANDROIDRAMFS):
 ifndef NO_ANDROIDINITRAMFS
 	$(info CREATING $(@F)..)
-	$(shell cd android && find . | cpio -H newc -o -F ../$@)
+	$(shell cd android && find . | cpio  --owner 0:0 -H newc -o -F ../$@)
 else
 	$(info NO $(@F)..)
 endif
