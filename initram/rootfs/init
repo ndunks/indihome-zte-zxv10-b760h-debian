@@ -19,6 +19,7 @@ init(){
     # Extract android initramfs if contain android initrams
     if [ -e /android.cpio ]; then
         L "Extracting android initramfs.."
+        [ -d /linux/android ] || mkdir /linux/android
         cd /linux/android
         cpio -id -F /android.cpio
         chmod 700 * 2>/dev/null
