@@ -1,8 +1,10 @@
 
-ifndef REPO
-# You can change with `make REPO=YOUR_URL`
+# Create .env on this directory to set default value
+-include .env
+ifndef DEBIAN_REPO
+# You can change with `make DEBIAN_REPO=YOUR_URL` or in `.env` file
 # I use apt-cacher-ng for fast rebuild in development
-override REPO=http://localhost:3142/kambing.ui.ac.id/debian/
+override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 
 TMP=$(shell pwd)/tmp
@@ -26,7 +28,7 @@ $(TMP_ROOTFS):
 		sudo mount -o loop,sync,noatime $(TMP_IMG) $@ ;\
 	fi
 	$(info Debootstrap $(@F))
-	sudo debootstrap --verbose --arch armel --foreign stretch $@ $(REPO)
+	sudo debootstrap --variant=minbase --verbose --arch armel --foreign stretch $@ $(DEBIAN_REPO)
 	@sudo du -sh $@
 	$(info running stage2.sh)
 	sudo ./chroot.sh < stage2.sh
@@ -45,7 +47,8 @@ $(TMP):
 	fi
 
 clean_rootfs:
-	sudo rm -rf $(TMP_ROOTFS)/*
+	sudo rm -rf $(TMP_ROOTFS)
+	@rm -f ../result/debian.img
 
 clean:
 	@test ! -d $(TMP_ROOTFS) || sudo umount $(TMP_ROOTFS) || exit 0

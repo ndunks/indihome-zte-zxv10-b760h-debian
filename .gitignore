@@ -7,6 +7,6 @@ backup
 debian/tmp
 initram/android.cpio
 initram/rootfs/android.cpio
-.env
+**/.env
 tool/mkbootimg
 tool/unpackbootimg
