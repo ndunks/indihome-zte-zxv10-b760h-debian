@@ -1,0 +1,3 @@
+[submodule "tool/mkbootimg"]
+	path = tool/mkbootimg.git
+	url = ssh://git@github.com/osm0sis/mkbootimg

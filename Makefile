@@ -3,9 +3,9 @@ export TOOL_DIR = $(DIR)/tool
 export OUT_DIR = $(DIR)/result
 export BOOT_IMG = $(OUT_DIR)/boot.img
 export DEBIAN_IMG = $(OUT_DIR)/debian.img
-
+include .env
 ifndef FLASH_TOOL
-# you can change it using: make FLASH_TOOL=/path/to/sp_flash_tools
+# you can change it using: make FLASH_TOOL=/path/to/sp_flash_tools or in .env file
 export FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
 endif
 export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
@@ -13,7 +13,7 @@ FLASH_CONFIG_INITRAM=$(OUT_DIR)/flash_config_initram.xml
 FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 
 all:
-	@echo "NOTHING TODO"
+	@echo "NOTHING TODO YET"
 
 tool:
 	make -C $(TOOL_DIR)

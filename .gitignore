@@ -1,9 +1,12 @@
-/tmp
+tmp
 # To large to commit this on github
-/original/system.img
-/result/
-/tool/mkimage
-/backup
-/debian/tmp
+original/system.img
+result/
+tool/mkimage
+backup
+debian/tmp
 initram/android.cpio
 initram/rootfs/android.cpio
+.env
+tool/mkbootimg
+tool/unpackbootimg
