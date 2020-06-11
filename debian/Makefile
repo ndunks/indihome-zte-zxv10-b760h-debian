@@ -1,11 +1,35 @@
 
 # Create .env on this directory to set default value
 -include .env
+
 ifndef DEBIAN_REPO
 # You can change with `make DEBIAN_REPO=YOUR_URL` or in `.env` file
 # I use apt-cacher-ng for fast rebuild in development
 override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
+
+ifndef INCLUDE_PACKAGES
+override INCLUDE_PACKAGES = sysvinit-core
+endif
+
+ifndef EXCLUDE_PACKAGES
+override EXCLUDE_PACKAGES =
+endif
+
+ifndef DEBIAN_VER
+override DEBIAN_VER = buster
+endif
+
+ARGS = --variant=minbase --arch armel
+
+ifneq ($(INCLUDE_PACKAGES),)
+ARGS += --include $(INCLUDE_PACKAGES)
+endif
+
+ifneq ($(EXCLUDE_PACKAGES),)
+ARGS += --exclude $(EXCLUDE_PACKAGES)
+endif
+
 
 TMP=$(shell pwd)/tmp
 TMP_IMG=$(TMP)/debian.img
@@ -19,19 +43,27 @@ all: image
 	sync $(TMP_IMG)
 	cp $(TMP_IMG) ../result/
 
-image: $(TMP) $(TMP_IMG) $(TMP_ROOTFS)
+image: $(TMP) $(TMP_IMG) build
+
+print_packages: $(TMP)
+	[ -d $(TMP)/debs ] || mkdir $(TMP)/debs
+	$(write Please wait..)
+	sudo debootstrap $(ARGS) --print-debs $(DEBIAN_VER) $(TMP)/debs $(DEBIAN_REPO) 2>/dev/null
+
+build: $(TMP_ROOTFS)
+	$(info Debootstrap $(<F))
+	sudo debootstrap $(ARGS) --foreign $(DEBIAN_VER) $(TMP_ROOTFS) $(DEBIAN_REPO)
+	$(info running stage2.sh)
+	sudo ./chroot.sh < stage2.sh
+	@sudo du -sh $<
 
 $(TMP_ROOTFS):
 	@[ -d $@ ] || mkdir $@
 	@if [ -z "$$(losetup -l | grep $(TMP_IMG))" ]; then \
 		echo Mounting $(TMP_IMG) ; \
 		sudo mount -o loop,sync,noatime $(TMP_IMG) $@ ;\
+		sudo rm -rf $@/* ;\
 	fi
-	$(info Debootstrap $(@F))
-	sudo debootstrap --variant=minbase --verbose --arch armel --foreign stretch $@ $(DEBIAN_REPO)
-	@sudo du -sh $@
-	$(info running stage2.sh)
-	sudo ./chroot.sh < stage2.sh
 
 $(TMP_IMG):
 	@if [ ! -f $@ ]; then \
@@ -47,12 +79,14 @@ $(TMP):
 	fi
 
 clean_rootfs:
-	sudo rm -rf $(TMP_ROOTFS)
-	@rm -f ../result/debian.img
+	@sudo umount $(TMP_ROOTFS) || exit 0
+	@sudo rm -f $(TMP_IMG) || exit 0
+	@sudo rm -rf $(TMP_ROOTFS) || exit 0
+	@rm -f ../result/debian.img || exit 0
 
 clean:
 	@test ! -d $(TMP_ROOTFS) || sudo umount $(TMP_ROOTFS) || exit 0
 	sudo umount $(TMP) || exit 0
-	rmdir $(TMP) || exit 0
+	rm -rf $(TMP) || exit 0
 
-.PHONY: clean clean_rootfs all image
+.PHONY: clean clean_rootfs all image print_packages build
