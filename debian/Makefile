@@ -49,6 +49,9 @@ endif
 	sync
 
 image: $(TMP) $(TMP_IMG) $(TMP_ROOTFS)
+ifdef MIN
+	sudo ./chroot.sh touch .NEED_RESIZE
+endif
 
 print_packages: $(TMP)
 	[ -d $(TMP)/debs ] || mkdir $(TMP)/debs

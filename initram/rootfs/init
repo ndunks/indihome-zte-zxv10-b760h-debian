@@ -6,7 +6,7 @@ L(){
 
 init(){
     L "INIT: $0"
-    mkdir proc sys linux
+    mkdir proc sys linux mnt
     mount -t proc none /proc
     mount -t sysfs none /sys
     mount -t tmpfs none /dev
@@ -15,10 +15,22 @@ init(){
 
     # mount usr data as linux linux rootfs
     mount -t ext4 -o noatime,errors=panic /dev/mmcblk0p7 /linux
+    if [ -e /linux/.NEED_RESIZE ]; then
+        umount /linux
+        mount -o noatime,errors=panic /dev/mmcblk0p5 /mnt
+        /mnt/bin/resize2fs /dev/mmcblk0p7
+        #todo get resize2fs binary
+        #mount -t ext4 -o noatime,errors=panic /dev/mmcblk0p7 /linux
+        #rm -f /linux/.NEED_RESIZE
+    fi
+
+    # uncomment if you want terminal before init,ctrl+D to continue
+    getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 
     # Extract android initramfs if contain android initrams
     if [ -e /android.cpio ]; then
         L "Extracting android initramfs.."
+        [ -d /linux/android ] || mkdir /linux/android
         cd /linux/android
         cpio -id -F /android.cpio
         chmod 700 * 2>/dev/null
@@ -28,8 +40,6 @@ init(){
     mv emmc@* /linux/android/
     # copy this script to call nextstage
     cp -a $0 /linux/init_multi    
-    # uncomment if you want terminal before init,ctrl+D to continue
-    #getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 
     if [ -x /linux/android/init ] && [ -x /linux/init_multi ]; then
         umount /proc

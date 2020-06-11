@@ -1288,7 +1288,6 @@ service dhcpcd_eth0 /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
     class main
     user dhcp
     group net_admin net_raw 
-    disabled
     oneshot	
 	
 service pppoe-dial /system/bin/pppoe-dial
