@@ -12,6 +12,8 @@ export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
 FLASH_CONFIG_INITRAM=$(OUT_DIR)/flash_config_initram.xml
 FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 
+export PATH = $(TOOL_DIR):$(shell echo $$PATH)
+
 all:
 	@echo "NOTHING TODO YET"
 

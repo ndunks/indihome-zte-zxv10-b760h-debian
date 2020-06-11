@@ -28,7 +28,7 @@ else
 	cp $(ANDROIDRAMFS) rootfs/
 endif
 	$(shell cd rootfs && find . | cpio --quiet -H newc -o | gzip > $@.tmp)
-	$(shell $(TOOL_DIR)/mkimage $@.tmp ROOTFS > $@)
+	$(shell mkimage $@.tmp ROOTFS > $@)
 
 $(ANDROIDRAMFS):
 ifndef NO_ANDROIDINITRAMFS
