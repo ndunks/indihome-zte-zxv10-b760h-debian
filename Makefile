@@ -14,7 +14,7 @@ FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 
 export PATH = $(TOOL_DIR):$(shell echo $$PATH)
 
-REBOOT_STB = echo \\06 > /dev/ttyUSB0 && sleep 1 && echo reboot > /dev/ttyUSB0 || exit 0
+REBOOT_STB = @echo \\06 > /dev/ttyUSB0 && sleep 1 && echo reboot > /dev/ttyUSB0 || exit 0
 
 all:
 	@echo "\e[33mNOTHING TODO YET\e[0m"
