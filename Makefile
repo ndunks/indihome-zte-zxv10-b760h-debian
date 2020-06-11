@@ -14,6 +14,8 @@ FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 
 export PATH = $(TOOL_DIR):$(shell echo $$PATH)
 
+REBOOT_STB = echo -e \x06reboot\ > /dev/ttyUSB0 || exit 0
+
 all:
 	@echo "NOTHING TODO YET"
 
@@ -35,10 +37,12 @@ $(DEBIAN_IMG): $(OUT_DIR)
 
 flash_initram: $(BOOT_IMG) $(FLASH_CONFIG_INITRAM)
 	$(info Connect USB Devices)
+	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_INITRAM)
 
 flash_debian: $(DEBIAN_IMG) $(FLASH_CONFIG_DEBIAN)
 	$(info Connect USB Devices)
+	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_DEBIAN)
 
 $(FLASH_CONFIG_INITRAM):
@@ -72,4 +76,4 @@ clean: clean_initram clean_debian
 	
 	rmdir $(OUT_DIR) > /dev/null || exit 0
 
-.PHONY: clean all tool flash_initramfs flash_debian clean_initram backup debian initram
+.PHONY: clean all tool flash_initramfs flash_debian clean_initram backup debian initram reboot_stb
