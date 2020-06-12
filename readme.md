@@ -8,14 +8,41 @@
 	- Linux Debian Based x86_64
 	- GNU Make
 	- SP Flash Tool
+	- Debootstrap
+
+## MODE
+
+### Android under linux
+
+```
+make android_under_debian
+```
+perintah diatas akan membuild kostum initramfs dan juga debian system (debootstrap)
+
+Flash manual using spflash tool:
+```
+result/boot.img   --> BOOTIMG
+result/debian.img --> USRDATA
+```
+
+## BUILD CONFIG
+
+Some make variables can be changed from `.env' files, example:
+```
+export FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
+export DEBIAN_REPO=http://localhost:3142/kambing.ui.ac.id/debian/
+
+```
 
 ## HOW TO
+
 ### Using SP_Flash_Tool
 
 - Download SP Flash tool [here](https://spflashtool.com/download/)
 - extract to directory
 - invoke make command with `make FLASH_TOOL=/extracted/sp_flash_tool/flash_tool.sh [target]`
 - PowerOff before flasing, insert USB-to-USB cable after invoke command
+- scatter file in [flash](flash) directory
 
 ### Build ramdisk
 Build boot image with stock kernel and custom initram from [initram/rootfs](initram/rootfs).
@@ -24,15 +51,16 @@ make initram
 ```
 Output is `result/boot.img` and `result/initramfs.gzip.cpio`.
 
-### Flash initram
+### Flash initram only
 
 ``` bash
 make flash_initram
-# or
-make flash_initram FLASH_TOOL=/your/path/flash_tool.sh
+# or rebuild and flash
+make update_initram
 ```
-	Dont forget to call `make clean_initram` if you modify [rootfs](initram/rootfs) on initram.
-	Dont forget to do full backup your device `make backup`
+
+	- Dont forget to call `make clean_initram` if you modify [rootfs](initram/rootfs) on initram before call `make flash_initram`.
+	- Dont forget to do full backup your device `make backup`
 
 ### Full backup your device
 
@@ -50,28 +78,17 @@ file stored on `backup` directory
 
 ## TODOS
 
-	[X] Custom initramfs
-	[ ] Debian Root on data or external sdcard
-	[ ] Auto connect Wifi
-	[ ] SSH Server
-	[ ] remote GUI VNC
-	[ ] Terminal/display HDMI
+[x] Custom initramfs
+[x] Debian Root on data or external sdcard
+[ ] Auto connect Wifi
+[ ] SSH Server
+[ ] remote GUI VNC
+[ ] Terminal/display HDMI
 
 ## Reffs
 
 - [@quantvc - Running Debian Linux on Android device natively](https://medium.com/@quantvc/running-debian-on-android-device-natively-73545c9b0757)
 
-## Original Partitions
+## Usefull info for debug
 
- 253        0     524288 zram0
- 179        0    3795968 mmcblk0
- 179        1          1 mmcblk0p1
- 179        2      10240 mmcblk0p2
- 179        3      10240 mmcblk0p3
- 179        4       6144 mmcblk0p4
- 179        5    1048576 mmcblk0p5
- 179        6    1048576 mmcblk0p6
- 179        7     771072 mmcblk0p7
- 179        8     786432 mmcblk0p8
- 179       64       4096 mmcblk0boot1
- 179       32       4096 mmcblk0boot0
+	[info.md](info.md)

@@ -1,23 +1,59 @@
 
-ifndef REPO
-# You can change with `make REPO=YOUR_URL`
+# Create .env on this directory to set default value
+-include .env
+
+ifndef DEBIAN_REPO
+# You can change with `make DEBIAN_REPO=YOUR_URL` or in `.env` file
 # I use apt-cacher-ng for fast rebuild in development
-override REPO=http://localhost:3142/kambing.ui.ac.id/debian/
+override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
+
+ifndef INCLUDE_PACKAGES
+override INCLUDE_PACKAGES = sysvinit-core
+endif
+
+ifndef EXCLUDE_PACKAGES
+override EXCLUDE_PACKAGES =
+endif
+
+ifndef DEBIAN_VER
+override DEBIAN_VER = buster
+endif
+
+ARGS = --variant=minbase --arch armel
+
+ifneq ($(INCLUDE_PACKAGES),)
+ARGS += --include $(INCLUDE_PACKAGES)
+endif
+
+ifneq ($(EXCLUDE_PACKAGES),)
+ARGS += --exclude $(EXCLUDE_PACKAGES)
+endif
+
 
 TMP=$(shell pwd)/tmp
 TMP_IMG=$(TMP)/debian.img
-TMP_ROOTFS=$(TMP)/rootfs
+TMP_ROOTFS=$(TMP)/rootfs/
 FS_FEATURE_ENABLE=has_journal,ext_attr,resize_inode,filetype,extent,sparse_super,large_file,uninit_bg
 FS_FEATURE_DISABLE=^dir_index,^64bit,^flex_bg,^huge_file,^dir_nlink,^extra_isize,^metadata_csum
 
 all: image
 	sync $(TMP_ROOTFS)
 	@sudo umount $(TMP_ROOTFS) || exit 0
+ifdef MIN
+	e2fsck -p $(TMP_IMG)
+	resize2fs -M $(TMP_IMG) 
+endif
 	sync $(TMP_IMG)
 	cp $(TMP_IMG) ../result/
+	sync
 
 image: $(TMP) $(TMP_IMG) $(TMP_ROOTFS)
+
+print_packages: $(TMP)
+	[ -d $(TMP)/debs ] || mkdir $(TMP)/debs
+	$(write Please wait..)
+	sudo debootstrap $(ARGS) --print-debs $(DEBIAN_VER) $(TMP)/debs $(DEBIAN_REPO) 2>/dev/null
 
 $(TMP_ROOTFS):
 	@[ -d $@ ] || mkdir $@
@@ -26,16 +62,13 @@ $(TMP_ROOTFS):
 		sudo mount -o loop,sync,noatime $(TMP_IMG) $@ ;\
 	fi
 	$(info Debootstrap $(@F))
-	sudo debootstrap --verbose --arch armel --foreign stretch $@ $(REPO)
-	@sudo du -sh $@
-	$(info running stage2.sh)
+	sudo debootstrap $(ARGS) --foreign $(DEBIAN_VER) $(TMP_ROOTFS) $(DEBIAN_REPO)
 	sudo ./chroot.sh < stage2.sh
+	@sudo du -sh $@
 
 $(TMP_IMG):
-	@if [ ! -f $@ ]; then \
-		dd if=/dev/zero bs=1M count=753 of=$@ ;\
-		mkfs.ext4 -O $(FS_FEATURE_ENABLE),$(FS_FEATURE_DISABLE) $@ ;\
-	fi
+	dd if=/dev/zero bs=1M count=753 of=$@
+	mkfs.ext4 -O $(FS_FEATURE_ENABLE),$(FS_FEATURE_DISABLE) $@
 
 $(TMP):
 	@test -d $@ || mkdir $@
@@ -45,11 +78,14 @@ $(TMP):
 	fi
 
 clean_rootfs:
-	sudo rm -rf $(TMP_ROOTFS)/*
+	@sudo umount $(TMP_ROOTFS) || exit 0
+	@sudo rm -f $(TMP_IMG) || exit 0
+	@sudo rm -rf $(TMP_ROOTFS) || exit 0
+	@rm -f ../result/debian.img || exit 0
 
 clean:
 	@test ! -d $(TMP_ROOTFS) || sudo umount $(TMP_ROOTFS) || exit 0
 	sudo umount $(TMP) || exit 0
-	rmdir $(TMP) || exit 0
+	rm -rf $(TMP) || exit 0
 
-.PHONY: clean clean_rootfs all image
+.PHONY: clean clean_rootfs all image print_packages

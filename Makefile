@@ -23,10 +23,12 @@ FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 
 export PATH = $(TOOL_DIR):$(shell echo $$PATH)
 
-REBOOT_STB := (echo \\06 > /dev/ttyUSB0 && sleep $(REBOOT_DELAY) && echo reboot > /dev/ttyUSB0 || exit 0) &
+REBOOT_STB := @(echo \\06 > /dev/ttyUSB0 && sleep $(REBOOT_DELAY) && echo reboot > /dev/ttyUSB0 || exit 0) &
 
 all:
 	@echo "\e[33mNOTHING TODO YET\e[0m"
+
+android_under_debian: initram debian
 
 tool:
 	@make -C $(TOOL_DIR)
@@ -85,4 +87,5 @@ clean: clean_initram clean_debian
 	
 	rmdir $(OUT_DIR) > /dev/null || exit 0
 
-.PHONY: clean all tool flash_initramfs flash_debian clean_initram backup debian initram reboot_stb
+.PHONY: clean all tool flash_initramfs flash_debian clean_initram backup \
+debian initram reboot_stb android_under_debian
