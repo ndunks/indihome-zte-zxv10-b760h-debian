@@ -29,6 +29,18 @@ init(){
     if [ ! -e /linux/bin/busybox ] && [ ! -e /linux/usr/bin/busybox ]; then
         cp -a /bin/busybox /linux/bin/
     fi
+
+    # android chroot helper
+    if [ ! -x /linux/bin/android ]; then
+        cat <<EOF > /linux/bin/android
+#!/bin/sh
+export PATH="/system/bin:/system/xbin:/sbin"
+`busybox which chroot` /android /system/bin/sh
+export PATH=$PATH
+EOF
+    chmod +x /linux/bin/android
+    fi
+
     # Move kernel generated blockdevice link
     mv emmc@* /linux/android/
     # copy this script to call nextstage
@@ -49,9 +61,8 @@ init(){
 
 # your are in switched root
 init_multi(){
-    L "Starting $0"
+    L "Waiting Android init"
     chroot /android /init &    
-    L "Waiting Android init"    
     C=0
     #while [ ! -e /android/dev/.coldboot_done ]; do
     while [ -z "$(grep 'BOOT_Animation:START' /android/proc/bootprof)" ]; do
@@ -68,9 +79,11 @@ init_multi(){
     mount -o bind /android/dev /dev
     mount -o bind /android/dev/pts /dev/pts
     mount -o bind /android/dev/socket /dev/socket    
-    echo "Done linux is ready, connect at port 1234"
-    busybox nc -p 1234 -lk -e bash &
     /etc/rc.local
+    busybox nc -p 1234 -lk -e bash &
+    echo "Done linux is ready."
+    echo "- connect at port 1234"
+    echo "- or type 'android' to chroot in android"
     exec busybox sh < /dev/ttyMT0 > /dev/ttyMT0 2>&1
 }
 
