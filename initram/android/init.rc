@@ -1049,14 +1049,15 @@ service console /system/bin/sh
     console
     disabled
     user root
+    oneshot
     group log
 
 on property:ro.debuggable=1
-    start console
+    #start console
     start adbd
 
 on property:ro.debuggable=0
-    start console	
+    #start console	
     start adbd
 
 # adbd is controlled via property triggers in init.<platform>.usb.rc
