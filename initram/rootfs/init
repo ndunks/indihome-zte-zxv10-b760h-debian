@@ -69,7 +69,8 @@ init_multi(){
     mount -o bind /android/dev/pts /dev/pts
     mount -o bind /android/dev/socket /dev/socket    
     echo "Done linux is ready, connect at port 1234"
-    busybox nc -p 1234 -lk -e busybox sh &
+    busybox nc -p 1234 -lk -e bash &
+    /etc/rc.local
     exec busybox sh < /dev/ttyMT0 > /dev/ttyMT0 2>&1
 }
 
