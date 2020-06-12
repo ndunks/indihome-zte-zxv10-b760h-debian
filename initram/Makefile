@@ -13,11 +13,8 @@ $(BOOT_IMG): $(ANDROIDRAMFS) $(INITRAMFS)
 	# Idon't know how to make mediatek img header, so I simply copy 96 first byte from original boot.img
 	cp boot-header.bin $@
 	mkbootimg --kernel zImage --ramdisk $(INITRAMFS) --board $(BOARD_ID) -o $@.tmp
-
-	# Combine header with img
+# Combine header with img
 	cat $@.tmp >> $@
-
-	# Clean temp file
 	rm $@.tmp $(INITRAMFS).tmp
 
 $(INITRAMFS):
