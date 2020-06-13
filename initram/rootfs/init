@@ -21,7 +21,7 @@ init(){
         L "Extracting android initramfs.."
         [ -d /linux/android ] || mkdir /linux/android
         cd /linux/android
-        cpio -id -F /android.cpio
+        cpio -u -i -d -F /android.cpio
         chmod 700 * 2>/dev/null
         cd /
     fi
