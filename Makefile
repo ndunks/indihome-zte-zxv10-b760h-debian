@@ -70,6 +70,11 @@ flash_android: $(ANDROID_IMG) $(FLASH_CONFIG_ANDROID)
 	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_ANDROID)
 
+flash_original_boot:
+	make -C $(DIR)/flash OUT=../result/flash_original_boot.xml PART_BOOTIMG=original/boot.img
+	$(REBOOT_STB)
+	$(FLASH_TOOL) -b -i result/flash_original_boot.xml
+
 $(FLASH_CONFIG_INITRAM):
 	make -C $(DIR)/flash OUT=$@ PART_BOOTIMG=$(BOOT_IMG)
 
@@ -105,4 +110,4 @@ clean: clean_initram clean_debian
 	rmdir $(OUT_DIR) > /dev/null || exit 0
 
 .PHONY: clean all tool flash_initramfs flash_debian clean_initram backup \
-debian initram reboot_stb android_under_debian android flash_android
+debian initram reboot_stb android_under_debian android flash_android flash_original_boot
