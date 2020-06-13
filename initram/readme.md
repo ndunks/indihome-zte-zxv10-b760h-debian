@@ -8,6 +8,10 @@ make
 
 ```
 
+## Reffs
+
+- [init source](https://android.googlesource.com/platform/system/core/+/refs/tags/android-4.4.2_r2.0.1/init/init.c)
+- [Kernel but Android differ](https://android.googlesource.com/kernel/mediatek/+/android-4.4.4_r3)
 
 ## HOW TO EXTRACT
 

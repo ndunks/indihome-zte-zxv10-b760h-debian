@@ -1,6 +1,6 @@
 tmp
 # To large to commit this on github
-original/system.img
+original/system.img*
 result/
 tool/mkimage
 backup

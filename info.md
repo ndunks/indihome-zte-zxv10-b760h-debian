@@ -7,11 +7,6 @@ console=tty0 console=ttyMT0,115200n1 root=/dev/ram mac=90:D8:F3:F0:7E:66 lcm=1-c
 Uncompressing Linux... done, booting the kernel.
 ```
 
-## Kernel 
-```
-Linux localhost 3.4.67 #1 SMP PREEMPT Wed Jun 7 18:15:22 HKT 2017 armv7l GNU/Linux
-```
-
 ## HW CPU
 ```
 Processor : ARMv7 Processor rev 3 (v7l)

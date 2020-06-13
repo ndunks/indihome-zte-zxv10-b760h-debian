@@ -2,6 +2,50 @@
 
 	Android STB / TV Box Mediatek MT8127 RichMedia Indihome ZTE ZXV10 B760H
 
+## Base 
+
+**Kernel & Android Version**
+```
+Linux localhost 3.4.67 #1 SMP PREEMPT Wed Jun 7 18:15:22 HKT 2017 armv7l GNU/Linux
+Android 4.4.2 Kitkat
+
+```
+**build.prop**
+``` bash
+ro.build.version.sdk=19
+ro.build.version.codename=REL
+ro.build.version.release=4.4.2
+ro.build.date=Wed Jun  7 18:16:18 HKT 2017
+ro.build.date.utc=1496830578
+ro.build.type=user
+ro.build.display.id=V73411318.1011
+ro.build.user=android-builder
+ro.build.host=stb-android-124ubuntu
+ro.build.tags=release-keys
+# ro.build.product is obsolete; use ro.product.device
+ro.build.product=ztemt85_bx_kk
+# Do not try to parse ro.build.description or .fingerprint
+ro.build.description=ztemt85_bx_kk-user 4.4.2 KOT49H eng.stb-android.20170607.181315 release-keys
+ro.build.flavor=
+ro.build.characteristics=tablet
+ro.build.fingerprint=Mebox/ztemt85_bx_kk/ztemt85_bx_kk:4.4.2/KOT49H/20170607.181315:user/release-keys
+ro.build.version.incremental=V73411318.1011
+ro.product.screenzoom.unit=permillage
+ro.product.wifi=1
+ro.product.build.date=2017-06-07
+ro.product.version.software=V73411318.1011
+ro.product.version.base=V73411318.1007 2016-11-09
+ro.product.brand=Mebox
+ro.product.device=ztemt85_bx_kk
+ro.product.board=MT8685
+ro.product.cpu.abi=armeabi-v7a
+ro.product.cpu.abi2=armeabi
+ro.product.manufacturer=ZTE Corporation
+ro.product.locale.language=en
+ro.product.locale.region=US
+# ro.build.product is obsolete; use ro.product.device
+ro.product.name=B760_iReg_Mod_v2
+```
 
 ## Requirements
 
@@ -9,6 +53,8 @@
 	- GNU Make
 	- SP Flash Tool
 	- Debootstrap
+	- Qemu User Static
+	- BinFmt
 
 ## MODE
 
