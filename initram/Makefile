@@ -7,7 +7,7 @@ BOARD_ID = 20181123.235335
 
 all: $(BOOT_IMG)
 
-$(BOOT_IMG): $(ANDROIDRAMFS) $(INITRAMFS)
+$(BOOT_IMG): $(INITRAMFS)
 	$(info CREATING $(@F)..)
 
 # Idon't know how to make mediatek img header, so I simply copy 96 first byte from original boot.img

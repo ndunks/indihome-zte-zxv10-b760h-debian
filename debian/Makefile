@@ -9,7 +9,7 @@ override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 
 ifndef INCLUDE_PACKAGES
-override INCLUDE_PACKAGES = sysvinit-core,net-tools,openssh-server,openbox
+override INCLUDE_PACKAGES = sysvinit-core,net-tools,openbox,busybox,xserver-xorg-core
 endif
 
 ifndef EXCLUDE_PACKAGES
