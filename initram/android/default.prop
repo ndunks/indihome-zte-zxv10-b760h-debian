@@ -10,3 +10,4 @@ persist.sys.usb.config=mass_storage
 persist.service.acm.enable=0
 ro.mount.fs=EXT4
 ro.persist.partition.support=no
+ro.boot.selinux=disabled
