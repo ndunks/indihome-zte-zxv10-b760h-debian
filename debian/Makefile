@@ -9,7 +9,7 @@ override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 
 ifndef INCLUDE_PACKAGES
-override INCLUDE_PACKAGES = sysvinit-core,net-tools,openssh-server
+override INCLUDE_PACKAGES = sysvinit-core,net-tools,openssh-server,openbox
 endif
 
 ifndef EXCLUDE_PACKAGES
@@ -51,7 +51,7 @@ FS_FEATURE_DISABLE=^dir_index,^64bit,^flex_bg,^huge_file,^dir_nlink,^extra_isize
 
 all: image
 	sync $(TMP_ROOTFS)
-	@sudo umount $(TMP_ROOTFS) || exit 0
+	#@sudo umount $(TMP_ROOTFS) || exit 0
 ifdef MIN
 	e2fsck -p $(TMP_IMG)
 	resize2fs -M $(TMP_IMG) 
