@@ -15,25 +15,25 @@ Android 4.4.2 Kitkat
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=Wed Jun  7 18:16:18 HKT 2017
-ro.build.date.utc=1496830578
+ro.build.date=Fri Nov 23 23:59:31 HKT 2018
+ro.build.date.utc=1542988771
 ro.build.type=user
-ro.build.display.id=V73411318.1011
+ro.build.display.id=V73411318.1024
 ro.build.user=android-builder
-ro.build.host=stb-android-124ubuntu
+ro.build.host=ubuntu-129
 ro.build.tags=release-keys
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=ztemt85_bx_kk
 # Do not try to parse ro.build.description or .fingerprint
-ro.build.description=ztemt85_bx_kk-user 4.4.2 KOT49H eng.stb-android.20170607.181315 release-keys
+ro.build.description=ztemt85_bx_kk-user 4.4.2 KOT49H eng.stb-android.20181123.235335 release-keys
 ro.build.flavor=
 ro.build.characteristics=tablet
-ro.build.fingerprint=Mebox/ztemt85_bx_kk/ztemt85_bx_kk:4.4.2/KOT49H/20170607.181315:user/release-keys
-ro.build.version.incremental=V73411318.1011
+ro.build.fingerprint=Mebox/ztemt85_bx_kk/ztemt85_bx_kk:4.4.2/KOT49H/20181123.235335:user/release-keys
+ro.build.version.incremental=V73411318.1024
 ro.product.screenzoom.unit=permillage
 ro.product.wifi=1
-ro.product.build.date=2017-06-07
-ro.product.version.software=V73411318.1011
+ro.product.build.date=2018-11-23
+ro.product.version.software=V73411318.1024
 ro.product.version.base=V73411318.1007 2016-11-09
 ro.product.brand=Mebox
 ro.product.device=ztemt85_bx_kk
@@ -44,7 +44,7 @@ ro.product.manufacturer=ZTE Corporation
 ro.product.locale.language=en
 ro.product.locale.region=US
 # ro.build.product is obsolete; use ro.product.device
-ro.product.name=B760_iReg_Mod_v2
+ro.product.name=B760H
 ```
 
 ## Requirements
