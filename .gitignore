@@ -10,3 +10,5 @@ initram/rootfs/android.cpio
 **/.env
 tool/mkbootimg
 tool/unpackbootimg
+recovery/*
+!recovery/Makefile
