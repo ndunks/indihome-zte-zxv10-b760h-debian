@@ -9,7 +9,7 @@ override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 
 ifndef INCLUDE_PACKAGES
-override INCLUDE_PACKAGES = sysvinit-core
+override INCLUDE_PACKAGES = sysvinit-core,net-tools,openssh-server
 endif
 
 ifndef EXCLUDE_PACKAGES
@@ -28,6 +28,18 @@ endif
 
 ifneq ($(EXCLUDE_PACKAGES),)
 ARGS += --exclude $(EXCLUDE_PACKAGES)
+endif
+
+ifeq ($(shell which debootstrap),)
+$(error Please install debootstrap)
+endif
+
+# Jika install binfmt setelah qemu, maka kamu perlu: sudo dpkg-reconfigure qemu-user-static
+ifeq ($(shell which update-binfmts),)
+$(error Please install binfmt-support)
+endif
+ifeq ($(shell which qemu-arm-static),)
+$(error Please install qemu-user-static)
 endif
 
 

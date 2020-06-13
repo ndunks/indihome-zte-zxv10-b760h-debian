@@ -3,10 +3,19 @@ export TOOL_DIR = $(DIR)/tool
 export OUT_DIR = $(DIR)/result
 export BOOT_IMG = $(OUT_DIR)/boot.img
 export DEBIAN_IMG = $(OUT_DIR)/debian.img
+
+#Local config
 -include .env
+
 ifndef FLASH_TOOL
 # you can change it using: make FLASH_TOOL=/path/to/sp_flash_tools or in .env file
-export FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
+FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
+endif
+
+export FLASH_TOOL
+
+ifndef REBOOT_DELAY
+REBOOT_DELAY = 1
 endif
 export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
 FLASH_CONFIG_INITRAM=$(OUT_DIR)/flash_config_initram.xml
@@ -14,7 +23,7 @@ FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 
 export PATH = $(TOOL_DIR):$(shell echo $$PATH)
 
-REBOOT_STB = @echo \\06 > /dev/ttyUSB0 && sleep 1 && echo reboot > /dev/ttyUSB0 || exit 0
+REBOOT_STB := @(echo \\06 > /dev/ttyUSB0 && sleep $(REBOOT_DELAY) && echo reboot > /dev/ttyUSB0 || exit 0) &
 
 all:
 	@echo "\e[33mNOTHING TODO YET\e[0m"
