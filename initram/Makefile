@@ -17,7 +17,7 @@ $(BOOT_IMG): $(INITRAMFS)
 	@cat $@.tmp >> $@
 	@rm $@.tmp $(INITRAMFS).tmp
 
-$(INITRAMFS): rootfs/ $(ANDROIDRAMFS)
+$(INITRAMFS): rootfs/init $(ANDROIDRAMFS)
 	$(info CREATING $(@F)..)
 ifdef NO_ANDROIDINITRAMFS
 	$(shell test -e rootfs/$(ANDROIDRAMFS) && rm -f rootfs/$(ANDROIDRAMFS))

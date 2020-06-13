@@ -15,6 +15,9 @@ chmod +x  /etc/boot.d/services
 # inet for apt
 addgroup --gid 3003 android_inet
 usermod -g 3003 _apt
+echo nameserver 1.1.1.1 > /etc/resolv.conf
+
+sed -i s/localhost/192.168.1.10/ /etc/apt/sources.list
 
 cat <<EOF > /etc/default/locale
 LANG=en_US.UTF-8
