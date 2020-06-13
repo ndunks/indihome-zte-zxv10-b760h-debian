@@ -13,7 +13,7 @@ ifndef NOMINIMIZE
 	@sync
 endif
 
-$(RESULT_IMAGE):
+$(RESULT_IMAGE): tmpfs/system.img
 	$(info copying to $(RESULT_IMAGE))
 	@sync
 	@cp tmpfs/system.img $(RESULT_IMAGE)
@@ -21,8 +21,10 @@ $(RESULT_IMAGE):
 
 custom: custom/
 	sudo cp -ar custom/* system/
+	touch tmpfs/system.img
+	sync
 
-remove: system/
+remove: system/ remove.txt
 	@stat $@.txt > /dev/null
 	$(foreach f,$(shell grep -v ^# remove.txt),@sudo rm -rf system/$f)
 
@@ -44,4 +46,10 @@ tmpfs/:
 	mkdir $@
 	sudo mount -t tmpfs none $@
 
-.PHONY: remove all custom result
+clean:
+	sudo umount system/ || exit 0
+	sudo umount tmpfs/ || exit 0
+	sudo rmdir system tmpfs || exit 0
+	rm bootanimation/bootanimation.zip || exit 0
+
+.PHONY: remove all custom clean

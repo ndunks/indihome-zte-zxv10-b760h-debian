@@ -10,14 +10,14 @@ all: $(BOOT_IMG)
 $(BOOT_IMG): $(ANDROIDRAMFS) $(INITRAMFS)
 	$(info CREATING $(@F)..)
 
-	# Idon't know how to make mediatek img header, so I simply copy 96 first byte from original boot.img
-	cp boot-header.bin $@
-	mkbootimg --kernel zImage --ramdisk $(INITRAMFS) --board $(BOARD_ID) -o $@.tmp
+# Idon't know how to make mediatek img header, so I simply copy 96 first byte from original boot.img
+	@cp boot-header.bin $@
+	@mkbootimg --kernel zImage --ramdisk $(INITRAMFS) --board $(BOARD_ID) -o $@.tmp
 # Combine header with img
-	cat $@.tmp >> $@
-	rm $@.tmp $(INITRAMFS).tmp
+	@cat $@.tmp >> $@
+	@rm $@.tmp $(INITRAMFS).tmp
 
-$(INITRAMFS):
+$(INITRAMFS): rootfs/ $(ANDROIDRAMFS)
 	$(info CREATING $(@F)..)
 ifdef NO_ANDROIDINITRAMFS
 	$(shell test -e rootfs/$(ANDROIDRAMFS) && rm -f rootfs/$(ANDROIDRAMFS))
@@ -27,7 +27,7 @@ endif
 	$(shell cd rootfs && find . | cpio  --owner 0:0 --quiet -H newc -o | gzip > $@.tmp)
 	$(shell mkimage $@.tmp ROOTFS > $@)
 
-$(ANDROIDRAMFS):
+$(ANDROIDRAMFS): android/*.rc
 ifndef NO_ANDROIDINITRAMFS
 	$(info CREATING $(@F)..)
 	$(shell cd android && find . | cpio  --owner 0:0 -H newc -o -F ../$@)

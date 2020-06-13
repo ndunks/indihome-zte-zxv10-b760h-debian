@@ -50,7 +50,9 @@ $(BOOT_IMG): $(OUT_DIR) tool
 $(DEBIAN_IMG): $(OUT_DIR)
 	make -C debian
 
-$(ANDROID_IMG): $(OUT_DIR)
+$(ANDROID_IMG): $(OUT_DIR) android/tmpfs/system.img
+
+android/tmpfs/system.img:
 	make -C android
 
 flash_initram: $(BOOT_IMG) $(FLASH_CONFIG_INITRAM)

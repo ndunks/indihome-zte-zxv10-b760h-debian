@@ -121,6 +121,11 @@ if device fail boot, press CTRL-F to activate fiq-debug, then run command `reboo
 don't need to re-attach your USB port
 
 file stored on `backup` directory
+## Open Settings command on Android
+
+```
+am start -n com.zte.iptvclient.android.settings/.activity.MainActivity
+```
 
 ## TODOS
 
@@ -130,6 +135,12 @@ file stored on `backup` directory
 [ ] SSH Server
 [ ] remote GUI VNC
 [ ] Terminal/display HDMI
+
+Make multi console. if console /dev/ttyMT0 used by linux, android command will  not output anything?
+
+## Known bugs
+
+Android restart after few minutes
 
 ## Reffs
 

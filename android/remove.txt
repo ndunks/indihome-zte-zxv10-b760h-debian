@@ -1,3 +1,6 @@
+# this binary draining logcat when MCSP not running
+bin/netaccess
+
 # remove preinstall apps
 preinstall/
 
@@ -41,4 +44,5 @@ app/ZTEJavaWatch.apk
 app/ZTEMonitor.apk
 app/zteplayer.apk
 app/ZTEStbCfg.apk
-app/ZTEUpgrade.apk
+app/ZTEUpgrade.apk
+app/ztehelper.*
