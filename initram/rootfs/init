@@ -23,6 +23,7 @@ init(){
         cd /linux/android
         cpio -u -i -d -F /android.cpio
         chmod 700 * 2>/dev/null
+        busybox sync
         cd /
     fi
     # if no busybox
@@ -32,7 +33,8 @@ init(){
     # Move kernel generated blockdevice link
     mv emmc@* /linux/android/
     # copy this script to call nextstage
-    cp -a $0 /linux/init_multi    
+    cp -a $0 /linux/init_multi
+    [ -e /linux/init_wait ] || ln -s /init_multi /linux/init_wait
     # uncomment if you want terminal before init,ctrl+D to continue
     #getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 
@@ -50,8 +52,12 @@ init(){
 # your are in switched root
 init_multi(){
     L "Starting $0"
-    chroot /android /init &    
-    L "Waiting Android init"    
+    /init_wait &
+    exec chroot /android /init
+}
+
+init_wait(){
+    L "Waiting Android init"
     C=0
     #while [ ! -e /android/dev/.coldboot_done ]; do
     while [ -z "$(grep 'BOOT_Animation:START' /android/proc/bootprof)" ]; do
@@ -68,10 +74,10 @@ init_multi(){
     mount -o bind /android/dev /dev
     mount -o bind /android/dev/pts /dev/pts
     mount -o bind /android/dev/socket /dev/socket    
-    echo "Done linux is ready, connect at port 1234"
-    busybox nc -p 1234 -lk -e bash &
     /etc/rc.local
-    exec busybox sh < /dev/ttyMT0 > /dev/ttyMT0 2>&1
+    echo "Done linux is ready, connect at port 1234"
+    exec busybox nc -p 1234 -lk -e bash
+    #exec busybox sh #< /dev/ttyMT0 > /dev/ttyMT0 2>&1
 }
 
 # call function based on this filename

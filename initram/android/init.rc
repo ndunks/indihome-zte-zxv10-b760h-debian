@@ -1053,11 +1053,11 @@ service console /system/bin/sh
     group log
 
 on property:ro.debuggable=1
-    #start console
+    start console
     start adbd
 
 on property:ro.debuggable=0
-    #start console	
+    start console	
     start adbd
 
 # adbd is controlled via property triggers in init.<platform>.usb.rc
@@ -1774,23 +1774,13 @@ service MtkCodecService /system/bin/MtkCodecService
     user root
     group audio media sdcard_r
 
-# service installapp /system/bin/installapp
-#     user root
-# 	disabled
-# 	oneshot
-	
-# service uninstallapp /system/bin/uninstallapp
-#     user root
-# 	disabled
-# 	oneshot		
-
 #Xiezj added 	
-# service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
-#     user root
-#     oneshot
+ service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
+     user root
+     oneshot
 # on property:sys.boot_completed=1
 #     start basicService
-    
+
 #Xiezj added end 
 
 # service preinstall /system/bin/preinstall.sh
@@ -1799,5 +1789,5 @@ service MtkCodecService /system/bin/MtkCodecService
 #     disabled
 #     oneshot
 
-#import /zte_init.rc
+import /zte_init.rc
 

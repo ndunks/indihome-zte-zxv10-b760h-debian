@@ -29,10 +29,10 @@ service fttc /system/bin/FactoryTestTool_C
 	disabled
 	oneshot
 	
-service rpcapd /data/data/com.stbmc.maincontrol/files/mcres/respicsh/rpcapd -4 -n -d &
-    user root
-    disabled
-    oneshot
+# service rpcapd /data/data/com.stbmc.maincontrol/files/mcres/respicsh/rpcapd -4 -n -d &
+#     user root
+#     disabled
+#     oneshot
 	
 service ServiceAgent /system/bin/ServiceAgent
 	disabled
@@ -56,7 +56,7 @@ on property:sys.zte.sshd=start
     stop ssh_stop
     start ssh_start
 
-# DingQin 2016-09-27 ¿ª»úÓÅ»¯»òÖ÷ÒªapkÆô¶¯Ê±Å¼ÏÖÒòÎª¿Õ¼ä²»¹»¶ø¿¨ËÀ - add begin
+# DingQin 2016-09-27 ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ï¿½Òªapkï¿½ï¿½ï¿½ï¿½Ê±Å¼ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ¼ä²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - add begin
 #on property:sys.zte.cleanData=1
 #    cd /data/media/0/
 #    rm -rf *
@@ -68,5 +68,5 @@ service zte-clean-data /system/bin/sh /system/bin/cleanSDCard.sh
 
 on property:sys.zte.cleanData=1 
     start zte-clean-data
-# DingQin 2016-09-27 ¿ª»úÓÅ»¯»òÖ÷ÒªapkÆô¶¯Ê±Å¼ÏÖÒòÎª¿Õ¼ä²»¹»¶ø¿¨ËÀ - add end
+# DingQin 2016-09-27 ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ï¿½Òªapkï¿½ï¿½ï¿½ï¿½Ê±Å¼ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ¼ä²»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - add end
 	
