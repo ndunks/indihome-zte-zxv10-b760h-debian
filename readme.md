@@ -121,7 +121,24 @@ if device fail boot, press CTRL-F to activate fiq-debug, then run command `reboo
 don't need to re-attach your USB port
 
 file stored on `backup` directory
-## Open Settings command on Android
+
+## Android Tips
+
+### Services
+
+``` bash
+# list init service
+getprop | grep svc.
+
+# start stop
+setprop svc.start service
+setprop svc.stop  service
+
+# powertl
+sys.powerctl cmd
+
+```
+### Open Settings App
 
 ```
 am start -n com.zte.iptvclient.android.settings/.activity.MainActivity
@@ -140,7 +157,14 @@ Make multi console. if console /dev/ttyMT0 used by linux, android command will  
 
 ## Known bugs
 
-Android restart after few minutes
+Android restart after about 23 - 24 minutes
+```
+while true; do sleep 1 && uptime; done &
+
+up time: 00:06:03, idle time: 00:24:01, sleep time: 00:00:00
+up time: 00:06:03, idle time: 00:23:05, sleep time: 00:00:00
+up time: 00:06:02, idle time: 00:23:03, sleep time: 00:00:00
+```
 
 ## Reffs
 
