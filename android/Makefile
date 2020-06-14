@@ -1,9 +1,8 @@
-# in MB
-
+include ../Makeconfig
 # Download if u dont have
 # https://drive.google.com/drive/folders/1VkvttHjAQdIalOR7jJS3ArhGpStnPbH1?usp=sharing
-ORIGINAL_SYSTEM=../original/system.img
-RESULT_IMAGE=../result/android.img
+ORIGINAL_SYSTEM=$(ORIGINAL_DIR)/system.img
+RESULT_IMAGE=$(OUT_DIR)/android.img
 
 all: system/ remove custom /system/media/bootanimation.zip $(RESULT_IMAGE)
 ifndef NOMINIMIZE

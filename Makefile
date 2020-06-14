@@ -1,12 +1,9 @@
-export DIR = $(shell pwd)
-export TOOL_DIR = $(DIR)/tool
-export OUT_DIR = $(DIR)/result
-export BOOT_IMG = $(OUT_DIR)/boot.img
-export DEBIAN_IMG = $(OUT_DIR)/debian.img
-export ANDROID_IMG = $(OUT_DIR)/android.img
+export ROOT=$(CURDIR)/
+include $(ROOT)Makeconfig
 
 #Local config
 -include .env
+
 
 ifndef FLASH_TOOL
 # you can change it using: make FLASH_TOOL=/path/to/sp_flash_tools or in .env file
@@ -22,8 +19,6 @@ export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
 FLASH_CONFIG_INITRAM=$(OUT_DIR)/flash_config_initram.xml
 FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 FLASH_CONFIG_ANDROID=$(OUT_DIR)/flash_config_android.xml
-
-export PATH = $(TOOL_DIR):$(shell echo $$PATH)
 
 REBOOT_STB := @(echo \\06 > /dev/ttyUSB0 && sleep $(REBOOT_DELAY) && echo reboot > /dev/ttyUSB0 || exit 0) &
 
@@ -44,13 +39,13 @@ debian: $(DEBIAN_IMG)
 
 android: $(ANDROID_IMG)
 
-$(BOOT_IMG): $(OUT_DIR) tool
+$(BOOT_IMG): tool
 	make -C initram
 
-$(DEBIAN_IMG): $(OUT_DIR)
+$(DEBIAN_IMG):
 	make -C debian
 
-$(ANDROID_IMG): $(OUT_DIR) android/tmpfs/system.img
+$(ANDROID_IMG): android/tmpfs/system.img
 
 android/tmpfs/system.img:
 	make -C android
@@ -71,18 +66,18 @@ flash_android: $(ANDROID_IMG) $(FLASH_CONFIG_ANDROID)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_ANDROID)
 
 flash_original_boot:
-	make -C $(DIR)/flash OUT=../result/flash_original_boot.xml PART_BOOTIMG=original/boot.img
+	make -C flash OUT=../result/flash_original_boot.xml PART_BOOTIMG=original/boot.img
 	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i result/flash_original_boot.xml
 
 $(FLASH_CONFIG_INITRAM):
-	make -C $(DIR)/flash OUT=$@ PART_BOOTIMG=$(BOOT_IMG)
+	make -C flash OUT=$@ PART_BOOTIMG=$(BOOT_IMG)
 
 $(FLASH_CONFIG_DEBIAN):
-	make -C $(DIR)/flash OUT=$@ PART_USRDATA=$(DEBIAN_IMG)
+	make -C flash OUT=$@ PART_USRDATA=$(DEBIAN_IMG)
 
 $(FLASH_CONFIG_ANDROID):
-	make -C $(DIR)/flash OUT=$@ PART_ANDROID=$(ANDROID_IMG)
+	make -C flash OUT=$@ PART_ANDROID=$(ANDROID_IMG)
 
 backup/config.xml:
 	@test -d $(@D) || mkdir $(@D)
@@ -106,8 +101,6 @@ update_initram: clean_initram flash_initram
 
 clean: clean_initram clean_debian
 	rm $(FLASH_CONFIG_INITRAM) backup/config.xml > /dev/null || exit 0
-	
-	rmdir $(OUT_DIR) > /dev/null || exit 0
 
 .PHONY: clean all tool flash_initramfs flash_debian clean_initram backup \
 debian initram reboot_stb android_under_debian android flash_android flash_original_boot
