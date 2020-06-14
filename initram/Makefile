@@ -1,10 +1,9 @@
-include ../Makeconfig
+export ROOT=../
+include $(ROOT)Makeconfig
+
 
 INITRAMFS=$(OUT_DIR)/initramfs.cpio.gz
 INITRAMFS_FINAL=$(subst .gz,.bin,$(INITRAMFS))
-
-# these value from extract result with unmkbootimg
-BOARD_ID = 20181123.235335
 
 # Combine header with img
 $(BOOT_IMG): $(BOOT_IMG).tmp

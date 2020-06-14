@@ -2,6 +2,7 @@
 /debootstrap/debootstrap --second-stage
 echo "debian" > /etc/hostname
 echo "127.0.0.1     debian" >> /etc/hosts
+echo "127.0.0.1     localhost" >> /etc/hosts
 
 #boot.d run by /etc/rc.local
 mkdir /etc/boot.d

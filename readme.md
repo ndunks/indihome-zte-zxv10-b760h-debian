@@ -137,6 +137,9 @@ setprop svc.stop  service
 # powertl
 sys.powerctl cmd
 
+setprop ctl.stop media & setprop ctl.stop zygote & setprop ctl.stop bootanim
+
+
 ```
 ### Open Settings App
 
@@ -148,7 +151,7 @@ am start -n com.zte.iptvclient.android.settings/.activity.MainActivity
 
 [x] Custom initramfs
 [x] Debian Root on data or external sdcard
-[ ] Auto connect Wifi
+[x] Auto connect Wifi
 [ ] SSH Server
 [ ] remote GUI VNC
 [ ] Terminal/display HDMI
@@ -169,7 +172,7 @@ up time: 00:06:02, idle time: 00:23:03, sleep time: 00:00:00
 ## Reffs
 
 - [@quantvc - Running Debian Linux on Android device natively](https://medium.com/@quantvc/running-debian-on-android-device-natively-73545c9b0757)
-
+- [lk boot](https://github.com/ariafan/lk_mtk/blob/master/bootable/bootloader/lk/app/mt_boot/mt_boot.c)
 ## Usefull info for debug
 
 	[info.md](info.md)

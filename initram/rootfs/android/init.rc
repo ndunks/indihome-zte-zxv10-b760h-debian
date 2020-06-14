@@ -1058,20 +1058,14 @@ on property:selinux.reload_policy=1
 
 service console /system/bin/sh
     class core
-    console
     disabled
+    console
     user root
-    oneshot
     group log
 
-on property:ro.debuggable=1
-    write /proc/bootprof "on property:ro.debuggable=1"
+on property:ro.debuggable=*
+    write /proc/bootprof "on property:ro.debuggable=*"
     #start console
-    start adbd
-
-on property:ro.debuggable=0
-    write /proc/bootprof "on property:ro.debuggable=0"
-    #start console	
     start adbd
 
 # adbd is controlled via property triggers in init.<platform>.usb.rc
@@ -1106,7 +1100,7 @@ service servicemanager /system/bin/servicemanager
     class core
     user system
     group system
-    critical
+    #critical
     onrestart restart healthd
     onrestart restart zygote
     onrestart restart media
@@ -1193,7 +1187,7 @@ service surfaceflinger /system/bin/surfaceflinger
     class main
 #    user system
      group graphics drmrpc
-     onrestart restart zygote
+     #onrestart restart zygote
 
 service aal /system/bin/aal
     class main
@@ -1800,9 +1794,9 @@ service MtkCodecService /system/bin/MtkCodecService
     group audio media sdcard_r
 
 #Xiezj added 	
- service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
-     user root
-     oneshot
+#service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
+#     user root
+#     oneshot
 # on property:sys.boot_completed=1
 #     start basicService
 

@@ -5,20 +5,72 @@ L(){
 }
 
 init(){
-    # uncomment if you want terminal before init,ctrl+D to continue
-    #getty -nl /bin/sh 115200 /dev/ttyMT0 linux
+    # uncomment if you want terminal before init,ctrl+D to continue    
 
+    # init linux only
+    #init_direct
+    # init linux and android chroot
+    init_hybrid
+}
+
+init_hybrid(){
     if [ -x /android/init ] ; then
         # Move kernel generated blockdevice link
         mv emmc@* /android/
         touch /dev/null
-        chroot /android /init &
-        init_wait
+        init_wait &
+        exec chroot /android /init --help < /dev/console > /dev/console 2>&1
     fi
 
     L "Incorrect init. entering interactive mode."
     exec getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 }
+
+init_direct(){
+    mkdir proc sys linux
+    mount -t proc none /proc
+    mount -t sysfs none /sys
+    mount -t tmpfs none /dev
+    mdev -s
+    mount -t ext4 /dev/mmcblk0p7 /linux
+
+    mount -o move /proc /linux/proc
+    mount -o move /sys /linux/sys
+    #mount -o move /dev /linux/dev
+
+    if [ ! -e /linux/bin/busybox ] && [ ! -e /linux/usr/bin/busybox ]; then
+        cp -a /bin/busybox /linux/bin/busybox
+    fi
+
+    cp -a /init /linux/init_direct_linux
+    #getty -nl /bin/sh 115200 /dev/ttyMT0 linux
+    sh
+    umount /dev
+    # umount /proc
+    # umount /sys
+    exec chroot /linux /bin/bash < /dev/console > /dev/console 2>&1
+}
+
+init_direct_linux(){
+    busybox tty
+    mount -t tmpfs none /dev
+    [ -x /bin/mdev ] || ln -s busybox /bin/mdev
+    mdev -s
+    echo /bin/mdev > /proc/sys/kernel/hotplug
+
+    mkdir /dev/socket /dev/pts
+    mount -t devpts none /dev/pts
+    busybox telnetd -l /bin/sh -p 1234 &
+    L "Direct Linux Done"
+    ifconfig eth0 192.168.1.12 up
+    hostname debian
+    echo 127.0.0.1 localhost >> /etc/hosts
+    exec /bin/bash
+    echo "Don't exit again!!"
+    exec /bin/bash
+    #cp $0 init_direct_linux_tty
+}
+
 init_wait(){
     L "Waiting Android init"
     C=0
@@ -32,31 +84,33 @@ init_wait(){
         sleep 1
     done
     L "Android init done, mounting sysfs on linux"
-    sh
+    
+    # mkdir proc sys
+    # mount -o bind /android/proc /proc
+    # mount -o bind /android/sys /sys
+    # mount -o bind /android/dev /dev
+    # mount -o bind /android/dev/pts /dev/pts
+    # mount -o bind /android/dev/socket /dev/socket
+
     mkdir linux
-    mount -t ext4 -o noatime /android/dev/block/mmcblk0p7 /linux
+    mount -t ext4 /android/dev/block/mmcblk0p7 /linux
     mount -o bind /android/proc /linux/proc
     mount -o bind /android/sys /linux/sys
     mount -o bind /android/dev /linux/dev
     mount -o bind /android/dev/pts /linux/dev/pts
     mount -o bind /android/dev/socket /linux/dev/socket
-
-    # access android inside linux root
-    [ -d /linux/android ] || mkdir /linux/android
-    mount -o bind /android/system /linux/android/
     if [ ! -e /linux/bin/busybox ] && [ ! -e /linux/usr/bin/busybox ]; then
         cp -a /bin/busybox /linux/bin/busybox
     fi
-
     cp -a /init /linux/init_linux
-    exec switch_root linux /init_linux    
+    exec chroot /linux /init_linux
 }
 
 init_linux(){
-    #/etc/rc.local
-    echo "Done linux is ready, telnetd at port 1234"
-    /bin/bash
+    busybox telnetd -l /bin/sh -p 1234 &
+    L "Linux init done, telnet at 1234"
+    exec busybox nc -l -e /bin/sh -p 1234 &
+    exec /bin/bash
 }
-
 # call function based on this filename
 ${0##*/}
