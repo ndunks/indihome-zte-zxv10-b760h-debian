@@ -1,82 +1,61 @@
 #!/bin/sh
 
 L(){
-    echo -e "\e[33m$@\e[0m"
+    echo -e "\033[33m$@\033[0;0m"
 }
 
 init(){
-    L "INIT: $0"
-    mkdir proc sys linux
-    mount -t proc none /proc
-    mount -t sysfs none /sys
-    mount -t tmpfs none /dev
-    # hot plug
-    mdev -s
-
-    # mount usr data as linux linux rootfs
-    mount -t ext4 -o noatime,errors=panic /dev/mmcblk0p7 /linux
-
-    # Extract android initramfs if contain android initrams
-    if [ -e /android.cpio ]; then
-        L "Extracting android initramfs.."
-        [ -d /linux/android ] || mkdir /linux/android
-        cd /linux/android
-        cpio -u -i -d -F /android.cpio
-        chmod 700 * 2>/dev/null
-        busybox sync
-        cd /
-    fi
-    # if no busybox
-    if [ ! -e /linux/bin/busybox ] && [ ! -e /linux/usr/bin/busybox ]; then
-        cp -a /bin/busybox /linux/bin/
-    fi
-    # Move kernel generated blockdevice link
-    mv emmc@* /linux/android/
-    # copy this script to call nextstage
-    cp -a $0 /linux/init_multi
-    [ -e /linux/init_wait ] || ln -s /init_multi /linux/init_wait
     # uncomment if you want terminal before init,ctrl+D to continue
     #getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 
-    if [ -x /linux/android/init ] && [ -x /linux/init_multi ]; then
-        umount /proc
-        umount /sys
-        umount /dev
-        exec switch_root /linux /init_multi
+    if [ -x /android/init ] ; then
+        # Move kernel generated blockdevice link
+        mv emmc@* /android/
+        touch /dev/null
+        chroot /android /init &
+        init_wait
     fi
 
     L "Incorrect init. entering interactive mode."
     exec getty -nl /bin/sh 115200 /dev/ttyMT0 linux
 }
-
-# your are in switched root
-init_multi(){
-    L "Starting $0"
-    /init_wait &
-    exec chroot /android /init
-}
-
 init_wait(){
     L "Waiting Android init"
     C=0
     #while [ ! -e /android/dev/.coldboot_done ]; do
-    while [ -z "$(grep 'BOOT_Animation:START' /android/proc/bootprof)" ]; do
+    while [ -z "$(grep 'INIT: user build' /android/proc/bootprof)" ]; do
         C=$(($C+1))
-        L "init_wait: $C"
+        L "wait: $C"
         if [ "$(($C % 10))" = "0" ]; then
             cat /android/proc/bootprof
         fi
         sleep 1
     done
     L "Android init done, mounting sysfs on linux"
-    mount -t proc none /proc
-    mount -t sysfs none /sys
-    mount -o bind /android/dev /dev
-    mount -o bind /android/dev/pts /dev/pts
-    mount -o bind /android/dev/socket /dev/socket    
-    /etc/rc.local
+    sh
+    mkdir linux
+    mount -t ext4 -o noatime /android/dev/block/mmcblk0p7 /linux
+    mount -o bind /android/proc /linux/proc
+    mount -o bind /android/sys /linux/sys
+    mount -o bind /android/dev /linux/dev
+    mount -o bind /android/dev/pts /linux/dev/pts
+    mount -o bind /android/dev/socket /linux/dev/socket
+
+    # access android inside linux root
+    [ -d /linux/android ] || mkdir /linux/android
+    mount -o bind /android/system /linux/android/
+    if [ ! -e /linux/bin/busybox ] && [ ! -e /linux/usr/bin/busybox ]; then
+        cp -a /bin/busybox /linux/bin/busybox
+    fi
+
+    cp -a /init /linux/init_linux
+    exec switch_root linux /init_linux    
+}
+
+init_linux(){
+    #/etc/rc.local
     echo "Done linux is ready, telnetd at port 1234"
-    exec busybox telnetd -p 1234 -l /bin/bash
+    /bin/bash
 }
 
 # call function based on this filename

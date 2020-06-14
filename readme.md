@@ -157,7 +157,7 @@ Make multi console. if console /dev/ttyMT0 used by linux, android command will  
 
 ## Known bugs
 
-Android restart after about 23 - 24 minutes
+Android restart after about 6 minutes
 ```
 while true; do sleep 1 && uptime; done &
 
