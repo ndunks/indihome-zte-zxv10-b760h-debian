@@ -60,11 +60,8 @@ init_direct_linux(){
 
     mkdir /dev/socket /dev/pts
     mount -t devpts none /dev/pts
-    busybox telnetd -l /bin/sh -p 1234 &
-    L "Direct Linux Done"
-    ifconfig eth0 192.168.1.12 up
-    hostname debian
-    echo 127.0.0.1 localhost >> /etc/hosts
+    init_linux
+
     exec /bin/bash
     echo "Don't exit again!!"
     exec /bin/bash
@@ -107,10 +104,14 @@ init_wait(){
 }
 
 init_linux(){
+    hostname debian
+    ifconfig eth0 192.168.1.12 up
     busybox telnetd -l /bin/sh -p 1234 &
-    L "Linux init done, telnet at 1234"
-    exec busybox nc -l -e /bin/sh -p 1234 &
+    echo "Linux init done, telnet at 1234"
+    echo "eth0 192.168.1.12"
+    L "Direct Linux Done"
     exec /bin/bash
 }
+
 # call function based on this filename
 ${0##*/}
