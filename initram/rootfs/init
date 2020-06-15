@@ -1,74 +1,46 @@
-#!/bin/sh
+#!/bin/busybox sh
 
 L(){
     echo -e "\033[33m$@\033[0;0m"
 }
 
 init(){
-    # uncomment if you want terminal before init,ctrl+D to continue    
-
-    # init linux only
-    #init_direct
-    # init linux and android chroot
-    init_hybrid
-}
-
-init_hybrid(){
-    if [ -x /android/init ] ; then
-        # Move kernel generated blockdevice link
-        mv emmc@* /android/
-        touch /dev/null
-        init_wait &
-        exec chroot /android /init # --help < /dev/console > /dev/console 2>&1
-    fi
-
-    L "Incorrect init. entering interactive mode."
-    exec getty -nl /bin/sh 115200 /dev/ttyMT0 linux
-}
-
-init_direct(){
     mkdir proc sys linux
     mount -t proc none /proc
     mount -t sysfs none /sys
-    mount -t tmpfs none /dev
     mdev -s
     mount -t ext4 /dev/mmcblk0p7 /linux
-
-    mount -o move /proc /linux/proc
-    mount -o move /sys /linux/sys
-    #mount -o move /dev /linux/dev
-
-    if [ ! -e /linux/bin/busybox ] && [ ! -e /linux/usr/bin/busybox ]; then
+    if [ ! -e /linux/bin/busybox ]; then
         cp -a /bin/busybox /linux/bin/busybox
     fi
+    [ -d /linux/android ] || mkdir /linux/android
+    mount -t tmpfs none /linux/android
+    
+    mv android/* linux/android/
+    mv emmc@* /linux/android/
 
-    cp -a /init /linux/init_direct_linux
-    #getty -nl /bin/sh 115200 /dev/ttyMT0 linux
-    sh
-    umount /dev
-    # umount /proc
-    # umount /sys
-    exec chroot /linux /bin/bash < /dev/console > /dev/console 2>&1
+    cp -a /init /linux/init_switch
+    exec switch_root /linux /init_switch
 }
 
-init_direct_linux(){
-    busybox tty
-    mount -t tmpfs none /dev
-    [ -x /bin/mdev ] || ln -s busybox /bin/mdev
-    mdev -s
-    echo /bin/mdev > /proc/sys/kernel/hotplug
 
-    mkdir /dev/socket /dev/pts
-    mount -t devpts none /dev/pts
-    L "Direct Linux Done"
-    init_linux
+init_switch(){
+    if [ -x /android/init ] ; then
+        touch /dev/null
+        exec chroot /android /init &
+        init_wait
+    fi
+
+    L "Incorrect init. entering interactive mode."
+    exec busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
 }
 
 init_wait(){
     L "Waiting Android init"
+    sleep 1
     C=0
-    #while [ ! -e /android/dev/.coldboot_done ]; do
-    while [ -z "$(grep 'INIT: user build' /android/proc/bootprof)" ]; do
+    while [ ! -e /android/dev/.coldboot_done ]; do
+    #while [ -z "$(grep 'INIT: user build' /android/proc/bootprof)" ]; do
         C=$(($C+1))
         L "wait: $C"
         if [ "$(($C % 10))" = "0" ]; then
@@ -84,19 +56,12 @@ init_wait(){
     # mount -o bind /android/dev /dev
     # mount -o bind /android/dev/pts /dev/pts
     # mount -o bind /android/dev/socket /dev/socket
-
-    mkdir linux
-    mount -t ext4 /android/dev/block/mmcblk0p7 /linux
-    mount -o bind /android/proc /linux/proc
-    mount -o bind /android/sys /linux/sys
-    mount -o bind /android/dev /linux/dev
-    mount -o bind /android/dev/pts /linux/dev/pts
-    mount -o bind /android/dev/socket /linux/dev/socket
-    if [ ! -e /linux/bin/busybox ] && [ ! -e /linux/usr/bin/busybox ]; then
-        cp -a /bin/busybox /linux/bin/busybox
-    fi
-    cp -a /init /linux/init_linux
-    exec chroot /linux /init_linux
+    mount -o bind /android/proc /proc
+    mount -o bind /android/sys /sys
+    mount -o bind /android/dev /dev
+    mount -o bind /android/dev/pts /dev/pts
+    mount -o bind /android/dev/socket /dev/socket
+    init_linux
 }
 
 init_linux(){
@@ -106,6 +71,15 @@ init_linux(){
     echo 127.0.0.1 localhost >> /etc/hosts
     busybox telnetd -l /bin/sh -p 1234 &
     busybox date @1592201867
+    if [ ! -x /bin/android ]; then
+        cat <<EOF > /bin/android
+#!/bin/bash
+OLD_PATH=$PATH
+export PATH=/system/sbin:/system/bin:/system/xbin:/sbin:/sbchk
+/bin/busybox chroot /android /system/bin/sh
+export PATH=$OLD_PATH
+EOF
+    fi
     L "Linux init done, telnet at 1234, start bash"
     # Serial Terminal
     exec busybox getty -L -nl /bin/bash 115200 /dev/ttyMT0 linux
