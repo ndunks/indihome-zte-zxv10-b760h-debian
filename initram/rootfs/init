@@ -69,16 +69,17 @@ init_linux(){
     route add default gw 192.168.1.100
     hostname debian
     echo 127.0.0.1 localhost >> /etc/hosts
-    busybox telnetd -l /bin/sh -p 1234 &
+    busybox telnetd -l /bin/bash -p 1234 &
     busybox date @1592201867
     if [ ! -x /bin/android ]; then
         cat <<EOF > /bin/android
 #!/bin/bash
-OLD_PATH=$PATH
+OLD_PATH=\$PATH
 export PATH=/system/sbin:/system/bin:/system/xbin:/sbin:/sbchk
 /bin/busybox chroot /android /system/bin/sh
-export PATH=$OLD_PATH
+export PATH=\$OLD_PATH
 EOF
+        chmod +x /bin/android
     fi
     L "Linux init done, telnet at 1234, start bash"
     # Serial Terminal
