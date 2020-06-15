@@ -21,7 +21,7 @@ FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 FLASH_CONFIG_ANDROID=$(OUT_DIR)/flash_config_android.xml
 FLASH_CONFIG_RECOVERY=$(OUT_DIR)/flash_config_recover.xml
 
-REBOOT_STB := @(echo \\06 > /dev/ttyUSB0 && sleep $(REBOOT_DELAY) && echo reboot > /dev/ttyUSB0 || exit 0) &
+REBOOT_STB := (echo \\06 > /dev/ttyUSB0 && sleep $(REBOOT_DELAY) && echo reboot > /dev/ttyUSB0 || exit 0) & 
 
 all:
 	@echo "\e[33mNOTHING TODO YET\e[0m"
@@ -49,7 +49,10 @@ android/tmpfs/system.img:
 flash_initram: initram $(FLASH_CONFIG_INITRAM)
 	$(info Connect USB Devices)
 	$(REBOOT_STB)
-	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_INITRAM)
+	@while ! $(FLASH_TOOL) -b -i $(FLASH_CONFIG_INITRAM); do \
+		echo $(GREEN)try again..$(NORM) ;\
+		$(REBOOT_STB) \
+	done
 
 ifndef NO_BUILD
 flash_debian: debian $(FLASH_CONFIG_DEBIAN)

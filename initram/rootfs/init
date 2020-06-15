@@ -19,7 +19,7 @@ init_hybrid(){
         mv emmc@* /android/
         touch /dev/null
         init_wait &
-        exec chroot /android /init --help < /dev/console > /dev/console 2>&1
+        exec chroot /android /init # --help < /dev/console > /dev/console 2>&1
     fi
 
     L "Incorrect init. entering interactive mode."
@@ -108,9 +108,9 @@ init_wait(){
 
 init_linux(){
     busybox telnetd -l /bin/sh -p 1234 &
-    L "Linux init done, telnet at 1234"
-    exec busybox nc -l -e /bin/sh -p 1234 &
-    exec /bin/bash
+    L "Linux init done, telnet at 1234, start bash"
+    #exec busybox nc -l -e /bin/sh -p 1234 &
+    exec /bin/bash </dev/console 2>&1 > /dev/console
 }
 # call function based on this filename
 ${0##*/}

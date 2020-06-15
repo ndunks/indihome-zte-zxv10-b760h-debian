@@ -262,9 +262,10 @@ on fs_property:ro.persist.partition.support=yes
     mkdir /dev/fscklogs 0770 root system
 
 on fs
-
+    write /proc/bootprof "on fs"
    mount iso9660 loop@/system/mobile_toolkit/iAmCdRom.iso /mnt/cd-rom ro
 on post-fs
+    write /proc/bootprof "on post-fs"
     # change sbchk permission before mounted as read-only
     start readahead
     mount rootfs rootfs / rw remount
@@ -332,6 +333,7 @@ on post-fs
     chown system system /data/key_provisioning 
 
 on post-fs-data
+    write /proc/bootprof "on post-fs-data"
     # We chown/chmod /data again so because mount is run as root + defaults
     chown system system /data
     #chmod 0777 /data
@@ -765,6 +767,7 @@ on post-fs-data
 ###added end
 
 on boot
+    write /proc/bootprof "on boot"
    chown root /remount.sh
    chmod 700 /remount.sh
    exec /remount.sh
