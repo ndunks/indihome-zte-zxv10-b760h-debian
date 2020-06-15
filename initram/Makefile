@@ -22,6 +22,7 @@ $(INITRAMFS_FINAL): $(INITRAMFS)
 
 $(INITRAMFS): $(shell find rootfs -type f)
 	$(info $(GREEN)CREATING $(@F).. $(NORM))
+	$(shell chmod -R 700 rootfs/*)
 	$(shell cd rootfs && find | cpio  --owner 0:0 --quiet -H newc -o | gzip > $@)
 	@sync
 
