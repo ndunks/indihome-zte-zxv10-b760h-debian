@@ -5,7 +5,7 @@ export ORIGINAL_DIR=$(DIR)/original
 
 export BOOT_IMG=$(OUT_DIR)/boot.img
 export DEBIAN_IMG=$(OUT_DIR)/debian.img
-export ANDROID_IMG=$(OUT_DIR)/android.img
+export ANDROID_IMG=$(DIR)/android/tmpfs/android.img
 export RECOVERY_IMG=$(OUT_DIR)/recovery.img
 
 export GREEN=$(shell echo "\033[32m")

@@ -41,9 +41,7 @@ debian:
 recovery:
 	make -C recovery
 
-android: android/tmpfs/system.img
-
-android/tmpfs/system.img:
+android:
 	make -C android
 
 flash_initram: initram $(FLASH_CONFIG_INITRAM)
@@ -63,11 +61,11 @@ endif
 	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_DEBIAN)
 
-flash_android: android $(FLASH_CONFIG_ANDROID)
+flash_android: android
 	$(info Connect USB Devices)
 	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_ANDROID)
-	
+
 flash_recovery: recovery $(FLASH_CONFIG_RECOVERY)
 	$(info Connect USB Devices)
 	$(REBOOT_STB)

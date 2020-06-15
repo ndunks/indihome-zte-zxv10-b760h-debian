@@ -12,8 +12,9 @@ init(){
     mount -t sysfs none /sys
     mdev -s
     mount -t ext4 /dev/mmcblk0p7 /linux
+    # uncoment if you want terminal before boot, Ctrl+D to continue
+    #busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
 
-    busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
     if [ $SERIAL_CONSOLE == linux ] && grep '^\s*start\s\+console' android/init.rc; then
         L "Disabling android console"
         sed -i 's/^\s*start\s\+console/#start console/' android/init.rc
@@ -62,16 +63,13 @@ init_wait(){
     done
     L "Android init done, mounting sysfs on linux"
     
-    # mkdir proc sys
-    # mount -o bind /android/proc /proc
-    # mount -o bind /android/sys /sys
-    # mount -o bind /android/dev /dev
-    # mount -o bind /android/dev/pts /dev/pts
-    # mount -o bind /android/dev/socket /dev/socket
-    mount -o bind /android/proc /proc
-    mount -o bind /android/sys /sys
+    #mount -o bind /android/proc /proc
+    #mount -o bind /android/sys /sys
+    mount -t proc none /proc
+    mount -t sysfs none /sys
     mount -o bind /android/dev /dev
-    mount -o bind /android/dev/pts /dev/pts
+    #mount -o bind /android/dev/pts /dev/pts
+    mount -t devpts none /dev/pts
     mount -o bind /android/dev/socket /dev/socket
     init_linux
 }
@@ -101,9 +99,10 @@ EOF
 }
 
 format_cache(){
-    mkdir cache system
-    mount -t ext4 /dev/mmcblk0p5 /system
+    #mkdir cache system
+    #mount -t ext4 /dev/mmcblk0p5 /system
     #mount -t ext4 /dev/mmcblk0p6 /cache
+    busybox mkfs.ext2 
 }
 
 # call function based on this filename
