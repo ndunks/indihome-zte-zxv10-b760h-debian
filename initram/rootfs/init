@@ -60,15 +60,8 @@ init_direct_linux(){
 
     mkdir /dev/socket /dev/pts
     mount -t devpts none /dev/pts
-    busybox telnetd -l /bin/sh -p 1234 &
     L "Direct Linux Done"
-    ifconfig eth0 192.168.1.12 up
-    hostname debian
-    echo 127.0.0.1 localhost >> /etc/hosts
-    exec /bin/bash
-    echo "Don't exit again!!"
-    exec /bin/bash
-    #cp $0 init_direct_linux_tty
+    init_linux
 }
 
 init_wait(){
@@ -107,10 +100,15 @@ init_wait(){
 }
 
 init_linux(){
+    ifconfig eth0 192.168.1.12 up
+    route add default gw 192.168.1.100
+    hostname debian
+    echo 127.0.0.1 localhost >> /etc/hosts
     busybox telnetd -l /bin/sh -p 1234 &
+    busybox date @1592201867
     L "Linux init done, telnet at 1234, start bash"
-    #exec busybox nc -l -e /bin/sh -p 1234 &
-    exec /bin/bash </dev/console 2>&1 > /dev/console
+    # Serial Terminal
+    exec busybox getty -L -nl /bin/bash 115200 /dev/ttyMT0 linux
 }
 # call function based on this filename
 ${0##*/}
