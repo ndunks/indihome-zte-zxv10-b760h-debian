@@ -3,6 +3,8 @@
 L(){
     echo -e "\033[33m$@\033[0;0m"
 }
+# UART MAIN CONSOLE linux/android
+export SERIAL_CONSOLE=android
 
 init(){
     mkdir proc sys linux
@@ -10,6 +12,17 @@ init(){
     mount -t sysfs none /sys
     mdev -s
     mount -t ext4 /dev/mmcblk0p7 /linux
+
+    busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
+    if [ $SERIAL_CONSOLE == linux ] && grep '^\s*start\s\+console' android/init.rc; then
+        L "Disabling android console"
+        sed -i 's/^\s*start\s\+console/#start console/' android/init.rc
+    fi
+    if [ $SERIAL_CONSOLE == android ] && grep '^\s*\#\s*start\s\+console' android/init.rc; then
+        L "Enabling android console"
+        sed -i 's/^\s*\#\s*start\s\+console/start console/' android/init.rc
+    fi
+
     if [ ! -e /linux/bin/busybox ]; then
         cp -a /bin/busybox /linux/bin/busybox
     fi
@@ -18,7 +31,6 @@ init(){
     
     mv android/* linux/android/
     mv emmc@* /linux/android/
-
     cp -a /init /linux/init_switch
     exec switch_root /linux /init_switch
 }
@@ -69,8 +81,7 @@ init_linux(){
     route add default gw 192.168.1.100
     hostname debian
     echo 127.0.0.1 localhost >> /etc/hosts
-    busybox telnetd -l /bin/bash -p 1234 &
-    busybox date @1592201867
+    busybox date @1592201867 > /dev/null
     if [ ! -x /bin/android ]; then
         cat <<EOF > /bin/android
 #!/bin/bash
@@ -81,9 +92,18 @@ export PATH=\$OLD_PATH
 EOF
         chmod +x /bin/android
     fi
-    L "Linux init done, telnet at 1234, start bash"
+    L "Linux init done, telnet at 1234"
+    busybox telnetd -l /bin/bash -p 1234 &
     # Serial Terminal
-    exec busybox getty -L -nl /bin/bash 115200 /dev/ttyMT0 linux
+    test $SERIAL_CONSOLE = 'linux' && exec busybox getty -L -nl /bin/bash 115200 /dev/ttyMT0 linux
+    L "Not starting tty, console is $SERIAL_CONSOLE"
+    exec busybox nc -l -e /bin/sh 
+}
+
+format_cache(){
+    mkdir cache system
+    mount -t ext4 /dev/mmcblk0p5 /system
+    #mount -t ext4 /dev/mmcblk0p6 /cache
 }
 
 # call function based on this filename
