@@ -165,7 +165,16 @@ up time: 00:06:03, idle time: 00:24:01, sleep time: 00:00:00
 up time: 00:06:03, idle time: 00:23:05, sleep time: 00:00:00
 up time: 00:06:02, idle time: 00:23:03, sleep time: 00:00:00
 ```
+It's like hwclock problem
 
+``` bash
+# on linux
+hwclock --show
+hwclock: select() to /dev/rtc0 to wait for clock tick timed out
+# on adb
+hwclock                                                
+hwclock: can't open '/dev/misc/rtc': Not a directory
+```
 ## Reffs
 
 - [@quantvc - Running Debian Linux on Android device natively](https://medium.com/@quantvc/running-debian-on-android-device-natively-73545c9b0757)
