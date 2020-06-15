@@ -110,5 +110,6 @@ init_linux(){
     # Serial Terminal
     exec busybox getty -L -nl /bin/bash 115200 /dev/ttyMT0 linux
 }
+
 # call function based on this filename
 ${0##*/}
