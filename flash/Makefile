@@ -1,3 +1,6 @@
+export ROOT=../
+include $(ROOT)Makeconfig
+
 ifndef OUT
 $(error No output file specified)
 endif

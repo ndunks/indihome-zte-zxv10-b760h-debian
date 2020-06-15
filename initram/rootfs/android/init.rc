@@ -13,7 +13,7 @@ import /init.trace.rc
 on early-init
     # Set init and its forked children's oom_adj.
     write /proc/1/oom_adj -16
-    write /proc/bootprof "INIT:setenforce_Permissive"
+    write /proc/bootprof "INIT:SELinux Permissive"
     setenforce Permissive
 
     # Set the security context for the init process.
@@ -46,6 +46,7 @@ on early_property:ro.build.type=eng
     export BOOTCLASSPATH_EX /system/framework/mediatek-op.jar
 
 on early_property:ro.hardware=mt8127
+    write /proc/bootprof "early_property:ro.hardware=mt8127"
     setprop ro.mtk.hardware mt8127
    
 on init
@@ -968,25 +969,31 @@ on boot
     class_start default
 
 on nonencrypted
+    write /proc/bootprof "on nonencrypted"
     class_start late_start
 
 on property:vold.decrypt=trigger_reset_main
+    write /proc/bootprof "on property:vold.decrypt=trigger_reset_main"
     write /sys/class/leds/lcd-backlight/brightness  0
     class_reset main
 
 on property:vold.decrypt=trigger_load_persist_props
+    write /proc/bootprof "on property:vold.decrypt=trigger_load_persist_props"
     load_persist_props
 
 on property:vold.decrypt=trigger_post_fs_data
+    write /proc/bootprof "on property:vold.decrypt=trigger_post_fs_data"
     trigger post-fs-data
 
 on property:vold.decrypt=trigger_restart_min_framework
+    write /proc/bootprof "on property:vold.decrypt=trigger_restart_min_framework"
     write /sys/power/state on
     write /sys/class/leds/lcd-backlight/brightness  120
     start msensord
     class_start main
 
 on property:vold.decrypt=trigger_restart_framework
+    write /proc/bootprof "on property:vold.decrypt=trigger_restart_framework"
     write /sys/power/state on
     write /sys/class/leds/lcd-backlight/brightness  120 
     start msensord
@@ -995,20 +1002,24 @@ on property:vold.decrypt=trigger_restart_framework
     class_start late_start
 
 on property:vold.decrypt=trigger_shutdown_framework
+    write /proc/bootprof "on property:vold.decrypt=trigger_shutdown_framework"
     write /sys/class/leds/lcd-backlight/brightness  0
     class_reset late_start
     class_reset default
     class_reset main
 
 on property:sys.powerctl=*
+    write /proc/bootprof "on property:sys.powerctl=*"
     powerctl ${sys.powerctl}
 
 # system server cannot write to /proc/sys files, so proxy it through init
 on property:sys.sysctl.extra_free_kbytes=*
+    write /proc/bootprof "on property:sys.sysctl.extra_free_kbytes=*"
     write /proc/sys/vm/extra_free_kbytes ${sys.sysctl.extra_free_kbytes}
 
 ## mtk printk uart controller
 on property:persist.uartconsole.enable=1
+    write /proc/bootprof "on property:persist.uartconsole.enable=1"
     write /proc/mtprintk 1
 
 ## Daemon processes to be run by init.
@@ -1041,6 +1052,7 @@ service healthd-charger /sbin/healthd -n
     seclabel u:r:healthd:s0
 
 on property:selinux.reload_policy=1
+    write /proc/bootprof "on property:selinux.reload_policy=1"
     restart ueventd
     restart installd
 
@@ -1053,10 +1065,12 @@ service console /system/bin/sh
     group log
 
 on property:ro.debuggable=1
+    write /proc/bootprof "on property:ro.debuggable=1"
     #start console
     start adbd
 
 on property:ro.debuggable=0
+    write /proc/bootprof "on property:ro.debuggable=0"
     #start console	
     start adbd
 
@@ -1068,6 +1082,7 @@ service adbd /sbin/adbd
 
 # adbd on at boot in emulator
 on property:ro.kernel.qemu=1
+    write /proc/bootprof "on property:ro.kernel.qemu=1"
     start adbd
 
 service drvbd /system/bin/drvbd
@@ -1152,6 +1167,7 @@ service atcid-daemon-e /system/bin/atcid
 	oneshot
 
 on early_property:ro.build.type=eng
+    write /proc/bootprof "on early_property:ro.build.type=eng"
 start atci_service
 start atcid-daemon-e
 
@@ -1205,9 +1221,11 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
 
 # monitor property and power on/off wlan 
 on property:wlan.driver.status=ok
+    write /proc/bootprof "on property:wlan.driver.status=ok"
 	write /dev/wmtWifi "1"
 
 on property:wlan.driver.status=unloaded
+    write /proc/bootprof "on property:wlan.driver.status=unloaded"
 	write /dev/wmtWifi "0"
     
 service insmod insmod 
@@ -1327,9 +1345,11 @@ service dhcp6c_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wl
     oneshot
 
 on property:service.dhcp6c_wlan0.enable=0    
+    write /proc/bootprof "on property:service.dhcp6c_wlan0.enable=0    "
     stop dhcp6c_wlan0    
 
 on property:service.dhcp6c_wlan0.enable=1
+    write /proc/bootprof "on property:service.dhcp6c_wlan0.enable=1"
     start dhcp6c_wlan0
 
 service dhcp6c_PD /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cPD.conf" -Df
@@ -1343,9 +1363,11 @@ service pppoe_wlan0 /system/bin/launchpppoe
     oneshot
 
 on property:service.pppoe_wlan0.enable=0    
+    write /proc/bootprof "on property:service.pppoe_wlan0.enable=0    "
     stop pppoe_wlan0    
 
 on property:service.pppoe_wlan0.enable=1
+    write /proc/bootprof "on property:service.pppoe_wlan0.enable=1"
     start pppoe_wlan0
 
 service zte_dhcp /system/bin/dhcpd -i wlan0 -o /data/misc/wifi/dhcp.options-wlan0
@@ -1394,6 +1416,7 @@ service bootanim /system/bin/bootanimation
     oneshot
 
 on property:init.svc.bootanim=stopped
+    write /proc/bootprof "on property:init.svc.bootanim=stopped"
     start preinstall
     write /sys/kernel/readahead 0
     exec /system/bin/sh -c "[ `cat /sys/kernel/readahead` == 2 ] && /system/bin/inode2name /system /proc/readahead > /data/readahead.txt"
@@ -1677,9 +1700,11 @@ service geomagneticd /system/bin/geomagneticd
 #emsvr service (start)
 #
 on property:ro.build.type=eng
+    write /proc/bootprof "on property:ro.build.type=eng"
     start emsvr
 
 on property:ro.build.type=user
+    write /proc/bootprof "on property:ro.build.type=user"
     start emsvr_user
 
 service emsvr_user /system/bin/em_svr
@@ -1774,23 +1799,13 @@ service MtkCodecService /system/bin/MtkCodecService
     user root
     group audio media sdcard_r
 
-# service installapp /system/bin/installapp
-#     user root
-# 	disabled
-# 	oneshot
-	
-# service uninstallapp /system/bin/uninstallapp
-#     user root
-# 	disabled
-# 	oneshot		
-
 #Xiezj added 	
-# service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
-#     user root
-#     oneshot
+ service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
+     user root
+     oneshot
 # on property:sys.boot_completed=1
 #     start basicService
-    
+
 #Xiezj added end 
 
 # service preinstall /system/bin/preinstall.sh

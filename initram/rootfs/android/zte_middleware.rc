@@ -1,0 +1,73 @@
+################################################################
+# ZTE init service Config
+################################################################
+    
+service wirelesskey /system/bin/wirelesskey
+	class main
+	oneshot
+
+service netaccess /system/bin/netaccess
+    class main
+    disabled
+    oneshot
+	
+service ztepropertyd /system/bin/ztepropertyd
+	class core
+	oneshot	
+	
+service net-eth0 /system/xbin/busybox ifconfig eth0 up
+	class main
+	oneshot	
+
+on property:sys.evtmanager.started=1
+  start middwareShell
+  
+service middwareShell /system/bin/zte_middleware.sh
+	disabled
+	oneshot
+
+service fttc /system/bin/FactoryTestTool_C
+	disabled
+	oneshot
+	
+# service rpcapd /data/data/com.stbmc.maincontrol/files/mcres/respicsh/rpcapd -4 -n -d &
+#     user root
+#     disabled
+#     oneshot
+	
+service ServiceAgent /system/bin/ServiceAgent
+	disabled
+	class main
+	oneshot
+
+service ssh_start /system/xbin/ssh_control 1
+    class main
+    disabled
+    oneshot
+
+service ssh_stop /system/xbin/ssh_control 0
+    class main
+    disabled 
+    oneshot
+        
+on property:sys.zte.sshd=stop
+    stop ssh_start
+    start ssh_stop
+on property:sys.zte.sshd=start
+    stop ssh_stop
+    start ssh_start
+
+# DingQin 2016-09-27 �����Ż�����Ҫapk����ʱż����Ϊ�ռ䲻�������� - add begin
+#on property:sys.zte.cleanData=1
+#    cd /data/media/0/
+#    rm -rf *
+
+service zte-clean-data /system/bin/sh /system/bin/cleanSDCard.sh
+    user root
+    disabled
+    oneshot
+
+on property:sys.zte.cleanData=1 
+    start zte-clean-data
+# DingQin 2016-09-27 �����Ż�����Ҫapk����ʱż����Ϊ�ռ䲻�������� - add end
+	

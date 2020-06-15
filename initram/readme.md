@@ -8,6 +8,11 @@ make
 
 ```
 
+## Reffs
+
+- [init source](https://android.googlesource.com/platform/system/core/+/refs/tags/android-4.4.2_r2.0.1/init/init.c)
+- [Kernel but Android differ](https://android.googlesource.com/kernel/mediatek/+/android-4.4.4_r3)
+
 
 ## HOW TO EXTRACT
 
@@ -55,7 +60,6 @@ mkdir rootfs
 pushd rootfs
 dd if=../initramfs.cpio.gz bs=512 skip=1 | gzip -d | cpio -i
 popd
-dd if=initramfs.cpio.gz bs=512 count=1 of=initramfs_head.bin
 ```
 
 ## SOME INFORMATION

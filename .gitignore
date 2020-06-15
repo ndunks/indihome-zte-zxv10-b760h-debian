@@ -1,7 +1,7 @@
 tmp
 # To large to commit this on github
-original/system.img
-result/
+original/system.img*
+result/*
 tool/mkimage
 backup
 debian/tmp
@@ -10,3 +10,5 @@ initram/rootfs/android.cpio
 **/.env
 tool/mkbootimg
 tool/unpackbootimg
+recovery/*
+!**/Makefile

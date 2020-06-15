@@ -2,6 +2,50 @@
 
 	Android STB / TV Box Mediatek MT8127 RichMedia Indihome ZTE ZXV10 B760H
 
+## Base 
+
+**Kernel & Android Version**
+```
+Linux localhost 3.4.67 #1 SMP PREEMPT Wed Jun 7 18:15:22 HKT 2017 armv7l GNU/Linux
+Android 4.4.2 Kitkat
+
+```
+**build.prop**
+``` bash
+ro.build.version.sdk=19
+ro.build.version.codename=REL
+ro.build.version.release=4.4.2
+ro.build.date=Fri Nov 23 23:59:31 HKT 2018
+ro.build.date.utc=1542988771
+ro.build.type=user
+ro.build.display.id=V73411318.1024
+ro.build.user=android-builder
+ro.build.host=ubuntu-129
+ro.build.tags=release-keys
+# ro.build.product is obsolete; use ro.product.device
+ro.build.product=ztemt85_bx_kk
+# Do not try to parse ro.build.description or .fingerprint
+ro.build.description=ztemt85_bx_kk-user 4.4.2 KOT49H eng.stb-android.20181123.235335 release-keys
+ro.build.flavor=
+ro.build.characteristics=tablet
+ro.build.fingerprint=Mebox/ztemt85_bx_kk/ztemt85_bx_kk:4.4.2/KOT49H/20181123.235335:user/release-keys
+ro.build.version.incremental=V73411318.1024
+ro.product.screenzoom.unit=permillage
+ro.product.wifi=1
+ro.product.build.date=2018-11-23
+ro.product.version.software=V73411318.1024
+ro.product.version.base=V73411318.1007 2016-11-09
+ro.product.brand=Mebox
+ro.product.device=ztemt85_bx_kk
+ro.product.board=MT8685
+ro.product.cpu.abi=armeabi-v7a
+ro.product.cpu.abi2=armeabi
+ro.product.manufacturer=ZTE Corporation
+ro.product.locale.language=en
+ro.product.locale.region=US
+# ro.build.product is obsolete; use ro.product.device
+ro.product.name=B760H
+```
 
 ## Requirements
 
@@ -9,6 +53,8 @@
 	- GNU Make
 	- SP Flash Tool
 	- Debootstrap
+	- Qemu User Static
+	- BinFmt
 
 ## MODE
 
@@ -76,6 +122,28 @@ don't need to re-attach your USB port
 
 file stored on `backup` directory
 
+## Android Tips
+
+### Services
+
+``` bash
+# list init service
+getprop | grep svc.
+
+# start stop
+setprop svc.start service
+setprop svc.stop  service
+
+# powertl
+sys.powerctl cmd
+
+```
+### Open Settings App
+
+```
+am start -n com.zte.iptvclient.android.settings/.activity.MainActivity
+```
+
 ## TODOS
 
 [x] Custom initramfs
@@ -84,6 +152,19 @@ file stored on `backup` directory
 [ ] SSH Server
 [ ] remote GUI VNC
 [ ] Terminal/display HDMI
+
+Make multi console. if console /dev/ttyMT0 used by linux, android command will  not output anything?
+
+## Known bugs
+
+Android restart after about 6 minutes
+```
+while true; do sleep 1 && uptime; done &
+
+up time: 00:06:03, idle time: 00:24:01, sleep time: 00:00:00
+up time: 00:06:03, idle time: 00:23:05, sleep time: 00:00:00
+up time: 00:06:02, idle time: 00:23:03, sleep time: 00:00:00
+```
 
 ## Reffs
 

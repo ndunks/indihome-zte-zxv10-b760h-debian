@@ -1,3 +1,5 @@
+export ROOT=../
+include $(ROOT)Makeconfig
 
 # Create .env on this directory to set default value
 -include .env
@@ -9,7 +11,7 @@ override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 
 ifndef INCLUDE_PACKAGES
-override INCLUDE_PACKAGES = sysvinit-core,net-tools,openssh-server,nano
+override INCLUDE_PACKAGES = sysvinit-core,net-tools,openbox,xorg
 endif
 
 ifndef EXCLUDE_PACKAGES
@@ -49,18 +51,8 @@ TMP_ROOTFS=$(TMP)/rootfs/
 FS_FEATURE_ENABLE=has_journal,ext_attr,resize_inode,filetype,extent,sparse_super,large_file,uninit_bg
 FS_FEATURE_DISABLE=^dir_index,^64bit,^flex_bg,^huge_file,^dir_nlink,^extra_isize,^metadata_csum
 
-all: image
-	sync $(TMP_ROOTFS)
-	@sudo umount $(TMP_ROOTFS) || exit 0
-ifdef MIN
-	e2fsck -p $(TMP_IMG)
-	resize2fs -M $(TMP_IMG) 
-endif
-	sync $(TMP_IMG)
-	cp $(TMP_IMG) ../result/
-	sync
-
-image: $(TMP) $(TMP_IMG) $(TMP_ROOTFS)
+$(DEBIAN_IMG): $(TMP) $(TMP_IMG) $(TMP_ROOTFS)
+	cp $(TMP_IMG) $(DEBIAN_IMG)
 
 print_packages: $(TMP)
 	[ -d $(TMP)/debs ] || mkdir $(TMP)/debs
@@ -93,7 +85,7 @@ clean_rootfs:
 	@sudo umount $(TMP_ROOTFS) || exit 0
 	@sudo rm -f $(TMP_IMG) || exit 0
 	@sudo rm -rf $(TMP_ROOTFS) || exit 0
-	@rm -f ../result/debian.img || exit 0
+	@rm -f $(OUT_DIR)/debian.img || exit 0
 
 clean:
 	@test ! -d $(TMP_ROOTFS) || sudo umount $(TMP_ROOTFS) || exit 0
