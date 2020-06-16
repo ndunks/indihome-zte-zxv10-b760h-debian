@@ -50,6 +50,7 @@ ro.product.name=B760H
 ## Requirements
 
 	- Linux Debian Based x86_64
+	- at least 4GB RAM (reduce without tmpfs)
 	- GNU Make
 	- SP Flash Tool
 	- Debootstrap
@@ -123,7 +124,18 @@ don't need to re-attach your USB port
 file stored on `backup` directory
 
 ## Android Tips
+### LEds control
+``` bash
+# on / off lampu koneksi merah
+echo off > /proc/ledlight/netred/state
+# on / off lampu koneksi hijau
+echo on > /proc/ledlight/netgreen/state
+# on / off lampu power merah
+echo off > /proc/ledlight/powerred/state
+# on / off lampu power hijau
+echo on > /proc/ledlight/powergreen/state
 
+```
 ### Services
 
 ``` bash
