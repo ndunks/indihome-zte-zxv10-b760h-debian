@@ -1,0 +1,50 @@
+0	    BOOT PROF (unit:msec)
+----------------------------------------
+      3793        : preloader
+      1010        : lk
+      2072        : lk->Kernel
+----------------------------------------
+      3274.086461 : Kernel_init_done
+      3598.018000 : SElinux start.
+      5073.865384 : SElinux end.
+      5079.615538 : INIT:SELinux Permissive
+      5218.905076 : INIT: on init start
+      5456.290923 : INIT:eMMC:Mount_system_START
+      5970.446692 : INIT:eMMC: no mounting data
+      5975.587923 : INIT:eMMC:Mount_system_END
+      5975.690153 : INIT:PROTECT:Mount_START
+      6043.360384 : INIT:PROTECT:Mount_END
+      6043.477000 : on fs
+      6043.622538 : on post-fs
+      6057.137153 : on post-fs-data
+      6744.155923 : INIT: user build setting
+      6744.301384 : on boot
+      7548.336461 : on nonencrypted
+      7549.215153 : BOOT_Animation:START
+      7550.238307 : on property:sys.powerctl=*
+      7551.230384 : on property:sys.sysctl.extra_free_kbytes=*
+      7551.854846 : on property:ro.debuggable=*
+      7554.381384 : on property:ro.build.type=user
+      8490.005846 : Zygote:Preload Start
+     10943.563230 : Zygote:Preload 2774 classes in 2448ms
+     12076.609692 : Zygote:Preload 274 obtain resources in 1118ms
+     12100.133461 : Zygote:Preload 31 resources in 23ms
+     12159.732769 : Zygote:Preload End
+     12677.887769 : Android:PackageManagerService_Start
+     12950.389615 : Android:PMS_scan_START
+     13085.614307 : Android:PMS_scan_done:/custom/framework
+     13132.751000 : Android:PMS_scan_done:/system/framework
+     13259.774692 : Android:PMS_scan_done:/system/priv-app
+     13791.332153 : Android:PMS_scan_done:/system/app
+     13791.918076 : Android:PMS_scan_done:/system/vendor/app
+     13792.169230 : Android:PMS_scan_done:/system/vendor/operator/app
+     13792.460769 : Android:PMS_scan_done:/custom/app
+     13795.581307 : Android:PMS_scan_data_start
+     13795.898923 : Android:PMS_scan_data_done:/data/app
+     13796.192846 : Android:PMS_scan_data_done:/data/app-private
+     13796.779000 : Android:PMS_scan_END
+     13974.956307 : Android:PMS_READY
+     14461.700846 : on property:sys.sysctl.extra_free_kbytes=*
+     15062.091461 : on property:wlan.driver.status=unloaded
+     18714.002461 : BOOT_Animation:END
+----------------------------------------
