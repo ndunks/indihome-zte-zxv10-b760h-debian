@@ -1,5 +1,5 @@
 # this binary draining logcat when MCSP not running
-#bin/netaccess
+bin/netaccess
 
 # remove preinstall apps
 preinstall/
@@ -20,30 +20,30 @@ app/EngineerModeSim.odex
 app/FactoryTestTool.apk
 app/IPTV.apk
 app/iptvclient_boot-release.apk
-# app/iptvclient-stbrcserver-release-signed_b760h.apk
+app/iptvclient-stbrcserver-release-signed_b760h.apk
 app/launcher_tkz4.apk
-# app/MainControl.apk
-# app/mcspbase.apk
-# app/MSCAgent.apk
-# app/MSGAPK.apk
-# app/MTKLogger.apk
-# app/NaAgent.apk
-# app/netmanager.apk
-# app/nmAssistant.apk
+app/MainControl.apk
+app/mcspbase.apk
+app/MSCAgent.apk
+app/MSGAPK.apk
+app/MTKLogger.apk
+app/NaAgent.apk
+app/netmanager.apk
+app/nmAssistant.apk
 
-# app/OSDService.apk
+app/OSDService.apk
 app/popup-release-signed.apk
-# app/sqm.apk
-# app/sqmprobe.apk
+app/sqm.apk
+app/sqmprobe.apk
 app/TVClient.apk
 app/tvms-control-release-v0.0.0.3.16_signed.apk
 app/usee-travel-signed1030.apk
-# app/xmpp.apk
-# app/ZeroCfgUI.apk
-# app/ZTEBrowser.apk
-# app/ZTEJavaWatch.apk
-# app/ZTEMonitor.apk
-# app/zteplayer.apk
-# app/ZTEStbCfg.apk
+app/xmpp.apk
+app/ZeroCfgUI.apk
+app/ZTEBrowser.apk
+app/ZTEJavaWatch.apk
+app/ZTEMonitor.apk
+app/zteplayer.apk
+app/ZTEStbCfg.apk
 app/ZTEUpgrade.apk
-# app/ztehelper.*
+app/ztehelper.*
