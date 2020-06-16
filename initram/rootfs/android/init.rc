@@ -1025,10 +1025,10 @@ on property:persist.uartconsole.enable=1
     write /proc/bootprof "on property:persist.uartconsole.enable=1"
     write /proc/mtprintk 1
 
-on property:sys.stb.state=1
-    write /proc/bootprof "on property:sys.stb.state=1"
-    write /proc/ledlight/netgreen/state on
-    write /proc/ledlight/netred/state off
+# on property:sys.stb.state=1
+#     write /proc/bootprof "on property:sys.stb.state=1"
+#     write /proc/ledlight/netgreen/state on
+#     write /proc/ledlight/netred/state off
 
 ## Daemon processes to be run by init.
 ##
@@ -1802,9 +1802,9 @@ service MtkCodecService /system/bin/MtkCodecService
     group audio media sdcard_r
 
 #Xiezj added 	
-#service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
-#     user root
-#     oneshot
+service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
+     user root
+     oneshot
 # on property:sys.boot_completed=1
 #     start basicService
 
