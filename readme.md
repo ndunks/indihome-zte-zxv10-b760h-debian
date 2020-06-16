@@ -167,6 +167,31 @@ setprop ctl.stop media & setprop ctl.stop zygote & setprop ctl.stop bootanim
 am start -n com.zte.iptvclient.android.settings/.activity.MainActivity
 ```
 
+### Internet / DNS
+
+After activating eth0, make sure `/system/bin/netaccess` is running.
+That binary responsible for handle DNS settings.
+
+### Interesting props
+```
+[net.change]: [net.zte.eth.netstate]
+[net.checkmode]: [1]
+[net.dns1]: [192.168.2.1]
+[net.eth.nettype]: [1]
+[net.hostname]: [android-e1106dc699d73a0c]
+[net.zte.eth.netstate]: [CONNECTED]
+[net.zte.netmode]: [ETHERNET]
+
+setprop net.change net.zte.eth.netstate
+setprop net.checkmode 1
+setprop net.dns1 192.168.2.1
+setprop net.eth.nettype 1
+setprop net.hostname android-e1106dc699d73a0c
+setprop net.zte.eth.netstate CONNECTED
+setprop net.zte.netmode ETHERNET
+
+```
+
 ## TODOS
 
 [x] Custom initramfs
