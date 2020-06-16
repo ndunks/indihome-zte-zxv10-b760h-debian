@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<flashtool-config version="2.0">
+	<general>
+		<chip-name>MT8127</chip-name>
+		<storage-type>EMMC</storage-type>
+		<download-agent>DOWNLOAD_AGENT</download-agent>
+		<scatter>SCATTER</scatter>
+		<authentication></authentication>
+		<certification></certification>
+		<rom-list> <rom index="0" enable="false"></rom></rom-list>
+		<connection type="BromUSB" high-speed="true" power="AutoDetect" da_log_level="Info" timeout-count="3600000" com-port="" />
+		<checksum-level>none</checksum-level>
+	</general>
+	<commands>
+		<format auto-format="false" erase-flag="NormalErase" physical="true" validation="false">
+			<begin-addr>BEGIN_ADDR</begin-addr>
+			<length>LENGTH</length>
+			<part-id>EMMC_USER</part-id>
+		</format>
+	</commands>
+</flashtool-config>

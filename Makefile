@@ -88,15 +88,27 @@ $(FLASH_CONFIG_ANDROID):
 $(FLASH_CONFIG_RECOVERY):
 	make -C flash OUT=$@ PART_RECOVERY=$(RECOVERY_IMG)
 
-backup/config.xml:
+backup/config.xml: flash/backup-template.xml
 	@test -d $(@D) || mkdir $(@D)
 	@sed -e s+DOWNLOAD_AGENT+$(FLASH_TOOL_DIR)MTK_AllInOne_DA.bin+ \
 		-e s+SCATTER+$(DIR)/flash/scatter.txt+ \
 		-e s+BACKUP_DIR+$(DIR)/backup+g \
-		flash/backup-template.xml > $@
+		$< > $@
+
+result/flash_config_format_cache.xml: flash/format-template.xml
+	@sed -e s+DOWNLOAD_AGENT+$(FLASH_TOOL_DIR)MTK_AllInOne_DA.bin+ \
+		-e s+SCATTER+$(DIR)/flash/scatter.txt+ \
+		-e s+BEGIN_ADDR+0x46180000+g \
+		-e s+LENGTH+0x40000000+g \
+		$< > $@
 
 backup: backup/config.xml
-	$(FLASH_TOOL) -i $(DIR)/backup/config.xml
+	$(REBOOT_STB)
+	$(FLASH_TOOL) -i $(DIR)/$<
+
+format_cache: result/flash_config_format_cache.xml
+	$(REBOOT_STB)
+	$(FLASH_TOOL) -i $(DIR)/$<
 
 clean_initram:
 	make -C initram clean > /dev/null || exit 0
