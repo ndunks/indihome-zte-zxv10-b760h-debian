@@ -1,5 +1,5 @@
 # this binary draining logcat when MCSP not running
-bin/netaccess
+#bin/netaccess
 
 # remove preinstall apps
 preinstall/
@@ -8,11 +8,11 @@ preinstall/
 app/AccuWeathercom.apk
 app/AptoideTV-3.3.1-useeapps.apk
 app/com.google.android.youtube.tv-1.2.7-10207100-minAPI17.apk
-app/dlna.apk
-app/DLNAComponent.apk
-app/DLNAComponent.odex
-app/Dlnagwapt.apk
-app/dlnaMg.apk
+#app/dlna.apk
+#app/DLNAComponent.apk
+#app/DLNAComponent.odex
+#app/Dlnagwapt.apk
+#app/dlnaMg.apk
 app/EngineerMode.apk
 app/EngineerMode.odex
 app/EngineerModeSim.apk
@@ -22,27 +22,27 @@ app/IPTV.apk
 app/iptvclient_boot-release.apk
 app/iptvclient-stbrcserver-release-signed_b760h.apk
 app/launcher_tkz4.apk
-app/MainControl.apk
-app/mcspbase.apk
-app/MSCAgent.apk
-app/MSGAPK.apk
+#app/MainControl.apk
+#app/mcspbase.apk
+#app/MSCAgent.apk
+#app/MSGAPK.apk
 app/MTKLogger.apk
-app/NaAgent.apk
-app/netmanager.apk
-app/nmAssistant.apk
-app/OSDService.apk
+#app/NaAgent.apk
+#app/netmanager.apk
+#app/nmAssistant.apk
+#app/OSDService.apk
 app/popup-release-signed.apk
-app/sqm.apk
-app/sqmprobe.apk
+#app/sqm.apk
+#app/sqmprobe.apk
 app/TVClient.apk
 app/tvms-control-release-v0.0.0.3.16_signed.apk
 app/usee-travel-signed1030.apk
 app/xmpp.apk
-app/ZeroCfgUI.apk
+#app/ZeroCfgUI.apk
 app/ZTEBrowser.apk
 app/ZTEJavaWatch.apk
-app/ZTEMonitor.apk
+#app/ZTEMonitor.apk
 app/zteplayer.apk
-app/ZTEStbCfg.apk
+#app/ZTEStbCfg.apk
 app/ZTEUpgrade.apk
-app/ztehelper.*
+#app/ztehelper.*
