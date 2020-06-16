@@ -267,8 +267,8 @@ on fs
 on post-fs
     write /proc/bootprof "on post-fs"
     # change sbchk permission before mounted as read-only
-    start readahead
-    mount rootfs rootfs / rw remount
+    #start readahead
+    #mount rootfs rootfs / rw remount
 
     # add by zte####################
 	mount rootfs rootfs / rw remount         
@@ -294,7 +294,7 @@ on post-fs
     chmod 750 /sbchk/sec_chk.sh
 
     # once everything is setup, no need to modify /
-    mount rootfs rootfs / ro remount
+    # mount rootfs rootfs / ro remount
     # mount shared so changes propagate into child namespaces  -> move to init.ssd.rc
     # mount rootfs rootfs / shared rec
     # mount tmpfs tmpfs /mnt/secure private rec
@@ -1420,9 +1420,9 @@ service bootanim /system/bin/bootanimation
 on property:init.svc.bootanim=stopped
     write /proc/bootprof "on property:init.svc.bootanim=stopped"
     start preinstall
-    write /sys/kernel/readahead 0
-    exec /system/bin/sh -c "[ `cat /sys/kernel/readahead` == 2 ] && /system/bin/inode2name /system /proc/readahead > /data/readahead.txt"
-    write /sys/kernel/readahead 2
+    #write /sys/kernel/readahead 0
+    #exec /system/bin/sh -c "[ `cat /sys/kernel/readahead` == 2 ] && /system/bin/inode2name /system /proc/readahead > /data/readahead.txt"
+    #write /sys/kernel/readahead 2
     
     mount ext4 /emmc@android /system noatime ro remount wait
 
@@ -1448,9 +1448,9 @@ on property:init.svc.bootanim=stopped
     chown system system /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base 
     chmod 0660 /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_bas	#wjh Permission of cpu_num_base
 
-service readahead /system/bin/sh /readahead.sh
-    disabled
-    oneshot
+# service readahead /system/bin/sh /readahead.sh
+#     disabled
+#     oneshot
 
 #service enableswap /system/bin/sh /enableswap.sh
 #    class core
@@ -1816,5 +1816,5 @@ service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
 #     disabled
 #     oneshot
 
-#import /zte_init.rc
+import /zte_init.rc
 

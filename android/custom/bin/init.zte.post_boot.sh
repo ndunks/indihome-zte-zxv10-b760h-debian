@@ -11,7 +11,6 @@ echo 300 > /proc/sys/net/unix/max_dgram_qlen
 setprop net.tcp.buffersize.default 4096,174760,11264000,4096,16384,4194304
 
 ifconfig eth0 192.168.2.2 netmask 255.255.255.0
-dhcpcd -BK -dd eth0 &
-
-busybox telnetd -l /system/bin/sh
-netaccess &
+#dhcpcd -BK -dd eth0 &
+#busybox telnetd -l /system/bin/sh
+#netaccess &
