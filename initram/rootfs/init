@@ -17,7 +17,7 @@ init(){
 
     if [ $SERIAL_CONSOLE == linux ] && grep '^\s*start\s\+console' android/init.rc; then
         L "Disabling android console"
-        sed -i 's/^\s*start\s\+console/#start console/' android/init.rc
+        sed -i 's/^\s*start\s\+console/#start console/' android/init.rc > /dev/null
     fi
     if [ $SERIAL_CONSOLE == android ] && grep '^\s*\#\s*start\s\+console' android/init.rc; then
         L "Enabling android console"
@@ -40,8 +40,8 @@ init(){
 init_switch(){
     if [ -x /android/init ] ; then
         touch /dev/null
-        exec chroot /android /init &
-        init_wait
+        init_wait &
+        exec chroot /android /init
     fi
 
     L "Incorrect init. entering interactive mode."
@@ -63,13 +63,10 @@ init_wait(){
     done
     L "Android init done, mounting sysfs on linux"
     
-    #mount -o bind /android/proc /proc
-    #mount -o bind /android/sys /sys
-    mount -t proc none /proc
-    mount -t sysfs none /sys
-    mount -o bind /android/dev /dev
-    #mount -o bind /android/dev/pts /dev/pts
-    mount -t devpts none /dev/pts
+    mount -o bind /android/proc /proc
+    mount -o bind /android/sys /sys
+    busybox mdev -s
+    mount -o bind /android/dev/pts /dev/pts
     mount -o bind /android/dev/socket /dev/socket
     init_linux
 }
@@ -90,6 +87,7 @@ export PATH=\$OLD_PATH
 EOF
         chmod +x /bin/android
     fi
+    echo 1 > /dev/wmtWifi
     L "Linux init done, telnet at 1234"
     busybox telnetd -l /bin/bash -p 1234 &
     # Serial Terminal
@@ -98,11 +96,10 @@ EOF
     exec busybox nc -l -e /bin/sh 
 }
 
-format_cache(){
-    #mkdir cache system
-    #mount -t ext4 /dev/mmcblk0p5 /system
-    #mount -t ext4 /dev/mmcblk0p6 /cache
-    busybox mkfs.ext2 
+clean_cache(){
+    mkdir cache
+    mount -t ext4 /dev/mmcblk0p6 /cache
+    rm -rf /cache/*
 }
 
 # call function based on this filename

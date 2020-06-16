@@ -124,6 +124,14 @@ don't need to re-attach your USB port
 file stored on `backup` directory
 
 ## Android Tips
+### Wifi
+```
+echo 1 > /dev/wmtWifi
+# if return zero, mean oK
+```
+
+where module that set property `wlan.driver.status=ok` ?
+
 
 ### LAN eth0 Connection
 

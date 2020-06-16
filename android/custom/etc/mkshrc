@@ -26,6 +26,8 @@ alias ll='l -l'
 alias lo='l -a -l'
 alias ro='busybox mount -o remount,rw /system'
 alias rw='busybox mount -o remount,rw /system'
+alias settings_app='am start -n com.zte.iptvclient.android.settings/.activity.MainActivity'
+alias linux='telnet 127.0.0.1 1234'
 
 function hd {
 	cat "$@" | command hd /proc/self/fd/0
