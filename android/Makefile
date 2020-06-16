@@ -4,8 +4,8 @@ include $(ROOT)Makeconfig
 # Download if u dont have
 # https://drive.google.com/drive/folders/1VkvttHjAQdIalOR7jJS3ArhGpStnPbH1?usp=sharing
 ORIGINAL_SYSTEM=$(ORIGINAL_DIR)/system.img
-SYSTEM_DIR=tmpfs/system
-SYSTEM_IMG=tmpfs/system.img
+SYSTEM_IMG=$(ANDROID_IMG)
+SYSTEM_DIR=$(subst .img,,$(ANDROID_IMG))
 
 tmpfs/system.img: $(ORIGINAL_SYSTEM) remove.txt $(wildcard custom/**/**) bootanimation/bootanimation.zip
 	@test -d tmpfs || mkdir tmpfs
@@ -13,7 +13,7 @@ tmpfs/system.img: $(ORIGINAL_SYSTEM) remove.txt $(wildcard custom/**/**) bootani
 	@grep $(shell pwd)/tmpfs /proc/mounts || sudo mount -t tmpfs none tmpfs
 	$(info $(GREEN)Copying fresh $@$(NORM))
 	@cp $(ORIGINAL_SYSTEM) $(SYSTEM_IMG)
-	[ -d $(SYSTEM_DIR) ] || mkdir $(SYSTEM_DIR)
+	@[ -d $(SYSTEM_DIR) ] || mkdir $(SYSTEM_DIR)
 
 	@sudo mount -o loop,sync $(SYSTEM_IMG) $(SYSTEM_DIR)
 	$(info $(GREEN)Custom $(@F).. $(NORM))

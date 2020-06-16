@@ -61,7 +61,7 @@ endif
 	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_DEBIAN)
 
-flash_android: android
+flash_android: android $(FLASH_CONFIG_ANDROID)
 	$(info Connect USB Devices)
 	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_ANDROID)
