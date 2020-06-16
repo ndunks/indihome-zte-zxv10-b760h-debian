@@ -1,0 +1,8 @@
+#!/system/bin/sh
+if [ -z "$1" ]; then
+    echo mount RW, use $0 ro to mount RO
+    busybox mount -o remount,rw /system
+else
+    echo mount RO
+    busybox mount -o remount,ro /system
+fi
