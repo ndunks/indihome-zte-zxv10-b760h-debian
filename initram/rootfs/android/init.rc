@@ -1025,6 +1025,11 @@ on property:persist.uartconsole.enable=1
     write /proc/bootprof "on property:persist.uartconsole.enable=1"
     write /proc/mtprintk 1
 
+on property:sys.stb.state=1
+    write /proc/bootprof "on property:sys.stb.state=1"
+    write /proc/ledlight/netgreen/state on
+    write /proc/ledlight/netred/state off
+
 ## Daemon processes to be run by init.
 ##
 
