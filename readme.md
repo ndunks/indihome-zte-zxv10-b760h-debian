@@ -124,6 +124,14 @@ don't need to re-attach your USB port
 file stored on `backup` directory
 
 ## Android Tips
+
+### LAN eth0 Connection
+
+Pastikan custom rom sudah di flash. STB sudah di set static ip,
+cek di [script.sh](android/scripts.sh).
+
+set ip static komputer anda, atau jalankan [scripts dhcpserver](scripts/dhcpserver.sh)
+
 ### LEds control
 ``` bash
 # on / off lampu koneksi merah
