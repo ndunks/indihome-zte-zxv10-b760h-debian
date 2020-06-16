@@ -10,7 +10,4 @@ persist.sys.usb.config=mass_storage
 persist.service.acm.enable=0
 ro.mount.fs=EXT4
 ro.persist.partition.support=no
-service.adb.root=1
 service.adb.tcp.port=5555
-persist.service.adb.root=1
-persist.service.adb.tcp.port=5555
