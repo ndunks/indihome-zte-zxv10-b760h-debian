@@ -225,16 +225,61 @@ up time: 00:06:03, idle time: 00:24:01, sleep time: 00:00:00
 up time: 00:06:03, idle time: 00:23:05, sleep time: 00:00:00
 up time: 00:06:02, idle time: 00:23:03, sleep time: 00:00:00
 ```
-It's like hwclock problem
 
-``` bash
-# on linux
-hwclock --show
-hwclock: select() to /dev/rtc0 to wait for clock tick timed out
-# on adb
-hwclock                                                
-hwclock: can't open '/dev/misc/rtc': Not a directory
+**kmesg**
 ```
+<4>[  363.812166] (0)[0:swapper/0]kernel don't receive ztebw's message
+<4>[  363.812206] (0)[0:swapper/0]monitor: received netlink message:timeout
+<1>[  363.812297] (0)[102:swapper/0]_____137 > do_monitor [monitor timeout] set_fs_safe_mode
+<4>[  363.812323] (0)[102:swapper/0]ALERT: normmode rootfs fs is destroyed !
+<4>[  363.812371] (0)[102:swapper/0][set_fs_safe_mode  644]
+<4>[  363.812412] (0)[102:swapper/0][set_fs_safe_mode  652]
+<4>[  363.812431] (0)[102:swapper/0][set_fs_safe_mode  655]
+<4>[  363.812450] (0)[102:swapper/0][FfsInit  101]
+<4>[  363.812467] (0)[102:swapper/0][FfsInit  108]
+<4>[  363.812484] (0)[102:swapper/0][FfsInit  111]
+<4>[  363.812501] (0)[102:swapper/0][FfsInit  133]
+<4>[  363.812595] (0)[102:swapper/0][FfsInit  140]
+<4>[  363.812635] (0)[102:swapper/0][FfsInit  157]
+<4>[  363.812662] (0)[102:swapper/0][FfsInit  165]
+<4>[  363.812686] (0)[102:swapper/0][FfsLocateMarkBlock  986]
+<4>[  363.812705] (0)[102:swapper/0][FfsInit  179]
+<4>[  363.812732] (0)[102:swapper/0][FfsInit  186]
+<4>[  363.812755] (0)[102:swapper/0][FfsInit  189]
+<4>[  363.812774] (0)[102:swapper/0][FfsInit  192]
+<4>[  363.812791] (0)[102:swapper/0]init ffs failed!
+<4>[  363.812819] (0)[102:swapper/0]ALERT:File system panic, system will enter safemode...
+<7>[  363.812934] (0)[102:swapper/0][MUSB]musb_shutdown 1239: shut down
+<4>[  363.812960] (0)[102:swapper/0]mt_usb_disable, 1, 1
+<7>[  363.812987] (0)[102:swapper/0]usb_enable_clock enable(1), res=0 out
+<7>[  363.813061] (0)[102:swapper/0]usb_enable_clock enable(0), res=0 out
+<7>[  363.813085] (0)[102:swapper/0]usb_enable_clock enable(1), res=0 out
+<7>[  363.813160] (0)[102:swapper/0]usb_enable_clock enable(0), res=0 out
+<4>[  363.813986] (0)[102:swapper/0]usb_phy_savecurrent_internal: USBPHY_READ8(0x05) = 0x44 
+<4>[  363.814011] (0)[102:swapper/0]usb_phy_savecurrent_internal: USBPHY_READ8(0x07) = 0x44 
+<7>[  363.814041] (0)[102:swapper/0]usb_enable_clock enable(0), res=0 out
+<4>[  363.814060] (0)[102:swapper/0]usb save current success
+<7>[  363.814081] (0)[102:swapper/0][MUSB]mt_usb_disable 217: disable UPLL before disconnect
+<3>[  363.814106] (0)[102:swapper/0]musb_shutdown, line 1252. 
+<7>[  363.814132] (0)[102:swapper/0][MUSB]mt_usb_set_vbus 62: mt65xx_usb20_vbus++,is_on=0
+<7>[  363.814160] (0)[102:swapper/0]usb_enable_clock enable(1), res=0 out
+<7>[  363.814187] (0)[102:swapper/0][MUSB]musb_writeb 137: [MUSB]:access musb_writeb function when usb clock is off 0x60
+<7>[  363.814215] (0)[102:swapper/0]usb_enable_clock enable(0), res=0 out
+<4>[  363.815075] (0)[102:swapper/0]******** MT auxadc driver shutdown!! ********
+<4>[  363.815108] (0)[102:swapper/0][LED]mt65xx_leds_shutdown
+<4>[  363.815126] (0)[102:swapper/0][LED]mt65xx_leds_shutdown: turn off backlight
+<4>[  363.815150] (0)[102:swapper/0][LED]PMIC#3:0
+<4>[  363.815170] (0)[102:swapper/0][LED]PMIC#2:0
+<4>[  363.815190] (0)[102:swapper/0][LED]PMIC#1:0
+<4>[  363.815207] (0)[102:swapper/0][LED]backlight control through BLS!!1
+<4>[  363.815230] (0)[102:swapper/0][BLS]disp_bls_set_backlight: 0, gBLSPowerOn = 0
+<4>[  363.815252] (0)[102:swapper/0][BLS]after mapping, mapped_level: 0
+<4>[  363.815272] (0)[102:swapper/0][BLS]after SET, PWM_DUTY: 0
+<4>[  363.815310] (0)[102:swapper/0][LED]#6:0
+<4>[  363.815333] (0)[102:swapper/0]mt65xx_leds_set_cust: set brightness, name:lcd-backlight, mode:5, level:0
+
+```
+
 ## Reffs
 
 - [@quantvc - Running Debian Linux on Android device natively](https://medium.com/@quantvc/running-debian-on-android-device-natively-73545c9b0757)
