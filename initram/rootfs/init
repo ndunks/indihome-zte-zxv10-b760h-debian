@@ -28,24 +28,29 @@ init(){
         cp -a /bin/busybox /linux/bin/busybox
     fi
     [ -d /linux/android ] || mkdir /linux/android
+    [ -d /linux/dev ] || mkdir /linux/dev
     mount -t tmpfs none /linux/android
-    
+    mount -t tmpfs none /linux/dev
     mv android/* linux/android/
     mv emmc@* /linux/android/
-    cp -a /init /linux/init_switch
-    exec switch_root /linux /init_switch
-}
 
 
-init_switch(){
-    if [ -x /android/init ] ; then
-        touch /dev/null
-        init_wait &
-        exec chroot /android /init
+    if [ -x /linux/android/init ] ; then
+        cp -a /init /linux/init_switch
+        umount /proc
+        umount /sys
+        exec switch_root /linux /init_switch
     fi
 
     L "Incorrect init. entering interactive mode."
     exec busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
+}
+
+
+init_switch(){
+    touch /dev/null
+    init_wait &
+    exec chroot /android /init
 }
 
 init_wait(){
@@ -65,7 +70,10 @@ init_wait(){
     
     mount -o bind /android/proc /proc
     mount -o bind /android/sys /sys
-    busybox mdev -s
+    echo /usr/bin/mdev > /proc/sys/kernel/hotplug
+    mdev -s
+    [ -d /dev/pts ] || mkdir /dev/pts
+    [ -d /dev/socket ] || mkdir /dev/socket
     mount -o bind /android/dev/pts /dev/pts
     mount -o bind /android/dev/socket /dev/socket
     init_linux
