@@ -200,6 +200,10 @@ setprop net.zte.netmode ETHERNET
 
 ```
 
+### Which file setup wlan.driver.status=ok ?
+
+still investigating
+
 ## TODOS
 
 [x] Custom initramfs

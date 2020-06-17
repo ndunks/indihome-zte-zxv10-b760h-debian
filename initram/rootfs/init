@@ -95,6 +95,7 @@ export PATH=\$OLD_PATH
 EOF
         chmod +x /bin/android
     fi
+    # sometime is not work, or too fast?
     echo 1 > /dev/wmtWifi
     L "Linux init done, telnet at 1234"
     busybox telnetd -l /bin/bash -p 1234 &
