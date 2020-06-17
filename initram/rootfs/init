@@ -15,11 +15,11 @@ init(){
     # uncoment if you want terminal before boot, Ctrl+D to continue
     #busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
 
-    if [ $SERIAL_CONSOLE == linux ] && grep '^\s*start\s\+console' android/init.rc; then
+    if [ $SERIAL_CONSOLE == linux ] && grep '^\s*start\s\+console' android/init.rc > /dev/null; then
         L "Disabling android console"
-        sed -i 's/^\s*start\s\+console/#start console/' android/init.rc > /dev/null
+        sed -i 's/^\s*start\s\+console/#start console/' android/init.rc
     fi
-    if [ $SERIAL_CONSOLE == android ] && grep '^\s*\#\s*start\s\+console' android/init.rc; then
+    if [ $SERIAL_CONSOLE == android ] && grep '^\s*\#\s*start\s\+console' android/init.rc > /dev/null; then
         L "Enabling android console"
         sed -i 's/^\s*\#\s*start\s\+console/start console/' android/init.rc
     fi
