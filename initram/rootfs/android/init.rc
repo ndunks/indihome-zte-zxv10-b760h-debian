@@ -6,7 +6,7 @@
 
 #import /init.${ro.hardware}.rc
 import /init.usb.rc
-import /init.trace.rc
+#import /init.trace.rc
 
 #import init.xlog.rc #wujianhua: make the logcat get more log
 
@@ -494,6 +494,8 @@ on post-fs-data
 
     # watch dog kicker
     #write /proc/wdk "0 20 30"
+    # to disable
+    #write /proc/wdk "0 20 30 0 0"
 
     # set ptmx group to non-root
     chown root radio /dev/ptmx
@@ -1037,12 +1039,12 @@ service ueventd /sbin/ueventd
     class core
     critical
 
-service kisd /system/bin/kisd
+# service kisd /system/bin/kisd
 
-service healthd /sbin/healthd
-    class core
-    critical
-    seclabel u:r:healthd:s0
+# service healthd /sbin/healthd
+#     class core
+#     critical
+#     seclabel u:r:healthd:s0
 
 #service healthd /sbin/healthd
 #   class core
@@ -1054,10 +1056,10 @@ service healthd /sbin/healthd
 #   critical
 #   seclabel u:r:healthd:s0
 
-service healthd-charger /sbin/healthd -n
-    class charger
-    critical
-    seclabel u:r:healthd:s0
+# service healthd-charger /sbin/healthd -n
+#     class charger
+#     critical
+#     seclabel u:r:healthd:s0
 
 # on property:selinux.reload_policy=1
 #     write /proc/bootprof "on property:selinux.reload_policy=1"
@@ -1074,6 +1076,7 @@ service console /system/bin/sh
 service telnetd30 /system/xbin/busybox telnetd -l /system/bin/sh -p 30
     class main
     disabled
+    oneshot
 
 on property:ro.debuggable=*
     write /proc/bootprof "on property:ro.debuggable=*"
@@ -1142,11 +1145,11 @@ on property:ro.debuggable=*
 #     socket netdiag stream 0664 root inet
 
 
-service nvram_daemon /system/bin/nvram_daemon
-    class main
-    user nvram
-    group nvram system
-    oneshot
+# service nvram_daemon /system/bin/nvram_daemon
+#     class main
+#     user nvram
+#     group nvram system
+#     oneshot
 
 # DFO (Begin)
 # service featured /system/bin/featured
@@ -1551,11 +1554,11 @@ service installd /system/bin/installd
 #     disabled
 #     oneshot
 
-service keystore /system/bin/keystore /data/misc/keystore
-    class main
-    user keystore
-    group keystore drmrpc
-    socket keystore stream 666
+# service keystore /system/bin/keystore /data/misc/keystore
+#     class main
+#     user keystore
+#     group keystore drmrpc
+#     socket keystore stream 666
 
 # service dumpstate /system/bin/dumpstate -s
 #     class main
@@ -1739,9 +1742,9 @@ service shutdown /system/bin/shutdown
     group root
     disabled
 
-service NvRAMAgent /system/bin/nvram_agent_binder
-		user system
-		group system nvram
+# service NvRAMAgent /system/bin/nvram_agent_binder
+# 		user system
+# 		group system nvram
 
 service thermal_manager /system/bin/thermal_manager
 		user root
@@ -1805,10 +1808,10 @@ service mdnsd /system/bin/mdnsd
 #	user system
 #	group gps system ccci
 #	class main
-service MtkCodecService /system/bin/MtkCodecService
-    class main
-    user root
-    group audio media sdcard_r
+# service MtkCodecService /system/bin/MtkCodecService
+#     class main
+#     user root
+#     group audio media sdcard_r
 
 #Xiezj added 	
 service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
