@@ -80,8 +80,8 @@ init_wait(){
 }
 
 init_linux(){
-    ifconfig eth0 192.168.1.12 up
-    route add default gw 192.168.1.100
+    #ifconfig eth0 192.168.1.12 up
+    #route add default gw 192.168.1.100
     hostname debian
     echo 127.0.0.1 localhost >> /etc/hosts
     busybox date @1592201867 > /dev/null
