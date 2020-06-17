@@ -9,8 +9,13 @@ echo 5 > /proc/sys/net/ipv4/tcp_syn_retries
 echo 5 > /proc/sys/net/ipv4/tcp_synack_retries
 echo 300 > /proc/sys/net/unix/max_dgram_qlen
 setprop net.tcp.buffersize.default 4096,174760,11264000,4096,16384,4194304
-
 ifconfig eth0 192.168.2.2 netmask 255.255.255.0
-#dhcpcd -BK -dd eth0 &
-busybox telnetd -l /system/bin/sh
-#netaccess &
+
+echo "wlan0: dirty hack.." > /proc/bootprof
+while [ ! -e /sys/class/net/wlan0 ]; do
+    echo 1 > /dev/wmtWifi
+    sleep 1
+done
+echo  'wlan0: ready'  > /proc/bootprof
+setprop ctl.start wpa_supplicant
+dhcpcd -BK -dd wlan0 &
