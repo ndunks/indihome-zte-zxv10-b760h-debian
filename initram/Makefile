@@ -11,11 +11,14 @@ $(BOOT_IMG): $(BOOT_IMG).tmp
 	@cp boot-header.bin $@
 	@cat $< >> $@
 
-$(BOOT_IMG).tmp: $(INITRAMFS_FINAL)
+$(BOOT_IMG).tmp: $(INITRAMFS_FINAL) zImage.bin
 	$(info $(GREEN)CREATING $(@F).. $(NORM))
-	@$(TOOL_DIR)/mkbootimg --kernel zImage \
+	@$(TOOL_DIR)/mkbootimg --kernel zImage.bin \
 		--ramdisk $< \
 		--board $(BOARD_ID) -o $@
+
+# zImage.bin: zImage-custom
+# 	@$(TOOL_DIR)/mkimage $< KERNEL > $@
 
 $(INITRAMFS_FINAL): $(INITRAMFS)
 	@$(TOOL_DIR)/mkimage $< ROOTFS > $@
