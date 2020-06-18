@@ -2,7 +2,7 @@ export ROOT=../
 include $(ROOT)Makeconfig
 
 ifndef APK_TOOL
-APK_TOOL=/ext4/android-re/apktool
+$(error APK_TOOL undefined, see .env.example)
 endif
 
 APKS= \
@@ -45,14 +45,18 @@ RESULTS_DIR=results
 RESULTS_APPS=$(addprefix $(RESULTS_DIR)/,$(basename $(APKS)))
 
 .SUFFIXES:
-.PHONY: clean umount fast_system
+.PHONY: clean umount fast_system makedir
 
-all: $(SYSTEM_DIR) $(RESULTS_APPS)
+all: makedir $(SYSTEM_DIR) $(RESULTS_APPS)
 
-$(RESULTS_DIR)/%: 
+$(RESULTS_DIR)/%:
 	@echo decompiling "$(@F).apk"
 #	mkdir -p $@
 	$(APK_TOOL) d -o $@ $(SYSTEM_DIR)$(subst $(RESULTS_DIR),,$@).apk
+
+makedir:
+	[ -d $(RESULTS_DIR) ] || mkdir -p $(RESULTS_DIR)
+	[ -n "$(shell grep /proc/mounts $(RESULTS_DIR) )" ] || sudo mount -t tmpfs none $(RESULTS_DIR)
 
 $(SYSTEM_DIR):
 	mkdir $(SYSTEM_DIR)
@@ -67,6 +71,7 @@ fast_system: $(SYSTEM_DIR)
 
 umount: 
 	sudo umount ./$(SYSTEM_DIR) || exit 0
+	sudo umount $(RESULTS_DIR) || exit 0
 
 clean: umount
 	rmdir $(SYSTEM_DIR) || exit 0
