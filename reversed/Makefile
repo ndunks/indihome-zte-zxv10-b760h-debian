@@ -1,18 +1,8 @@
 export ROOT=../
 include $(ROOT)Makeconfig
 
-# Example .env content:
-# APK_TOOL=~/Desktop/tmp/apktool
--include .env
-
-# Download ApkTool shell wrapper & JAR file #
-# wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
-# wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar
-# chmod +x apktool
-# mv apktool_*.jar apktool.jar
-
 ifndef APK_TOOL
-APK_TOOL=/ext4/android-re/apktool
+$(error APK_TOOL undefined, see .env.example)
 endif
 
 APKS= \
@@ -81,6 +71,7 @@ fast_system: $(SYSTEM_DIR)
 
 umount: 
 	sudo umount ./$(SYSTEM_DIR) || exit 0
+	sudo umount $(RESULTS_DIR) || exit 0
 
 clean: umount
 	rmdir $(SYSTEM_DIR) || exit 0

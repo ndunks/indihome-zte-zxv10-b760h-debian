@@ -1,10 +1,6 @@
 export ROOT=$(CURDIR)/
 include $(ROOT)Makeconfig
 
-#Local config
--include .env
-
-
 ifndef FLASH_TOOL
 # you can change it using: make FLASH_TOOL=/path/to/sp_flash_tools or in .env file
 FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
