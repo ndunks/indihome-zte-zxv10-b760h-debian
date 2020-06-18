@@ -1,12 +1,8 @@
 export ROOT=../
 include $(ROOT)Makeconfig
 
-# Create .env on this directory to set default value
--include .env
-
 ifndef DEBIAN_REPO
 # You can change with `make DEBIAN_REPO=YOUR_URL` or in `.env` file
-# I use apt-cacher-ng for fast rebuild in development
 override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 

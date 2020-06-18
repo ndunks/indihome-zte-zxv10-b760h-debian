@@ -1,7 +1,8 @@
 export ROOT=../
 include $(ROOT)Makeconfig
 
-
+# these value from extract result with unmkbootimg
+BOARD_ID = 20181123.235335
 INITRAMFS=$(OUT_DIR)/initramfs.cpio.gz
 INITRAMFS_FINAL=$(subst .gz,.bin,$(INITRAMFS))
 
