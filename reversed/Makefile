@@ -39,15 +39,38 @@ app/ztehelper.apk \
 app/AccuWeathercom.apk \
 priv-app/CDS_INFO.apk
 
+TXTS= \
+lib/libmesqcs.so \
+lib/libzteqcs.so \
+lib/libztesqm.so \
+lib/libztemobileqcs.so \
+lib/libtvmsagent.so \
+lib/libtvclient.so \
+lib/libstvmsapk.so \
+lib/libnmassistant.so \
+lib/libmsciptvplugin.so \
+lib/libjavawatch_jni.so \
+lib/libjavaprocess.so \
+lib/libiptvkit4.4.2.so \
+lib/libiptvevtcenter.so \
+lib/libZTEPlayerDaemon.so \
+lib/libCrashRestore.so \
+lib/libProductCfg.so
+
 SYSTEM_IMG=$(ORIGINAL_DIR)/system.img
 SYSTEM_DIR=system
 RESULTS_DIR=results
 RESULTS_APPS=$(addprefix $(RESULTS_DIR)/,$(basename $(APKS)))
+RESULTS_STRINGS=$(addprefix $(RESULTS_DIR)/,$(addsuffix .txt,$(TXTS)))
 
 .SUFFIXES:
 .PHONY: clean umount fast_system makedir
 
-all: makedir $(SYSTEM_DIR) $(RESULTS_APPS)
+all: makedir $(SYSTEM_DIR) $(RESULTS_STRINGS) $(RESULTS_APPS)
+
+$(RESULTS_DIR)/%.txt:
+	@[ -d $(@D) ] || mkdir -p $(@D)
+	strings $(SYSTEM_DIR)$(subst $(RESULTS_DIR),,$(basename $@)) > $@
 
 $(RESULTS_DIR)/%:
 	@echo decompiling "$(@F).apk"

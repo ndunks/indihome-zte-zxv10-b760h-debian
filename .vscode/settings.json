@@ -1,6 +1,7 @@
 {
     "files.watcherExclude": {
         "**/reversed/results/**": true,
-        "**/system/**": true
+        "**/system/**": true,
+        "**/tmp/**": true
     }
 }
