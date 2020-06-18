@@ -99,5 +99,5 @@ umount:
 clean: umount
 	rmdir $(SYSTEM_DIR) || exit 0
 	rm -rf $(RESULTS_DIR) || exit 0
-	[ -z "$(shell grep /proc/mounts system_ram )" ] || sudo mount -t tmpfs none system_ram
+	[ -z "$(shell grep /proc/mounts system_ram )" ] || sudo umount ./system_ram
 	[ ! -d system_ram ] || rmdir system_ram

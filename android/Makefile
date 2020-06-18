@@ -34,6 +34,9 @@ tmpfs/system.img: $(ORIGINAL_SYSTEM) remove.txt $(wildcard custom/**/**) bootani
 	@echo $(NORM)
 
 	@sync tmpfs/
+	sudo umount $(SYSTEM_DIR)
+	@sync $(SYSTEM_IMG)
+
 ifndef NOMINIMIZE
 	@echo $(GREEN)Resizing for fast flashing $(NORM)
 	@e2fsck -f -p $(SYSTEM_IMG) || exit 0
