@@ -1,6 +1,16 @@
 export ROOT=../
 include $(ROOT)Makeconfig
 
+# Example .env content:
+# APK_TOOL=~/Desktop/tmp/apktool
+-include .env
+
+# Download ApkTool shell wrapper & JAR file #
+# wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool
+# wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.4.1.jar
+# chmod +x apktool
+# mv apktool_*.jar apktool.jar
+
 ifndef APK_TOOL
 APK_TOOL=/ext4/android-re/apktool
 endif
@@ -45,14 +55,18 @@ RESULTS_DIR=results
 RESULTS_APPS=$(addprefix $(RESULTS_DIR)/,$(basename $(APKS)))
 
 .SUFFIXES:
-.PHONY: clean umount fast_system
+.PHONY: clean umount fast_system makedir
 
-all: $(SYSTEM_DIR) $(RESULTS_APPS)
+all: makedir $(SYSTEM_DIR) $(RESULTS_APPS)
 
-$(RESULTS_DIR)/%: 
+$(RESULTS_DIR)/%:
 	@echo decompiling "$(@F).apk"
 #	mkdir -p $@
 	$(APK_TOOL) d -o $@ $(SYSTEM_DIR)$(subst $(RESULTS_DIR),,$@).apk
+
+makedir:
+	[ -d $(RESULTS_DIR) ] || mkdir -p $(RESULTS_DIR)
+	[ -n "$(shell grep /proc/mounts $(RESULTS_DIR) )" ] || sudo mount -t tmpfs none $(RESULTS_DIR)
 
 $(SYSTEM_DIR):
 	mkdir $(SYSTEM_DIR)
