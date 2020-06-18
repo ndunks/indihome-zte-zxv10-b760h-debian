@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: res/drawable-xhdpi/ic_launcher.png
+SHA1-Digest: UCzYT6RE8m1+z99KNVBkhnl38jY=
+
+Name: res/drawable-hdpi/ic_launcher.png
+SHA1-Digest: RQ09RDJf3yWYEKYOavo2ED4Yaz0=
+
+Name: assets/logcat
+SHA1-Digest: bOc6257Kjm8guR/+IYyHV+iDWRo=
+
+Name: resources.arsc
+SHA1-Digest: r71wSoQlYMNOeb3UaVneQvENJ14=
+
+Name: classes.dex
+SHA1-Digest: ZvJGgjStJAHSag9K0TnyCAN97dk=
+
+Name: assets/liblogcatAPI21.so
+SHA1-Digest: HwpK0Bd4zGuGvGBIO+8GOMRk6C0=
+
+Name: AndroidManifest.xml
+SHA1-Digest: p5oMV/H9cZZ8MxrsPPGtFkulNFM=
+
+Name: res/drawable-mdpi/ic_launcher.png
+SHA1-Digest: I3MP0NXnINH3Gb4a/IxI+nMF2mw=
+
+Name: assets/liblogcatAPI14.so
+SHA1-Digest: shPD8ZXXg0CxJF2gvkxLlvWWXFc=
+
+Name: META-INF/com/android/otacert
+SHA1-Digest: SFau1+drPbZJikBTQan00zglrio=
+
+Name: assets/libmcspadapter4.4.2.so
+SHA1-Digest: u2aXxaEB6h8EYb5SCb/E4TC9Ul4=
+
+Name: assets/mcsp_cfgexport
+SHA1-Digest: sEzPlnsk4b8TAEFbyfQ/RoYez80=
+
+Name: assets/zteKlog
+SHA1-Digest: 9f7SlXwBSceZ2mCY01vR1wmyvGY=
+
+Name: assets/mcsp_cfgimport
+SHA1-Digest: ph81B6hhNOsQ/2crGBZZ44Kd6oI=
+
+Name: assets/mcsp_xmlimport
+SHA1-Digest: PDw/QkycGX8ptxrAXIOEJB/OIHo=
+

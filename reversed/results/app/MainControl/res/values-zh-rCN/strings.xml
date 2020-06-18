@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">主控</string>
+    <string name="CONNCTING_NET">正在连接，请稍候...... 正在连接网络......</string>
+    <string name="RECONNCT_NET">网络掉线，正在重新连接，请稍候......</string>
+    <string name="NET_CONNECTOUT">网络未连接，重新连接请按“确定”，忽略请按“取消”！</string>
+    <string name="ERROR_CODE">故障代码：</string>
+    <string name="ERROR_INFO">故障信息：</string>
+    <string name="ERROR_CODE_DXJC">提示代码：</string>
+    <string name="ERROR_INFO_DXJC">信息提示：</string>
+    <string name="SDYD_NET_1305">网络接入失败，请重启机顶盒或无线路由器再试一次。如问题未解决请联系10086。</string>
+    <string name="SDYD_1306">请联系10086。</string>
+    <string name="SDYD_NET_1401">网络连接失败，请5分钟之后重新拨号再试一次。如问题未解决请联系10086。</string>
+    <string name="SDYD_NET_1402">网络连接失败，请5分钟之后重新拨号再试一次。如问题未解决请联系10086。</string>
+    <string name="SDYD_NET_1403">宽带帐号或密码错误，请确认输入的帐号和密码是否正确。如问题未解决请联系10086。</string>
+    <string name="SDYD_NET_1404">请检查无线路由器/光猫的状态是否正常。</string>
+    <string name="SDYD_NET_1901">网络接入异常，请确认网线是否连接松动，或网络连接设备是否加电。如问题未解决请联系10086。</string>
+    <string name="SDYD_NET_1902">请重启机顶盒再试一次。如问题未解决请联系10086。</string>
+    <string name="SDYD_NET_1903">无线网络连接失败，请检查机顶盒是否已经成功连接无线网络，请检查网络接入设备是否加电或者确认无线网络的用户名密码是否正确。如问题未解决请联系10086。</string>
+    <string name="AnHuiDX_1306">请联系客服人员并告知页面上显示的错误代码。</string>
+    <string name="AnHuiDX_NET_9999">当前有线网络、无线网络都已关闭，无法访问网络，请按设置键进入本地设置打开无线或有线网络。</string>
+    <string name="AnHuiDX_NET_7777">网络接入失败，请按设置键进入本地设置确认网络配置是否正确。</string>
+    <string name="AnHuiDX_HW_20001">"机顶盒硬件自检失败！
+
+请重启机顶盒尝试，如仍不成功，请联系客服人员并告知页面上显示的错误代码"</string>
+    <string name="AnHuiDX_NET_20011">"网线未连接，请检查网络！
+
+1、检查连接机顶盒的终端（猫或路由器）是否开电。
+2、检查连接机顶盒和宽带猫的网线两端是否插紧（机顶盒连接灯亮绿灯表示连接正常）。
+3、如机顶盒连接灯不亮，更换机顶盒的网线重试。
+4、待机顶盒连接灯亮绿灯时，关电重启机顶盒尝试。
+5、详情请见安徽电信网上服务平台（189ah.cn）。
+6、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_20012">"未检测到无线网卡或无线AP！
+
+1、关电重启机顶盒尝试。
+2、检查无线网卡是否接好，无线AP是否开启。
+3、检查接入方式是否选择正确（此时选择为无线方式，如通过网线连接，请选择有线连接方式）。
+4、详情请见安徽电信网上服务平台（189ah.cn）。
+5、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_20013">"线路问题，导致拨号失败！
+
+1、插紧机顶盒与猫之间的网线，关电重启猫5分钟后重启机顶盒尝试。
+2、更换机顶盒网线在猫上的端口（在猫的iTV端口和其它网口之间更换），然后重启机顶盒尝试。
+3、如机顶盒连接在路由器上，请改接到猫的iTV端口，然后重启机顶盒。
+4、详情请见安徽电信网上服务平台（189ah.cn）。
+5、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_20014">"无线方式，线路问题，导致pppoe失败！
+
+1、关电重启猫5分钟后重启机顶盒尝试。
+2、检查机顶盒无线信号是否连接正确。
+3、详情请见安徽电信网上服务平台（189ah.cn）。
+4、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_20015">"宽带承载账号或密码错误！
+
+1、关电重启机顶盒尝试。
+2、如重启机顶盒仍未恢复，请更换机顶盒网线所连接猫上的端口（在猫的iTV端口和其它端口之间更换），然后关电重启机顶盒尝试。
+3、详情请见安徽电信网上服务平台（189ah.cn）。
+4、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_20016">"无线接入网络用户名或密码错！
+
+1、关电重启机顶盒尝试。
+2、详情请见安徽电信网上服务平台（189ah.cn）。
+3、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_20017">"DHCP方式下获取地址失败！
+
+1、关电重启机顶盒尝试。
+2、将分配的IP以固定IP的方式配置到机顶盒中尝试。
+3、详情请见安徽电信网上服务平台（189ah.cn）。
+4、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_20018">"其他网络连接失败！
+
+1、插紧机顶盒与猫之间的网线，关电重启猫5分钟后重启机顶盒尝试。
+2、详情请见安徽电信网上服务平台（189ah.cn）。
+3、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NTP_20031">"时间同步失败！
+
+1、关电重启机顶盒尝试。
+2、请联系客服人员并告知页面上显示的错误代码。"</string>
+    <string name="AnHuiDX_NET_IPOE_20017">"IPOE拨号不成功！
+
+请使用正确的拨号方式和用户名密码。"</string>
+    <string name="XJ_NET_1305">"机顶盒网络接入失败！
+
+请按以下步骤检查：
+1、请检查网线连接是否正常。
+2、并尝试断电重启机顶盒。"</string>
+    <string name="XJ_NET_1901">"机顶盒网络接入失败！
+
+请按以下步骤检查：
+1、请检查网线连接是否正常，检查网线接入设备是否已工作正常。
+2、并尝试断电重启机顶盒。"</string>
+    <string name="XJ_NET_1902">"未找到可用的无线网络 
+
+请按以下步骤检查：
+1、请检查无线网络连接状态。
+2、请检查无线路由工作是否正常。
+3、建议更改有线方式连接。"</string>
+    <string name="XJ_NET_1903">"未找到可用的无线网络 
+
+请按以下步骤检查：
+1、请检查无线网络连接状态。
+2、请检查无线路由工作是否正常。
+3、建议更改有线方式连接。"</string>
+    <string name="XJ_CFG_1306">设备异常，无法提供服务！请拨打客户服务热线进行咨询。</string>
+    <string name="NET_1305">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="CFG_1306">机顶盒关键配置项缺失,无法提供服务。</string>
+    <string name="NET_9999">当前有线网络、无线网络都已关闭，无法访问网络，请按“确定”进入本地设置打开无线或有线网络。</string>
+    <string name="NET_7777">网络接入失败，请按“确定”进入本地设置确认网络配置是否正确。</string>
+    <string name="NET_1401">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="NET_1402">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="NET_1403">非常抱歉，宽带接入帐号或密码错误，网络接入失败！请稍后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="NET_1404">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="SX_NET_691">"IPTV接入账号或密码错误！
+
+1.请关闭机顶盒电源，5分钟后再打开电源。
+2.若按以上操作，问题仍然存在，请致电10000号。"</string>
+    <string name="SX_NET_678">"请按照以下步骤尝试解决故障:
+
+1.请重启机顶盒进行尝试。
+2.如以上操作未能解决，请致电10000号。"</string>
+    <string name="NET_1901">非常抱歉，线路连接异常！请检查网线是否脱落或网络接入设备是否加电。检查后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="NET_0096">获取地址失败，请重新尝试，若问题仍然存在，请联系客服人员。</string>
+    <string name="NET_0097">获取地址失败，无法观看，请重新尝试若问题仍然存在，请联系客服人员。</string>
+    <string name="NET_0098">请连接家庭网管的1或3口。</string>
+    <string name="NET_1902">非常抱歉，无线网卡加载失败！请检查无线网卡是否连接正常，稍后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="NET_1903">非常抱歉，无线网络连接失败！请检查网络接入设备是否加电，检查后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。</string>
+    <string name="DNS_DXJC_01303">"网络访问失败，请重新尝试，若问题依然存在，请联系客服人员！
+
+用户操作建议：
+1.重启机顶盒.
+2.进入配置界面，查看配置信息."</string>
+    <string name="NET_DXJC_01301">"网络未连接，请检查后重试，若问题依然存在，请联系客服人员！
+
+用户操作建议：
+1.检查机顶盒网络连接.
+2.进入配置界面，查看机顶盒网络参数配置."</string>
+    <string name="NET_DXJC_01302">"无线连接失败！
+
+用户操作建议：
+1.尝试重新连接无线.
+2.进入配置界面，查看机顶盒配置."</string>
+    <string name="DNS_SH_01303">"非常抱歉，网络访问失败！
+
+用户操作建议：
+1.请尝试重启机顶盒.
+2.若按以上操作问题仍未解决，请拨打10000客服热线."</string>
+    <string name="NET_SH_113">"非常抱歉，无线网络连接失败！
+
+用户操作建议：
+1.请确认宽带猫后的WLAN按键打开，保证WLAN灯亮.
+2.尝试重新连接无线.
+3.进入配置界面，查看机顶盒配置.
+4.若按以上操作问题仍未解决，请拨打10000客服热线."</string>
+    <string name="NET_SH_118">"非常抱歉，网络未连接！
+
+用户操作建议：
+1.请检查机顶盒网络连接.
+2.请进入配置界面，查看机顶盒网络参数配置.
+3.若按以上操作问题仍未解决，请拨打10000客服热线."</string>
+    <string name="NET_1904">非常抱歉，网络接入失败！重新连接请按“确定”，忽略请按“取消”！</string>
+    <string name="NTP_1307">非常抱歉，时间同步失败！</string>
+    <string name="NTP_SC_DX_1307">非常抱歉，时间同步失败！</string>
+    <string name="ZJ_ERROR_CODE">报错代码：</string>
+    <string name="ZJ_ERROR_INFO">报错信息：</string>
+    <string name="ZJ_NET_10000">"非常抱歉，机顶盒网络连接失败！
+
+1.请检查网线是否正常连接。 
+2.请尝试断电重启机顶盒。
+3.若按以上操作，问题仍未解决，请拨打10000客服服务热线进行咨询。"</string>
+    <string name="ZJ_NET_10001">"网络连接出现异常！
+
+1.检查STB与上行设备之间网线是否断连。
+2.检查上行设备是否处于正常运行状态。 
+3.检查STB网络配置参数是否正确。
+4.重启机顶盒，若问题仍然存在请联系设备提供商。"</string>
+    <string name="ZJ_NET_10002">"网络连接出现异常!
+
+1.检查用户的家庭网络中是否有其他设备通过静态IP方式占用该地址。
+2.在DHCP服务器上查看已经获取到该IP地址的设备信息。 
+3.检查STB网络配置参数是否正确"</string>
+    <string name="ZJ_NET_10003_4">"网络连接出现异常！
+
+1.检查STB与DHCP服务器之间网络是否可达。
+2.检查DHCP服务器是否正常。
+3.检查STB网络配置参数是否正确"</string>
+    <string name="ZJ_NET_10005">"网络接入账号信息错误，此时无回应！
+
+检查DHCP帐号和密码是否正确。"</string>
+    <string name="ZJ_NET_10006_7">"网络连接出现异常！
+
+1.重启STB，再次尝试。
+2.检查STB与PPPoE服务器之间网络是否可达。
+3.检查PPPoE服务器是否正常。"</string>
+    <string name="ZJ_NET_10008">"网络连接出现异常！
+
+检查PPP配置是否正确。"</string>
+    <string name="ZJ_NET_10009">"网络接入账号信息错误！
+
+检查PPPoE帐号和密码是否正确。"</string>
+    <string name="ZJ_NTP_10010">"时间同步失败！
+
+1.检查STB与NTP服务器之间的网络是否可达。
+2.检查NTP服务器运行是否正常。"</string>
+    <string name="ZJ_NTP_10011">"时间同步失败！
+
+1.检查STB与DNS服务器之间网络是否可达。
+2.检查STB中的DNS地址是否正确。"</string>
+    <string name="ZJ_NTP_10012">"时间同步失败！
+
+检查DNS服务器上的解析记录是否正确。"</string>
+    <string name="ZJ_NET_10018">"无线网卡加载失败！
+
+1.检查无线网卡是否处于正常运行状态。
+2.重启机顶盒，若问题仍然存在请联系设备提供商。"</string>
+    <string name="ZJ_NET_10019">"没有找到可用的无线网络！
+
+1.检查无线网络配置是否正常。 
+2.重启机顶盒，若问题仍然存在请联系设备提供商。"</string>
+    <string name="JS_ERROR_CODE">报错代码：</string>
+    <string name="JS_ERROR_INFO">报错信息：</string>
+    <string name="JS_NET_1305">"非常抱歉，网络接入失败!
+
+请按”重试”按钮尝试重新接入，如果依然失败，请按照以下步骤检查：
+1.请尝试重启机顶盒；
+2.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="JS_CFG_1306">"非常抱歉，设备异常，无法提供服务!
+
+请拨打客户服务热线进行咨询。"</string>
+    <string name="JS_NET_1401">"非常抱歉，网络接入失败!
+
+请按”重试”按钮尝试重新接入，如果依然失败，请按照以下步骤检查：
+1.请关闭机顶盒电源，5分钟后再打开电源；
+2.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="JS_NET_1402">"非常抱歉，网络接入失败!
+
+请按”重试”按钮尝试重新接入，如果依然失败，请按照以下步骤检查：
+1.请关闭机顶盒电源，5分钟后再打开电源；
+2.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="JS_NET_1403">"非常抱歉，宽带接入帐号或密码错误!
+
+请按”重试”按钮尝试重新接入，如果依然失败，请按照以下步骤检查：
+1.请确认接机顶盒的网线插在宽带猫的iTV口或LAN2口；
+2.请关闭机顶盒电源，5分钟后再打开电源；
+3.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="JS_NET_1404">"非常抱歉，网络接入失败!
+
+请按”重试”按钮尝试重新接入，如果依然失败，请按照以下步骤尝试解决故障：
+1.请检查连接ITV机顶盒的终端（宽带猫或HUB）是否有电；
+2.请检查接在宽带猫背面的电话线或网线是否插紧；
+3.请检查宽带猫的DSL或者LINK灯是否常亮；
+4.请重启宽带猫，待DSL灯或LINK灯不再闪烁后，重启机顶盒；
+5. 若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="JS_NET_1901">"非常抱歉，线路连接异常!
+
+请按照以下步骤尝试解决故障：
+1.请检查连接ITV机顶盒的终端（宽带猫或HUB）是否有电；
+2.请检查接在宽带猫与机顶盒背面的网线接头是否插紧；
+3.请检查是否能正常上网；
+4.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="JS_NET_1902">"非常抱歉，无线网卡加载失败!
+
+请按照以下步骤尝试解决故障：
+1.请确定无线网卡为电信定制产品；
+2.请确认宽带猫后的WLAN按键打开，保证WLAN灯常亮紧；
+3.请确认宽带猫第二个灯DSL或者LINK灯是否常亮；
+4.请重新插拔USB无线网卡；
+5.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="JS_NET_1903">"非常抱歉，无线网络连接失败!
+
+请按”重试”按钮尝试重新接入，如果依然失败，请按照以下步骤检查：
+1.请确定无线宽带猫已加电；
+2.请确定无线网卡为电信定制产品；
+3.若无线宽带猫上的WLAN（无线）灯不亮，请按一下宽带猫背面的WLAN按钮开启无线；
+4.请确认宽带猫第二个灯DSL或者LINK灯是否常亮；
+5.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="GD_ERROR_CODE">错误代码：</string>
+    <string name="GD_ERROR_INFO">错误信息：</string>
+    <string name="GD_NET_1305">"机顶盒自动获取IP地址失败或无效，网络连接失败！
+
+请按照以下步骤检查：
+1、请检查STB与家庭路由器或DHCP服务器之间网络是否连通；
+2、请尝试断电重启机顶盒；
+3、请尝试断电重启机顶盒上联的路由器；
+4、若您机顶盒使用自动获取IP方式连接网络，请尝试改用PPPoE拨号方式连接网络；
+5、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询。"</string>
+    <string name="GD_NET_1403">"机顶盒网络帐号拨号失败，网络连接失败！
+
+请按“菜单”或“首页”键尝试重新接入，如果依然失败，请按以下步骤尝试解决故障：
+1、请尝试断电重启机顶盒重新拨号；
+2、请尝试断电重启modem重新拨号；
+3、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询。"</string>
+    <string name="GD_NET_1404">"机顶盒网络帐号拨号失败，网络连接失败！
+1、请尝试断电重启机顶盒重新拨号；
+2、请尝试断电重启modem重新拨号；
+3、请检查机顶盒、modem和分离器之间网线是否连接正常；
+4、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询。"</string>
+    <string name="GD_NET_1901">"非常抱歉，机顶盒网络连接失败！
+
+请按以下步骤检查：
+1、请检查网线是否正常连接；
+2、请尝试断电重启机顶盒；
+3、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询。"</string>
+    <string name="GD_NET_1902">"非常抱歉，无线网卡加载失败！
+
+请按照以下步骤尝试解决故障：
+1.请确定无线网卡为电信定制产品；
+2.请确认宽带猫后的WLAN按键打开，保证WLAN灯常亮紧；
+3.请确认宽带猫第二个灯DSL或者LINK灯是否常亮；
+4.请重新插拔USB无线网卡；
+5.若按以上操作，问题仍未解决，请拨打10000–4–2客户服务热线进行咨询。"</string>
+    <string name="GD_NET_1903">"未找到可用无线网络！
+
+请按“菜单”或“首页”键尝试重新接入，如果依然失败，请按照以下步骤尝试解决故障：
+1.请尝试断电重启机顶盒重新拨号；
+2.请尝试断电重启modem重新拨号；
+3.请检查无线路由配置是否正确；
+4.请对机顶盒改用有线接入方式接入；
+5.若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询。"</string>
+    <string name="GDYD_ERROR_CODE">错误代码：</string>
+    <string name="GDYD_NET_1305">"主人，网络连接不上，我的IP失效啦…(⊙□⊙)尝试重启机顶盒吧！
+
+还是不行？请联系上门提供安装服务的装维人员或拨打1008616"</string>
+    <string name="GDYD_NET_1901">"主人，我的网络连接不上啦！(⊙□⊙)
+
+1.请重启一下机顶盒吧 
+2.请检查网线连好了吗？
+还是不行？请联系上门提供安装服务的装维人员或拨打1008616"</string>
+    <string name="GDYD_NET_10001">"主人，网络连接不上，我的IP被占用啦…（⊙▽⊙）
+
+1.请重启一下机顶盒吧
+2.请检查网线连好了吗？
+还是不行？请联系上门提供安装服务的装维人员或拨打1008616"</string>
+    <string name="SC_ERROR_CODE">错误代码：</string>
+    <string name="SC_ERROR_INFO">故障信息：</string>
+    <string name="SC_NET_1305">通路或AAA认证失败。</string>
+    <string name="SC_CFG_1306">机顶盒自检失败！请重新尝试，若问题仍然存在，请联系客服人员。</string>
+    <string name="SC_NET_1401">宽带拨号失败，请重新尝试，若问题仍然存在，请联系客服人员。</string>
+    <string name="SC_NET_1402">宽带拨号失败，请重新尝试，若问题仍然存在，请联系客服人员。</string>
+    <string name="SC_NET_1403">宽带拨号失败，请重新尝试，若问题仍然存在，请联系客服人员。</string>
+    <string name="SC_NET_1404">宽带拨号失败，请重新尝试，若问题仍然存在，请联系客服人员。</string>
+    <string name="SC_NET_1901">"
+ 1 请用户检查光猫或MODEM是否通电；
+ 2 请尝试插拔或更换网线，先重启光猫，1分钟后重启机顶盒；
+ 3 检查光猫或MODEM、机顶盒上ITV口指示灯是否亮起；
+ 4 若完成以上步骤仍不能正常使用，请电话10000号咨询。"</string>
+    <string name="SC_NET_1902">无线网卡加载失败！请检查后重试，若问题仍然存在，请联系客服人员。</string>
+    <string name="SC_NET_1903">无线网络连接失败！</string>
+    <string name="SC_ERROR_1904">发生未知错误！请重新尝试，若问题仍然存在，请联系客服人员。</string>
+    <string name="YM_NET_1305">"非常抱歉，网络接入失败！
+
+请尝试重启悦me终端及路由器并检查您的网络，若按以上操作问题仍未解决，请联系您的宽带服务提供商。"</string>
+    <string name="YM_CFG_1306">"非常抱歉，设备异常，无法提供服务！
+
+请拨打10000客户服务热线进行咨询。"</string>
+    <string name="YM_NET_1401">"非常抱歉，网络接入失败！
+
+请按如下步骤进行检查：
+1.请关闭悦me终端电源，5分钟后再打开电源；
+2.若按以上操作问题仍未解决，请联系您的宽带服务提供商。"</string>
+    <string name="YM_NET_1402">"非常抱歉，网络接入失败！
+
+请按如下步骤检查：
+1.请关闭悦me终端电源，5分钟后再打开电源；
+2.若按以上操作，问题仍未解决，请联系您的宽带服务提供商。"</string>
+    <string name="YM_NET_1403">"非常抱歉，宽带接入帐号或密码错误！
+
+请按如下步骤检查：
+1.请检查用户名或密码是否正确；
+2.请关闭悦me终端电源，5分钟后再打开电源；
+3.若按以上操作，问题仍未解决，请联系您的宽带服务提供商。"</string>
+    <string name="YM_NET_1404">"非常抱歉，网络接入失败！
+
+请按如下步骤尝试解决故障：
+1.请检查悦me终端连接的网络设备（路由器、宽带猫等）是否有电；
+2.请检查接在网络设备背面的电话线或网线是否插紧；
+3.请检查宽带猫的DSL或者LINK灯是否常亮，如有异常请重启宽带猫，待DSL灯或LINK灯不再闪烁后，重启机顶盒；
+4. 若按以上操作，问题仍未解决，请联系您的宽带服务提供商。"</string>
+    <string name="YM_NET_1901">"非常抱歉，线路连接异常！
+
+请按如下步骤尝试解决故障：
+1.请检查检查悦me终端连接的网络设备（路由器、宽带猫等）是否有电；
+2.请检查接在网络设备与悦me终端背面的网线接头是否插紧；
+3.请检查是否能正常上网；
+4.若按以上操作，问题仍未解决，请联系您的宽带服务提供商。"</string>
+    <string name="YM_NET_1902">"非常抱歉，无线网卡加载失败！
+
+请检查无线网卡是否连接正常，稍后再试一次，如果仍然失败，请拨打客户服务热线进行咨询。"</string>
+    <string name="YM_NET_1903">"非常抱歉，无线网络连接失败！
+
+请按如下步骤检查：
+1.请确认路由器是否具备无线功能；
+2.请确认路由器是否有电；
+3.请确认悦me终端所连接的无线网络名称是否正确；
+4.请确认悦me终端中所输入的无线网络密码是否正确；
+5.如有疑问，请联系您的宽带服务提供商。"</string>
+    <string name="JSLT_NET_1404">网络连接失败，请检查网络！</string>
+    <string name="JSLT_NET_1901">以太网未连接，请检查网络！</string>
+    <string name="JSLT_NET_1305">获取IP地址失败，请检查网络！</string>
+    <string name="ZSGJ_NET_1401">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_1402">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_1403">非常抱歉，宽带接入帐号或密码错误，网络接入失败！请稍后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_1404">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_1901">非常抱歉，线路连接异常！请检查网线是否脱落或网络接入设备是否加电。检查后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_1902">非常抱歉，无线网卡加载失败！请检查无线网卡是否连接正常，稍后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_1903">非常抱歉，无线网络连接失败！请检查网络接入设备是否加电，检查后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_0096">获取地址失败，请重新尝试，若问题仍然存在，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_0097">获取地址失败，无法观看，请重新尝试若问题仍然存在，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_0098">请连接家庭网管的1或3口，请重新尝试若问题仍然存在，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_NET_1305">非常抱歉，网络接入失败！请稍后再试一次，如果仍然失败，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="ZSGJ_CFG_1306">机顶盒关键配置项缺失,无法提供服务，请和当地经销商联系，或者登陆网站www.greatwall-tv.com，申报故障。</string>
+    <string name="BJLT_NET_10000">网络问题：网络没连接，请检查网线是否连接牢固，如还有问题请拨打北京联通客服电话10010。</string>
+    <string name="BJLT_NET_10001">网络问题：IP地址冲突，建议重新启动光猫，光猫启动稳定后，重新启动机顶盒，如还有问题请拨打北京联通客服电话10010。</string>
+    <string name="BJLT_NET_10010">网络问题：获取IP地址失败或失效，建议重新启动光猫，光猫启动稳定后，重新启动机顶盒，如还有问题请拨打北京联通客服电话10010。</string>
+    <string name="HDMI_AUTO_STANDBY">"检测到电视机已关机或待机，机顶盒将在15s后自动进入待机状态。如您看到此提示，请进入高级设置中关闭此功能。
+按任意键可以取消本次待机。"</string>
+    <string name="HAVE_VERSION_UPGADE">检测到新版本需要升级！升级请按“确定”，忽略请按“取消”！</string>
+    <string name="USB_VERSION_UPGRADE">检测到USB有新版本需要升级！升级请按“确定”，忽略请按“取消”！</string>
+    <string name="SCREEN_SAVER_INFO">即将进入屏保模式.....</string>
+    <string name="POWER_OFF_INFO">您已一段时间未操作机顶盒，机顶盒将自动进入待机状态，按任意键取消！</string>
+    <string name="NO_USB_VERSION_UPGRADE">未检测到USB盘上有新版本！</string>
+    <string name="OK">确定</string>
+    <string name="CANCEL">取消</string>
+    <string name="YES">是</string>
+    <string name="NO">否</string>
+    <string name="CONFIRM">确定</string>
+    <string name="RETRY">重试</string>
+    <string name="TITLE">提示</string>
+    <string name="STANDBY">待机</string>
+    <string name="SHUTDOWN">关机</string>
+    <string name="SERIALNO_TITLE_FIRST">序列号输入</string>
+    <string name="SERIALNO_TITLE_AGAIN">序列号输入错误！</string>
+    <string name="INPUT_SERIALNO_FIRST">请输入序列号</string>
+    <string name="INPUT_SERIALNO_AGAIN">序列号错误，请重新输入！</string>
+    <string name="TIP_MESSAGE">正在检查用户配置信息，请稍等。</string>
+    <string name="TIP_TITLE">提示：</string>
+    <string name="INPUT_RULE">请输入6位序列号</string>
+    <string name="TIP_MESSAGE_TWO">正在写入配置信息，请不要断电！成功写入配置后机顶盒将会自动重启。</string>
+    <string name="REBOOT">重启</string>
+    <string name="CONF_UPDATE">配置已修改，需要机顶盒重启才可生效。立即重启请按“重启”，忽略请按“取消”！</string>
+    <string name="REBOOT_INFO">机顶盒正在重启......</string>
+    <string name="AUTO_POWEROFF_REQUEST">您已观看较长时间的节目，为了保护您的视力，请稍候再看。如需继续收看，请按遥控器任意键继续！</string>
+    <string name="HeibeiLT_AUTO_POWEROFF_REQUEST">尊敬的用户，由于您长时间未进行操作，联通电视机顶盒30s后进入待机模式，按任意键取消！</string>
+    <string name="AUTO_POWEROFF_REQUEST_TITILE">温馨提示：</string>
+    <string name="TIME_REMAIN">剩余时间：</string>
+    <string name="TIME_REMAIN_UNIT">秒</string>
+    <string name="FACTORY_RESET">系统正在进行恢复出厂设置操作，确认操作请按“确定”，忽略请按“取消”！</string>
+    <string name="AUTO_POWEROFF_KEY">系统准备待机，确认请按“确定”，忽略请按“取消”！</string>
+    <string name="AUTO_POWEROFF_KEY_TITILE">温馨提示：</string>
+    <string name="CHANGE_TVSTANDARD_TO_720P">已切换到720P显示模式</string>
+    <string name="Recovery">恢复机顶盒</string>
+    <string name="Human_POWEROFF_REQUEST">即将进入待机模式，请稍等。。。</string>
+    <string name="JXYD_POWEROFF_KEY_STANDBY_OR_SHUTDOWN_TITLE">选择操作：</string>
+    <string name="JXYD_POWEROFF_KEY_STANDBY_OR_SHUTDOWN">待机还是关机？</string>
+    <string name="JXYD_POWEROFF_KEY_STANDBY">待机</string>
+    <string name="JXYD_POWEROFF_KEY_SHUTDOWN">关机</string>
+    <string name="GXDX_10010">"机顶盒自动获取IP地址失败或无效，网络连接失败！
+请按以下步骤检查:
+ 1、请检查STB与家庭路由器或DHCP服务器之间网络是否连通;
+ 2、请尝试断电重启机顶盒;
+ 3、请尝试断电重启机顶盒上连的路由器;
+ 4、若您机顶盒使用自动获取IP方式连接网络，请尝试改用PPPoE拨号方式连接网络;
+ 5、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询;"</string>
+    <string name="GXDX_10021">"机顶盒网络帐号拨号失败，网络连接失败！
+请按以下步骤检查:
+ 1、请尝试断电重启机顶盒重新拨号;
+ 2、请尝试断电重启modem重新拨号;
+ 3、请尝试检查机顶盒、modem和分离器之间网线是否连接正常;
+ 4、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询;"</string>
+    <string name="GXDX_10003">"非常抱歉，机顶盒物理自检发生错误！
+请按以下步骤检查:
+ 1、请尝试断电重启机顶盒;
+ 2、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询;"</string>
+    <string name="GXDX_10001">"IP地址冲突，机顶盒网络连接失败！
+请按以下步骤检查:
+ 1、请尝试断电重启机顶盒重新获取IP地址;
+ 2、请检查家庭网络中是否有其它设备通过静态IP方式占用该地址并更换IP地址;
+ 3、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询;"</string>
+    <string name="GXDX_10030">"时间同步失败
+部分功能可能会受到影响。"</string>
+    <string name="GXDX_10061">"未找到可用无线网络！
+请按菜单或首页键尝试重新接入，如果依然失败，请按照以下步骤尝试解决故障:
+ 1、请尝试断电重启机顶盒重新拨号;
+ 2、请尝试断电重启modem重新拨号;
+ 3、请检查无线路由配置是否正确;
+ 4、若按以上操作，问题仍未解决，请拨打10000客户服务热线进行咨询;"</string>
+    <string name="GXDX_22102">网络帐号密码输入错误，请重新输入。若问题仍未解决，请拨打10000客户服务热线进行咨询。</string>
+    <string name="GXDX_10099">网络帐号所建立的连接无效，请关机等待10分钟后重新开机。如果仍然不能正常登录，请拨打10000客户服务热线进行咨询。</string>
+    <string name="ZJYD_NET_92151">"网线未连接，请检查网络！
+ 1. 检查连接机顶盒的终端（猫或路由器）是否开电;
+ 2. 检查连接机顶盒和宽带猫的网线两端是否插紧（机顶盒连接灯亮绿灯表示连接正常）;
+ 3. 如机顶盒连接灯不亮，更换机顶盒的网线重试;
+ 4. 待机顶盒连接灯亮绿灯时，关电重启机顶盒尝试;
+ 5. 请联系客服人员并告知页面上显示的错误代码;"</string>
+    <string name="ZJYD_NET_92251">"自动获取IP地址失败！
+ 1. 关电重启机顶盒尝试;
+ 2. 将分配的IP以固定IP的方式配置到机顶盒中尝试;
+ 3. 请联系客服人员并告知页面上显示的错误代码;"</string>
+    <string name="ZJYD_NET_93151">"无线连接密码错误！
+ 1. 请输入正确的密码后重试;
+ 2. 请联系客服人员并告知页面上显示的错误代码;"</string>
+    <string name="ZJYD_NET_93251">"无线连接失败！
+ 1. 请重启无线路由器后重试;
+ 2. 请联系客服人员并告知页面上显示的错误代码;"</string>
+    <string name="ZJYD_NET_94151">"PPPoE拨号时账号或密码错误！
+ 1. 关电重启机顶盒尝试;
+ 2. 请联系客服人员并告知页面上显示的错误代码;"</string>
+    <string name="ZJYD_NET_94251">"PPPoE获取IP地址失败！
+ 1. 关电重启机顶盒尝试;
+ 2. 请联系客服人员并告知页面上显示的错误代码;"</string>
+    <string name="ZJYD_NET_95251">"时间同步失败！
+ 1. 检查是否正确配置了NTP服务器地址;
+ 2. 关电重启机顶盒尝试;
+ 3. 请联系客服人员并告知页面上显示的错误代码;"</string>
+    <string name="iptv_install_succ">安装成功，准备重新启动IPTV。</string>
+    <string name="mImageText">扫码下载智宽生活，您身边的排障专家</string>
+    <string name="CQDX_NET_0010">"家庭网络障碍
+检测到故障，请按以下步骤检查：
+1、请检查网线是否正常连接；
+2、请尝试断电重启机顶盒；
+若按以上操作，问题仍未解决，
+请扫描二维码进行报障。"</string>
+    <string name="CQDX_NET_0006">"通路故障或AAA认证失败
+ADSL账号或者密码有误
+检测到故障，请扫描二维码进行报障。"</string>
+    <string name="CQDX_NET_0007">"通路故障或AAA认证失败
+ADSL拨号超时没有响应
+检测到故障，请扫描二维码进行报障。"</string>
+    <string name="CQDX_NET_0013">"通路故障或AAA认证失败
+DHCP服务器没有响应
+检测到故障，请扫描二维码进行报障。"</string>
+    <string name="CQDX_INFO_0010">家庭网络障碍（断网线或者线序错）</string>
+    <string name="CQDX_INFO_0006">通路故障或AAA认证失败</string>
+    <string name="fujianDX_err_code">错误代码：</string>
+    <string name="fujianDX_prompt_jianduan1">网络连接被断开，请检查机顶盒与Modem或交换机之间的网线是否松动，谢谢！</string>
+    <string name="fujianDX_prompt_jianduan2">机顶盒软件加载失败，请尝试重启机顶盒，若无效请联系客服，谢谢！</string>
+    <string name="XJLT_NET_10000">"机顶盒网络连接失败！
+
+请按以下步骤检查：
+ 1、请先检查网线是否正常连接，检查网络接入设备是否已工作正常。
+ 2、并尝试断电重启机顶盒。
+ 3、若按以上操作，问题仍未解决，请拨打10010客服服务热线进行咨询。"</string>
+    <string name="XJLT_NET_10021">"机顶盒网络连接失败！
+
+请按以下步骤检查：
+ 1、请先检查网线是否正常连接。
+ 2、并尝试断电重启机顶盒。
+ 3、请尝试检查机顶盒、modem和分离器之间网线是否连接正常。"</string>
+    <string name="XJLT_NET_10061">"未找到可用无线网络！
+
+请按设置按钮进入网络设置，按照以下步骤尝试解决：
+ 1、请先检查无线网络连接状态。
+ 2、请检查无线路由工作是否正常。
+ 3、建议更改有线方式连接。"</string>
+    <string name="Yinni_Restart_Message_One">尊敬的用户，由于您长时间未重启机顶盒，系统将会在1分钟后进行重启，您可以点击重启按钮立即重启，或者点击推迟按钮延后2小时后进行重启！</string>
+    <string name="Yinni_Restart_Message_Two">尊敬的用户，由于您长时间未重启机顶盒，系统将会在1分钟后进行重启，您可以点击重启按钮立即重启，或者点击推迟按钮延后2小时后进行重启！</string>
+    <string name="Yinni_Restart_Message_Three">尊敬的用户，由于您长时间未重启机顶盒，系统将会在1分钟后进行重启，您可以点击重启按钮立即重启，或者点击推迟按钮延后4小时后进行重启！</string>
+    <string name="Yinni_Restart_Message_Four">尊敬的用户，由于您长时间未重启机顶盒，系统将会在10秒钟后进行重启！</string>
+    <string name="Yinni_Restart_Reboot">现在重启</string>
+    <string name="Yinni_Restart_Delay">推迟(两小时)</string>
+</resources>

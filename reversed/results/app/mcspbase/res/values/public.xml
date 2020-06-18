@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="drawable" name="ic_launcher" id="0x7f020000" />
+    <public type="string" name="app_name" id="0x7f030000" />
+    <public type="string" name="s_DEVICE_NOT_FOUND" id="0x7f030001" />
+    <public type="string" name="s_ULOG_START" id="0x7f030002" />
+    <public type="string" name="s_ULOG_STOP" id="0x7f030003" />
+    <public type="string" name="s_ULOG_CLEAR" id="0x7f030004" />
+    <public type="string" name="s_SPACE_NOT_ENOUGH" id="0x7f030005" />
+    <public type="style" name="AppBaseTheme" id="0x7f040000" />
+    <public type="style" name="AppTheme" id="0x7f040001" />
+</resources>

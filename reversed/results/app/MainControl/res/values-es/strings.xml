@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Control Principal</string>
+    <string name="CONNCTING_NET">Conectando, por favor, espere … Conectando a la red …</string>
+    <string name="RECONNCT_NET">Red desconectada, reconectando, por favor espere …</string>
+    <string name="NET_CONNECTOUT">La red no está conectada, presione OK para volver a conectar o pulse Cancelar para ignorar.</string>
+    <string name="ERROR_CODE">"Código de error: "</string>
+    <string name="ERROR_INFO">"Informacion del error: "</string>
+    <string name="NET_1305">Lo sentimos, no se ha podido acceder a la red. Por favor, inténtelo de nuevo más tarde, si el problema persiste, por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="CFG_1306">Lo sentimos, el equipo no esta funcionando adecuadamente, servicio no disponible. por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="NET_9999">Las conexiones se encuentran desactivadas, favor de presionar el botón “Confirmar”, y active la conexión por cable o inalámbrica.</string>
+    <string name="NET_7777">Lo sentimos, el acceso a la red ha fallado, favor de presionar el botón “Confirmar”, y asegúrese de que la red esté correctamente configurada.</string>
+    <string name="NET_1401">Lo sentimos, no se ha podido acceder a la red. Por favor, inténtelo de nuevo más tarde, si el problema persiste, por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="NET_1402">Lo sentimos, no se ha podido acceder a la red. Por favor, inténtelo de nuevo más tarde, si el problema persiste, por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="NET_1403">Lo sentimos, la cuenta de acceso a la red o contraseña son incorrectas, no se ha podido acceder a la red! Por favor, inténtelo de nuevo más tarde, si el problema persiste, por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="NET_1404">Lo sentimos, no se ha podido acceder a la red. Por favor, inténtelo de nuevo más tarde, si el problema persiste, por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="NET_1901">Lo sentimos, error en la conexión de red. Por favor, compruebe que el cable de red está no esté desconectado o que el dispositivo de acceso a la red está encendido. Compruebe y vuelva a intentarlo, si sigue sin funcionar, por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="NET_0096">No se pudo obtener la dirección IP, por favor intente de nuevo, si sigue sin funcionar, por favor llame al servicio del cliente!</string>
+    <string name="NET_0097">No se pudo obtener la dirección IP, no puede trabajar, por favor intente de nuevo, si sigue sin funcionar, por favor llame al servicio al cliente!</string>
+    <string name="NET_0098">Por favor, conecta al puerto 1 o el puerto 3 del portal de acceso!</string>
+    <string name="NET_1902">Lo sentimos, la tarjeta inalámbrica no se pudo cargar. Por favor, compruebe que la tarjeta inalámbrica este conectada correctamente, vuelva a intentarlo más tarde, si el problema persiste, por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="NET_1903">Lo sentimos, ¡no se ha podido acceder a la red. Por favor, compruebe que el dispositivo de acceso a la red está encendido. Compruebe y vuelva a intentarlo, si el problema persiste, por favor llame a la línea de servicio al cliente para obtener ayuda.</string>
+    <string name="NET_1904">No hay conexión a la Red, presione la tecla OK para volver a conectar o pulse Cancelar para ignorar.</string>
+    <string name="NTP_1307">Lo sentimos, el tiempo de sincronización expiro!</string>
+    <string name="JS_ERROR_CODE">"Código de error: "</string>
+    <string name="JS_ERROR_INFO">"Mensaje de error: "</string>
+    <string name="JS_NET_1305">"Lo sentimos, no se ha podido acceder a la red
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos: 
+1. Reinice la STB; 
+2. si los pasos anteriores no resuelven el problema, llame al 10000-4-2 servicio al cliente."</string>
+    <string name="JS_CFG_1306">Lo sentimos, el equipo no esta funcionando adecuadamente, servicio no disponible! por favor llame a la línea de atención al cliente para obtener ayuda.</string>
+    <string name="JS_NET_1401">"Lo sentimos, no se ha podido acceder a la red
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos: 
+1. Desconecte la alimentacion de energia de la STB por 5 minutos, vuelva a conectar y encender; 
+2. si los pasos anteriores no resuelven el problema, llame al 10000-4-2 servicio al cliente."</string>
+    <string name="JS_NET_1402">"Lo sentimos, no se ha podido acceder a la red
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos: 
+1. Desconecte el suministro de energia de la STB por 5 minutos, vuelva a conectar y encender; 
+2. si los pasos anteriores no han resuelto el problema, llame al 10000-4-2 servicio al cliente."</string>
+    <string name="JS_NET_1403">"Error de nombre de usuario PPPoE o contraseña
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos: 
+1. Asegurese de que el cable de red de la caja de conexión está conectado al puerto iTV o puerto LAN2 del módem de banda ancha; 
+2. Desconecte el suministro de energia de la STB por 5 minutos, vuelva a conectar y encender; 
+3. Si los pasos anteriores no han resuelto el problema, llame al 10000-4-2 servicio al cliente."</string>
+    <string name="JS_NET_1404">"Lo sentimos, no se ha podido acceder a la red
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos para intentar solucionar el problema: 
+1.Por favor asegúrese de que el módem o el HUB esten encendidos; 
+2. Asegúrese que la línea telefónica del módem de banda ancha este seguro o que el cable de red este enchufado firmemente; 
+3.Verifque que las luces del modem DSL o LINK esten encendidas; 
+4. Reiniciar el módem de banda ancha, verifique que la luz del LINK o DSL ya no parpadeen, después reinicie la STB; 
+5.si los pasos anteriores no han resuelto el problema al 10000-4-2 servicio al cliente."</string>
+    <string name="JS_NET_1901">"Linea de Red anormal
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos: 
+1. Por favor verifique que el HG este encendido; 
+2. Verifique que el cable entre la STB y el HG este conectado fijamente; 
+3. Por favor verifique que no haya falla en el Internet; 
+4. Si los pasos anteriores no han resuelto el problema, llame al 10000-4-2 servicio al cliente."</string>
+    <string name="JS_NET_1902">"Lo sentimos, la tarjeta inalámbrica no se pudo cargar
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos para intentar solucionar el problema: 
+1. Verifique que la tarjeta inalámbrica este fija; 
+2. Verifique que el botón de WLAN después del módem de banda ancha este encendido, asegurese que las luces de la WLAN esten encendidas; 
+3. Verifique que la segunda luz del DSL o la luz  del LINK del módem de banda ancha este encendida; n4. Por favor, vuelva a enchufar la tarjeta inalámbrica USB; 
+5. Si los pasos anteriores no han resuelto llame al  10000-4-2 servicio al cliente."</string>
+    <string name="JS_NET_1903">"Lo sentimos, error de Red inalámbrica
+
+ Por favor, haga clic en el botón Reintentar para tratar de volver a conectar, si el problema persiste, verifique los siguientes pasos para intentar solucionar el problema: 
+1. Verifique que el modem este encendido; 
+2. Verifique que la tarjeta inalámbrica este fija; 
+3. Verifique que el botón de WLAN después del módem de banda ancha este encendido, asegurese que las luces de la WLAN esten encendidas; 
+4. Verifique que la segunda luz del DSL o la luz  del LINK del módem de banda ancha este encendida; n5. Por favor, vuelva a enchufar la tarjeta inalámbrica USB; 
+6. Si los pasos anteriores no han resuelto llame al  10000-4-2 servicio al cliente."</string>
+    <string name="HAVE_VERSION_UPGADE">Está disponible la actualización. Pulse el botón OK para descargar ahora o pulse Cancelar para salir.</string>
+    <string name="USB_VERSION_UPGRADE">Actualización de USB está disponible. Pulse el botón OK para descargar ahora o pulse Cancelar para salir.</string>
+    <string name="SCREEN_SAVER_INFO">Y ha pasado mucho tiempo sin actividad, la STB se apagará en un minuto, puede presionar cualquier boton para cancelar.</string>
+    <string name="POWER_OFF_INFO">Entrando al protector de pantalla…</string>
+    <string name="NO_USB_VERSION_UPGRADE">Actualización de USB no disponible.</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">Cancelar</string>
+    <string name="YES">Sí</string>
+    <string name="NO">No</string>
+    <string name="CONFIRM">Confirmar</string>
+    <string name="RETRY">Volver a intentar</string>
+    <string name="TITLE">Aviso</string>
+    <string name="REBOOT">Reiniciar</string>
+    <string name="CONF_UPDATE">La configuración de IPTV se ha modificado, por lo que tendrá que reiniciar la STB. Pulse el botón Reboot para reiniciar la STB o pulse Cancelar para ignorar!</string>
+    <string name="REBOOT_INFO">STB está reiniciando ......</string>
+    <string name="AUTO_POWEROFF_REQUEST">Su televisor ha estado encendido por mucho tiempo, para proteger su visión le sugerimos reanudar su programación un poco mas tarde. Si desea continuar, por favor presione cualquier tecla!</string>
+    <string name="AUTO_POWEROFF_REQUEST_TITILE">"Tips: "</string>
+    <string name="TIME_REMAIN">"segundos restantes: "</string>
+    <string name="TIME_REMAIN_UNIT">s (segundos)</string>
+    <string name="FACTORY_RESET">El sistema va a ejecutar la operación de reinicio a configuración de fábrica, Pulse OK para confirmar o pulse Cancel para ignorar!</string>
+    <string name="AUTO_POWEROFF_KEY">El sistema entrará en estado de reposo, Pulse OK para confirmar o pulse Cancel para ignorar!</string>
+    <string name="AUTO_POWEROFF_KEY_TITILE">Warm Tips:</string>
+    <string name="CHANGE_TVSTANDARD_TO_720P">Ya se cambió al 720p</string>
+</resources>

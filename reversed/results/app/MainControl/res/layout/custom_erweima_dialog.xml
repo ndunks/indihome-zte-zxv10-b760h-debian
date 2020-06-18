@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="18.0sp" android:textColor="#ff00ced1" android:layout_gravity="center" android:id="@id/infoQR" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center" android:id="@id/imageQR" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginTop="35.0dip" android:layout_marginRight="40.0dip" />
+            <TextView android:textColor="#ffffffff" android:layout_gravity="center" android:id="@id/imageText" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="40.0dip" />
+        </LinearLayout>
+        <TextView android:textColor="#ffffffff" android:id="@id/textQR" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:maxEms="25" android:lineSpacingMultiplier="1.2" />
+    </LinearLayout>
+    <TextView android:textSize="18.0sp" android:layout_gravity="center" android:id="@id/textView_Timer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="35.0dip" android:layout_marginRight="20.0dip" />
+</LinearLayout>

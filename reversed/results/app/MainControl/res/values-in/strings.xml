@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MainControl</string>
+    <string name="CONNCTING_NET">Sekarang menghubungkan , harap tunggu … Sekarang menghubungkan ke jaringan …</string>
+    <string name="RECONNCT_NET">Jaringan terputus , sekarang berhubungan kembali , harap tunggu …</string>
+    <string name="NET_CONNECTOUT">"Jaringan tidak terhubung , tekan  OK  untuk menyambung kembali atau tekan  Batal  untuk mengabaikan !"</string>
+    <string name="ERROR_CODE">Kesalahan Code:</string>
+    <string name="ERROR_INFO">Kesalahan Info :</string>
+    <string name="YNDX_NET_1305">"STB IPTV gagal mendapatkan IP yang sesuai.
+
+Silahkan lakukan langkah-langkah sebagai berikut :
+ 1. Pastikan koneksi internet dalam kondisi normal
+ 2. Pastikan koneksi kabel LAN STB berada di port 4 modem (ONT)
+ 3. Lakukan restart STB melalui tombol power di STB
+ 4. Bila belum berhasil, lakukan restart perangkat (ONT) Modem lalu STB dengan jeda waktu 3 menit
+ 5. Jika gangguan tetap terjadi, silahkan lapor melalui aplikasi MyIndihome yang dapat didownload dari App Store ataupun Play Store"</string>
+    <string name="YNDX_NET_1901">"Koneksi antara ONT/Modem dan STB IPTV Anda terputus.
+
+Silakan lakukan langkah-langkah sebagai berikut :
+ 1. Pastikan Modem (ONT) dalam kondisi power menyala
+ 2. Cek kembali kabel UTP anda sudah terpasang dengan benar
+ 3. Jika gangguan tetap terjadi, Silakan lapor melalui aplikasi MyIndihome yang dapat didownload dari App Store ataupun Play Store"</string>
+    <string name="CFG_1306">Maaf , Peralatan kerusakan , tidak mampu memberikan layanan ! silakan hubungi hotline layanan pelanggan untuk bantuan .</string>
+    <string name="NET_9999">"Jaringan terputus, tekan tombol  OK  lalu buka jaringan ethernet atau WiFi."</string>
+    <string name="NET_7777">"Akses jaringan gagal, tekan tombol  OK  lalu periksa konfigurasi jaringan dengan benar."</string>
+    <string name="NET_1401">Maaf , akses jaringan gagal! Silakan coba lagi nanti , jika masih gagal , silakan hubungi hotline layanan pelanggan untuk bantuan .</string>
+    <string name="NET_1402">Maaf , akses jaringan gagal! Silakan coba lagi nanti , jika masih gagal , silakan hubungi hotline layanan pelanggan untuk bantuan .</string>
+    <string name="NET_1403">Maaf, akun akses broadband atau password salah , akses jaringan gagal! Silakan coba lagi nanti , jika masih gagal , silakan hubungi hotline layanan pelanggan untuk bantuan .</string>
+    <string name="NET_1404">Maaf , akses jaringan gagal! Silakan coba lagi nanti , jika masih gagal , silakan hubungi hotline layanan pelanggan untuk bantuan .</string>
+    <string name="NET_0096">Mendapatkan alamat ip gagal, silakan coba lagi, jika masih gagal, hubungi layanan pelanggan!</string>
+    <string name="NET_0097">Mendapatkan alamat ip gagal, tidak dapat bekerja, coba lagi, jika masih gagal, hubungi layanan pelanggan!</string>
+    <string name="NET_0098">Silakan mengakses port 1 atau port 3 gerbang rumah!</string>
+    <string name="NET_1902">Maaf , kartu wireless gagal dimuat ! Silakan periksa kartu wireless terhubung dengan benar , coba lagi nanti , jika masih gagal , silakan hubungi hotline layanan pelanggan untuk bantuan .</string>
+    <string name="NET_1903">Maaf , akses jaringan gagal! Silakan periksa perangkat akses jaringan aktif. Periksa dan coba lagi , jika masih gagal , hubungi hotline layanan pelanggan untuk membantu .</string>
+    <string name="NET_1904">"Jaringan tidak terhubung , tekan  OK  untuk menyambung kembali atau tekan  Batal  untuk mengabaikan !"</string>
+    <string name="NTP_1307">Maaf , waktu disinkronkan gagal!</string>
+    <string name="HDMI_AUTO_STANDBY">"Periksa TV apakah powernya mati atau mode siaga. Power STB akan mati setelah 15 detik Jika Anda melihat tips ini, Anda dapat mematikannya di fitur pengaturan.
+ Tekan tombol apa saja untuk membantalkan mode siaga."</string>
+    <string name="HAVE_VERSION_UPGADE">"Pembaruan tersedia . Tekan  OK  untuk men-download sekarang atau tekan  Cancel  untuk berhenti ."</string>
+    <string name="USB_VERSION_UPGRADE">"USB pembaruan tersedia . Tekan  OK  untuk men-download sekarang atau tekan  Cancel  untuk berhenti ."</string>
+    <string name="SCREEN_SAVER_INFO">Memasuki screensaver …</string>
+    <string name="POWER_OFF_INFO">Anda memiliki waktu yang panjang melakukan apa-apa , STB akan matikan dalam satu menit , Anda dapat menekan tombol apa saja untuk membatalkannya !</string>
+    <string name="NO_USB_VERSION_UPGRADE">USB pembaruan tidak tersedia .</string>
+    <string name="OK">oke</string>
+    <string name="CANCEL">membatalkan</string>
+    <string name="YES">ya</string>
+    <string name="NO">tidak</string>
+    <string name="CONFIRM">menegaskan</string>
+    <string name="RETRY">mencoba kembali</string>
+    <string name="TITLE">pemberitahuan</string>
+    <string name="SERIALNO_TITLE_FIRST">Masukan Nomer Serial</string>
+    <string name="SERIALNO_TITLE_AGAIN">Nomer Serial yang anda masukan Salah!</string>
+    <string name="INPUT_SERIALNO_FIRST">Silahkan masukan nomer serial</string>
+    <string name="INPUT_SERIALNO_AGAIN">Nomer Serial yang anda masukan Salah, masukan kembali!</string>
+    <string name="TIP_MESSAGE">Mohon tunggu, sedang memeriksa informasi konfigurasi.</string>
+    <string name="TIP_TITLE">Saran:</string>
+    <string name="INPUT_RULE">Silahkan masukan nomer serial dengan 6 digit</string>
+    <string name="TIP_MESSAGE_TWO">Sedang menulis info konfigurasi, jangan matikan STB! STB akan memuat ulang setelah penulisan konfigurasi berhasil.</string>
+    <string name="REBOOT">Reboot</string>
+    <string name="CONF_UPDATE">"Konfigurasi IPTV telah dimodifikasi , sehingga perlu untuk me-reset STB . Tekan  Reboot  untuk me-reset STB atau tekan  Batal  untuk mengabaikan !"</string>
+    <string name="REBOOT_INFO">STB adalah ulang ......</string>
+    <string name="AUTO_POWEROFF_REQUEST">Anda telah menyaksikan TV untuk waktu yang lama , untuk melindungi visi Anda silahkan menonton TV alittle kemudian. Jika Anda ingin melanjutkan , tekan tombol apa saja !</string>
+    <string name="AUTO_POWEROFF_REQUEST_TITILE">Tips Hangat:</string>
+    <string name="TIME_REMAIN">detik tersisa :</string>
+    <string name="TIME_REMAIN_UNIT">s</string>
+    <string name="FACTORY_RESET">Sistem akan mengeksekusi operasi Atur Ulang Pabrik , Tekan OK untuk mengkonfirmasi atau tekan Batal untuk mengabaikan!</string>
+    <string name="AUTO_POWEROFF_KEY">Sistem akan tidur, Tekan OK untuk mengkonfirmasi atau tekan Batal untuk mengabaikan!</string>
+    <string name="AUTO_POWEROFF_KEY_TITILE">Tips Hangat:</string>
+    <string name="CHANGE_TVSTANDARD_TO_720P">Sudah berubah menjadi 720p</string>
+    <string name="Recovery">Pemulihan STB</string>
+    <string name="Human_POWEROFF_REQUEST">Masuk mode siaga, mohon tunggu...</string>
+    <string name="iptv_install_succ">Pemasangan sukses, siap untuk memulai ulang IPTV.</string>
+    <string name="Yinni_Restart_Message_One">Set-top box anda sudah lama tidak dimatikan. Sistem akan menyala ulang secara otomatis dalam 1 menit lagi.</string>
+    <string name="Yinni_Restart_Message_Two">Set-top box anda sudah lama tidak dimatikan. Sistem akan menyala ulang secara otomatis dalam 1 menit lagi.</string>
+    <string name="Yinni_Restart_Message_Three">Respect of customer, because you for a long time did not reboot , the set-top box will reboot after 1 minute, you can click on the Reboot to reboot immediately, or click the Delay for 4 hour after reboot!</string>
+    <string name="Yinni_Restart_Message_Four">Set-top box anda akan menyala ulang dalam 10 detik lagi...</string>
+    <string name="Yinni_Restart_Reboot">Lakukan Sekarang</string>
+    <string name="Yinni_Restart_Delay">2 Jam Lagi</string>
+</resources>

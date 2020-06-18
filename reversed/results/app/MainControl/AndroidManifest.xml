@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" package="com.stbmc.maincontrol"> android:versionCode="188558"
+    android:versionName="MiddleWare_188558" &gt;
+<application android:icon="@drawable/icon" android:label="@string/app_name" android:name=".McApplication" android:persistent="true">
+        <service android:enabled="true" android:label="@string/app_name" android:name=".McService">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </service>
+        <service android:name=".CrashRestorerService"/>
+        <receiver android:name=".StartBroadcastReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.ZteMiddlewareBaseAbilityReady"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="ztestb.iptv.mc.load"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:enabled="true" android:label="@string/app_name" android:name=".McActivity" android:taskAffinity="com.stbmc.maincontrol.dialog" android:theme="@style/Transparent">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="common.customdialog.DialogActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:enabled="true" android:label="@string/app_name" android:name=".ScreenSaverActivity" android:taskAffinity="com.stbmc.maincontrol.screensaver" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="true" android:label="@string/app_name" android:name=".AutoPowerOffDialog" android:taskAffinity="com.stbmc.maincontrol.AutoPowerOffDialog" android:theme="@style/Transparent">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="true" android:label="@string/app_name" android:name=".CustomDialogActivity" android:taskAffinity="com.stbmc.maincontrol.CustomDialogActivity" android:theme="@style/Transparent">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="true" android:label="@string/app_name" android:name=".CustomBKDialog" android:taskAffinity="com.stbmc.maincontrol.CustomBKDialog" android:theme="@style/Transparent">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="true" android:label="@string/app_name" android:name=".CustomQRDialog" android:taskAffinity="osd.test.CustomQRDialog" android:theme="@style/Transparent">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:enabled="true" android:label="@string/app_name" android:name=".McShowMsgBox" android:taskAffinity="com.stbmc.maincontrol.screensaver">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+</manifest>

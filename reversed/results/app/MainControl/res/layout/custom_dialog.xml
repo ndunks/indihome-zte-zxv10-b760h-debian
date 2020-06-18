@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="6.0dip">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:shadowDx="0.0" android:shadowDy="0.0" android:shadowRadius="3.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="40.0dip" android:layout_weight="1.0">
+        <TextView android:textSize="16.0sp" android:id="@id/info" android:layout_width="380.0dip" android:layout_height="wrap_content" android:shadowDx="0.0" android:shadowDy="0.0" android:shadowRadius="3.0" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/bottom_container" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginTop="20.0dip" android:layout_marginBottom="15.0dip">
+        <Button android:id="@id/ok" android:layout_width="105.0dip" android:layout_height="40.0dip" android:text="@string/OK" style="?android:attr/buttonBarButtonStyle" />
+        <Button android:id="@id/cancel" android:layout_width="105.0dip" android:layout_height="40.0dip" android:layout_marginLeft="20.0dip" android:text="@string/CANCEL" style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

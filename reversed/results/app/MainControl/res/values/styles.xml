@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Transparent">
+        <item name="android:windowBackground">@color/transparent_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="Theme" parent="@android:style/Theme" />
+    <style name="Theme.CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/custom_dialog_bg</item>
+    </style>
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/custom_dialog_bg</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="Custom_Builder_Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@style/DialogWindowTitle</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="DialogWindowTitle">
+        <item name="android:textAppearance">@android:style/TextAppearance.DialogWindowTitle</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+</resources>

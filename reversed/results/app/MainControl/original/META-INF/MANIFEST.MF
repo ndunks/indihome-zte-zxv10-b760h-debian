@@ -1,0 +1,429 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+
+Name: assets/mcres/respicsh/rus_bg.jpg
+SHA1-Digest: lvMiI4C/OGofqaPYPmrSiJw3nWk=
+
+Name: res/drawable-ldpi/zte_popup_bottom_medium.9.png
+SHA1-Digest: REwwhol+6xP/5Fg1gsys+VEqB3A=
+
+Name: res/layout/custom_alert_guangdongdx_dialog.xml
+SHA1-Digest: F6jM3p/C+Fh7ecoCiPafEKdh4QU=
+
+Name: res/drawable-en-hdpi/zte_btn_check_on_selected.png
+SHA1-Digest: BMw0+Bi1XSgiEXNdJeLU4ZQ0G8I=
+
+Name: res/drawable-ldpi/zte_popup_center_bright.9.png
+SHA1-Digest: 7Xs9pMNC53IZ8q99gM+ZVrKgk4o=
+
+Name: res/layout/custom_dialog.xml
+SHA1-Digest: 2cA6PmhLZdPiQtA9UV3Bph1ZVs8=
+
+Name: res/drawable-en-hdpi/zte_popup_center.9.png
+SHA1-Digest: skyPyHdl10c5NzviGKxHmC+taJQ=
+
+Name: res/drawable-en-hdpi/zte_popup_top.9.png
+SHA1-Digest: HGaILAGwE83SMO00UkM7Xeo/RvA=
+
+Name: res/drawable-mdpi/custom_dialog_bg.png
+SHA1-Digest: cxRzjZjqvJ5OfQzPGfL/WWIoH6k=
+
+Name: res/drawable/dialog_footer.xml
+SHA1-Digest: qhwkuNOaIr9HzEBOgAPsBDQlXPU=
+
+Name: res/drawable-en-mdpi/custom_dialog_btn_cancel.png
+SHA1-Digest: 4R7HHbhNNrg1nRe4TyUb79XWLNA=
+
+Name: res/layout/androidtv_net_dialog.xml
+SHA1-Digest: rOJTe7rFXjgcb0UJNChmFJxsvt4=
+
+Name: assets/mcres/bin/autotest
+SHA1-Digest: kFlUhj5RIVDFCRxw7gYjIrSnVEg=
+
+Name: res/layout/custom_alert_dialog.xml
+SHA1-Digest: 7v2r8AdWLZhc8/0j1+7iBod94BE=
+
+Name: res/drawable-zh-mdpi/custom_dialog_btn_ok.png
+SHA1-Digest: c7Be7+fBMxvTKf7gHZ8MSmQRwAQ=
+
+Name: res/drawable-en-hdpi/custom_dialog_btn_cancel.png
+SHA1-Digest: 4R7HHbhNNrg1nRe4TyUb79XWLNA=
+
+Name: res/layout/custom_erweima_dialog.xml
+SHA1-Digest: +f6c3ANoN5UelqsJr/qIPi7TnsE=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_1080p.png
+SHA1-Digest: D0dJdu3X7+fa32UYrzimxASBeMg=
+
+Name: res/layout/custom_alert_builder_dialog.xml
+SHA1-Digest: Iulc3kcT1c7swnXCV2uyDWyW7UU=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280_no5.png
+SHA1-Digest: zrML4bC2PaKY/eOWCyX2EN7r6H8=
+
+Name: res/drawable/zte_btn_check_off_selected.png
+SHA1-Digest: 44pvdJp7iC+eq1KPQkrO7IA5/m8=
+
+Name: res/drawable-en-hdpi/zte_btn_check_on.png
+SHA1-Digest: wRtb0Kxm/nVjknfebfy49PcxDXQ=
+
+Name: res/drawable/button_bg_focus.png
+SHA1-Digest: JEYrTKgpNcewu/JAb3ethAgsQxA=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280_no2.png
+SHA1-Digest: sTLZbqROvgBxZqWKVm4CayLfiHM=
+
+Name: res/drawable/zte_bg_white.xml
+SHA1-Digest: iM/pGUpP8eG66HA66gRRsg60bHU=
+
+Name: res/drawable-en-hdpi/zte_popup_bottom.9.png
+SHA1-Digest: TJ9RwsMCawC15N9CE8lXNsdcMU8=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280.gif
+SHA1-Digest: jwAaAiVH2G1A5Qe70mtiyBhdEnw=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_1080p_en_notLogin.png
+SHA1-Digest: eSwa/DMVM0U5umNxKXSMejI3ejc=
+
+Name: assets/mcres/zteui/media_images/bg2-x-sd.png
+SHA1-Digest: ZSUL7HLyioMEgSs2Iyf46GE3hoA=
+
+Name: assets/mcres/cfg/stbmaincontrol.cfg
+SHA1-Digest: fxy44zurxuMtqwf8B0g8jBzJzgo=
+
+Name: res/layout/zte_select_dialog_singlechoice.xml
+SHA1-Digest: DhdBYt0f05gsRPgwz6BYVzcJmgQ=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_720p.png
+SHA1-Digest: Cu/Zx+VOmBbEGUWiDoRPhRSj9+M=
+
+Name: res/drawable/com_btn_bg.xml
+SHA1-Digest: GFUXwVuHiPccQVDHGxLFPdJ96FQ=
+
+Name: res/drawable/guangdongdx_popup_icon_info.png
+SHA1-Digest: IvWltgVa4YSSQopwwlpfz8JvbFQ=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_720p_en.png
+SHA1-Digest: m4zx/Dw3DlbM863f7YQRRxb9f+A=
+
+Name: assets/mcres/respicsh/data_clear.sh
+SHA1-Digest: 4gwDAC/5n1vBbG9XPdJ2Hn3LMsw=
+
+Name: assets/mcres/bin/netdiagnose
+SHA1-Digest: ESv9HiEaDPOxPcZhjzGqkdmBMrA=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_pal_notLogin.png
+SHA1-Digest: o53n1U4m0XXrgJiEBE8fozyV/1U=
+
+Name: res/layout/zte_select_dialog_item.xml
+SHA1-Digest: zLsW9a924BCsMZg3qPosRQw8ky8=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_720p_en_notLogin.png
+SHA1-Digest: Uh1/6YIYq4nkisitUc6QHomWAYw=
+
+Name: assets/mcres/zteui/media_images/forward.png
+SHA1-Digest: 42JtxAccqpHzlhSOWQpHBg8PU28=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280_no3.png
+SHA1-Digest: g76IwnY9c9bjzCckIGDa32+xtEg=
+
+Name: resources.arsc
+SHA1-Digest: 9upQMBReXVUzWhnfGd/3JluicSM=
+
+Name: res/drawable/zte_btn_check_on.png
+SHA1-Digest: wRtb0Kxm/nVjknfebfy49PcxDXQ=
+
+Name: res/drawable/button_bg_losefocus.png.png
+SHA1-Digest: ME1+tS0ISvEylU5a4F39VLI1SqE=
+
+Name: AndroidManifest.xml
+SHA1-Digest: nAY8Je1mZp+AJiPhGdeA9m4hZtQ=
+
+Name: res/drawable-ldpi/zte_popup_top_dark.9.png
+SHA1-Digest: 1bauI9aLY3Ezygw+a+zPISJ/kh0=
+
+Name: res/drawable/androidtv_topright.9.png
+SHA1-Digest: hj2hhCa9OZolKoQ5MdXTjZI32k8=
+
+Name: res/drawable/zte_bg_blue.xml
+SHA1-Digest: gkWwVtoOQjO7HtiAwFQXS0v/opQ=
+
+Name: res/drawable/dialog_title.xml
+SHA1-Digest: 9SWCLNg/5zfK00Ekl7RNS8XDlC4=
+
+Name: res/drawable-ldpi/zte_popup_bottom_bright.9.png
+SHA1-Digest: 5KptPxqJSIzKcTcRD/E6R+lFYjU=
+
+Name: assets/mcres/respicsh/data_clear3.sh
+SHA1-Digest: DOdTLvQ9s3lBL9Hbj+kNwL7rB+s=
+
+Name: assets/mcres/respicsh/error_1942_720p_en.png
+SHA1-Digest: TXV9bDff2Td3ZsA/cs50nm0QX6M=
+
+Name: res/drawable-zh-mdpi/custom_dialog_btn_cancel.png
+SHA1-Digest: s6eVPqipOlkTwWsmXswHbpb+0Ns=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_1080p_en.png
+SHA1-Digest: bJEqEM3Yn09eyvWcuiz5ERa/mSs=
+
+Name: res/drawable-zh-hdpi/custom_dialog_btn_cancel.png
+SHA1-Digest: s6eVPqipOlkTwWsmXswHbpb+0Ns=
+
+Name: classes.dex
+SHA1-Digest: NYUed7z9NxVyAw/QGs41J/DVOuw=
+
+Name: assets/mcres/zteui/media_images/pause.png
+SHA1-Digest: HJrQlQ/bok8uvmpjumLeSqq3vG8=
+
+Name: res/drawable-en-hdpi/zte_btn_check_buttonless_on.png
+SHA1-Digest: IRng8wt1qgb0mbyXPt2WVt9G9FY=
+
+Name: res/drawable-ldpi/zte_popup_full_bright.9.png
+SHA1-Digest: 3iXqoD/O1GqN4hOmXAX/QyZE/EE=
+
+Name: res/layout/recovery.xml
+SHA1-Digest: cfcl5nsjd6kHu1Bf38nTYNqlJm0=
+
+Name: res/drawable-mdpi/bg_1280x720.jpg
+SHA1-Digest: d3fQxZJ8ubFFqWTp36yoFby7das=
+
+Name: res/drawable/zte_btn_check_on_pressed.png
+SHA1-Digest: dIgzN5BA99SAMNtZ2/4B9TeUJEU=
+
+Name: res/drawable-en-hdpi/zte_btn_check_off_selected.png
+SHA1-Digest: 44pvdJp7iC+eq1KPQkrO7IA5/m8=
+
+Name: assets/mcres/respicsh/error_1942_720p_cn.png
+SHA1-Digest: +kz7LQTeUMen2vqSL7SBTzrTwJE=
+
+Name: res/layout/input_dialog.xml
+SHA1-Digest: izFiMrR8uuixZ37EwLa5ClKLtJE=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_720p_notLogin.png
+SHA1-Digest: s8hrF7EOhfwoGIvmaIv1QdR48HI=
+
+Name: META-INF/com/android/otacert
+SHA1-Digest: SFau1+drPbZJikBTQan00zglrio=
+
+Name: res/drawable-zh-hdpi/custom_dialog_btn_ok.png
+SHA1-Digest: c7Be7+fBMxvTKf7gHZ8MSmQRwAQ=
+
+Name: res/layout/mc_activity.xml
+SHA1-Digest: aUftc8akfaOyE+X932fYxp31HFQ=
+
+Name: res/drawable-en-hdpi/zte_btn_check_off_disable.png
+SHA1-Digest: ebGD6ONkaWtDif3T7buguP9fGSE=
+
+Name: res/drawable/zte_btn_check_off.png
+SHA1-Digest: LrT2zkI9g1RGk4ql7MFSlkDPr0g=
+
+Name: res/drawable-ldpi/zte_popup_full_dark.9.png
+SHA1-Digest: ZWsMIVRzsVSR1q63DhZPCXlBuCE=
+
+Name: res/drawable-en-hdpi/zte_btn_check_off_pressed.png
+SHA1-Digest: KdDd9eKuRUZ1FXweXDX62N+7/K4=
+
+Name: res/drawable-en-hdpi/zte_btn_check_off.png
+SHA1-Digest: LrT2zkI9g1RGk4ql7MFSlkDPr0g=
+
+Name: assets/mcres/respicsh/rpcapd4.4
+SHA1-Digest: I3AP2mRiCRW3P280HbYRUrVQq4Y=
+
+Name: res/drawable-en-hdpi/zte_btn_check_on_disable_focused.png
+SHA1-Digest: zbffZomOs7SYRVqTK7whB2fl8M4=
+
+Name: res/layout/zte_select_dialog.xml
+SHA1-Digest: 0lP7FhAF/K+hUrVKkM08BseKy08=
+
+Name: res/drawable-hdpi/bg_1280x720.jpg
+SHA1-Digest: d3fQxZJ8ubFFqWTp36yoFby7das=
+
+Name: assets/mcres/respicsh/1901_err.png
+SHA1-Digest: hAw3e8YcCyBJ0uGrGu4niqsS8lo=
+
+Name: res/drawable-hdpi/custom_dialog_bg.png
+SHA1-Digest: cxRzjZjqvJ5OfQzPGfL/WWIoH6k=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: i7vxaosoiS+9HzKB7ZgIsXMYRLY=
+
+Name: res/drawable/zte_btn_check_off_disable_focused.png
+SHA1-Digest: fNI8zkEzTMq7rLvtynmGsjID5NQ=
+
+Name: res/drawable/com_bg_white.xml
+SHA1-Digest: j7InDozUujVlYrI3CVGkzukajts=
+
+Name: res/drawable/zte_btn_check_on_disable.png
+SHA1-Digest: x2PwNjQAKFvK9u35n3K7aDxvRsM=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: 7Ft/Rirt+l/JRX2KjDREScdbCZk=
+
+Name: res/drawable/com_bg_blue.xml
+SHA1-Digest: hAHdMrl0SKFelGMv1Mz/Wwe3nC8=
+
+Name: assets/mcres/zteui/Media/UpgradeSet_1.png
+SHA1-Digest: 33Pttt+QPwGh3zXCfhsx1R0QVSk=
+
+Name: res/drawable/zte_btn_check_on_disable_focused.png
+SHA1-Digest: zbffZomOs7SYRVqTK7whB2fl8M4=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_pal_en.png
+SHA1-Digest: JRWwymV5gj7S1PpouJl0HHXXxSA=
+
+Name: res/drawable/zte_btn_check_on_selected.png
+SHA1-Digest: BMw0+Bi1XSgiEXNdJeLU4ZQ0G8I=
+
+Name: assets/mcres/zteui/media_images/id2.png
+SHA1-Digest: nEXB9PW5LxojVuer3Fsh1AREUuY=
+
+Name: res/drawable-en-hdpi/zte_btn_check_buttonless_off.png
+SHA1-Digest: rapO4q9mTKKy0b2OlZNnxsSXyu8=
+
+Name: res/drawable-en-hdpi/zte_btn_check_on_pressed.png
+SHA1-Digest: dIgzN5BA99SAMNtZ2/4B9TeUJEU=
+
+Name: res/drawable/guangdongdx_popup_bg.9.png
+SHA1-Digest: f/wpZ8zBUqoDN0/mzZ+UvqOld3w=
+
+Name: assets/mcres/respicsh/icon_1901.png
+SHA1-Digest: tAVhC3z0CQ1boJOH2KEocjFx1G0=
+
+Name: res/drawable-ldpi/zte_popup_bottom_dark.9.png
+SHA1-Digest: Xd9A/pJYqFC+Yl1WAnBsH/+I5uY=
+
+Name: res/drawable/guangdongdx_popup_btn_normal.9.png
+SHA1-Digest: PF0Lsoa2KysWzJhA6mL+naAWuts=
+
+Name: res/drawable-ldpi/zte_popup_top_bright.9.png
+SHA1-Digest: zQ6XAtj7fKUDGRnzu/nmtfZtAF8=
+
+Name: assets/mcres/zteui/media_images/play.png
+SHA1-Digest: Sk8pSUB26pIqYw81XkgDeHCQhqw=
+
+Name: res/layout/main.xml
+SHA1-Digest: aUftc8akfaOyE+X932fYxp31HFQ=
+
+Name: res/drawable/zte_btn_check_buttonless_on.png
+SHA1-Digest: IRng8wt1qgb0mbyXPt2WVt9G9FY=
+
+Name: res/drawable/jiangsu_dianxin.png
+SHA1-Digest: j3fvcg2pn8eWE+JANy+GX+IVIac=
+
+Name: res/drawable/zte_btn_check_off_pressed.png
+SHA1-Digest: KdDd9eKuRUZ1FXweXDX62N+7/K4=
+
+Name: assets/mcres/respicsh/rpcapd5.1
+SHA1-Digest: 7agYdYcfABeVii1AvOJinDiQGkI=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280_no6.png
+SHA1-Digest: 0RnwK/8UdHPvZQxpYVxPWvniKdg=
+
+Name: res/drawable-en-hdpi/custom_dialog_btn_ok.png
+SHA1-Digest: sAmcgoshsBpIW7CiVwSt15oYWMw=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_1080p_notLogin.png
+SHA1-Digest: KwhttZvMoQqYlcmtwKZkY+wTjtU=
+
+Name: res/drawable-en-hdpi/zte_popup_full.9.png
+SHA1-Digest: zBnHJKVXUo4f9CsZfsD0aVwjbKM=
+
+Name: assets/mcres/respicsh/error_1942_1080p_en.png
+SHA1-Digest: Xr6Ed95k7+8E5qN4ELnFH3iZY/0=
+
+Name: res/drawable-en-hdpi/zte_btn_check_off_disable_focused.png
+SHA1-Digest: fNI8zkEzTMq7rLvtynmGsjID5NQ=
+
+Name: res/layout/screen_saver_activity.xml
+SHA1-Digest: R9x/DM2ra0Dt6EmAsZJfGmFAEr4=
+
+Name: assets/mcres/respicsh/error_1942_1080p_cn.png
+SHA1-Digest: BpT8qT03WhP4XvW5b3BOBBZU6ss=
+
+Name: assets/mcres/zteui/Media/video.js
+SHA1-Digest: IFN0q7aYyUBcsFgzC+t1UKJHtVo=
+
+Name: assets/mcres/zteui/media_images/back.png
+SHA1-Digest: MecWe+Ob6IRv1TU3CcmB6id3J/Q=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280_no4.png
+SHA1-Digest: MmhsKITeUmBrOq8P5Iu0WGDQAtk=
+
+Name: assets/mcres/zteui/Media/mp41.html
+SHA1-Digest: unUB5d+C9DIqfOWC6xdwQZdttXs=
+
+Name: res/drawable/zte_btn_check_off_disable.png
+SHA1-Digest: ebGD6ONkaWtDif3T7buguP9fGSE=
+
+Name: res/drawable/androidtv_full.png
+SHA1-Digest: su10UrsihJXvWcCkH4U4usaav2c=
+
+Name: res/layout/poweroff_dialog.xml
+SHA1-Digest: hydfiJH3DI9B7UGBUbJBiV1ndpU=
+
+Name: res/drawable/zte_btn_bg.xml
+SHA1-Digest: S0w+GKhYpXOVJ+1SHNOhTJxRKpE=
+
+Name: res/drawable/zte_btn_check.xml
+SHA1-Digest: CEFxN2Tk8//xEyqyR9Gsi6pV+sg=
+
+Name: res/drawable-ldpi/custom_dialog_bg.png
+SHA1-Digest: cxRzjZjqvJ5OfQzPGfL/WWIoH6k=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280_no1.png
+SHA1-Digest: 6jVJOJygMJXjrdjyZOmHelDYvw0=
+
+Name: res/layout/zte_select_dialog_multichoice.xml
+SHA1-Digest: FSbeUiWwNwnI2K4wq1ZN8dhiqDM=
+
+Name: res/layout/custom_qr_dialog.xml
+SHA1-Digest: iCXiQT/ftqFpMfAZb7K4FCRlfik=
+
+Name: assets/mcres/respicsh/data_clear2.sh
+SHA1-Digest: iKb5BHzfUowNr6PX74lKbzRO/1c=
+
+Name: res/drawable/background_image.png
+SHA1-Digest: HG07paoKYmggZLMG2wjyETOVshc=
+
+Name: res/drawable/guangdongdx_popup_btn_focus.9.png
+SHA1-Digest: /KEB7Nq3zDbazMY/IEAj/H71Yyw=
+
+Name: res/drawable/background_image1.png
+SHA1-Digest: wuJ1xc5c7fRmycDo4ddOnXJVPXk=
+
+Name: res/drawable/guangdongdx_btn_bg.xml
+SHA1-Digest: WdhNSXlKqAAxJtwJ2M2qT515ieg=
+
+Name: res/drawable-en-mdpi/custom_dialog_btn_ok.png
+SHA1-Digest: sAmcgoshsBpIW7CiVwSt15oYWMw=
+
+Name: res/drawable-en-hdpi/zte_btn_check_on_disable.png
+SHA1-Digest: x2PwNjQAKFvK9u35n3K7aDxvRsM=
+
+Name: res/drawable/zte_btn_check_buttonless_off.png
+SHA1-Digest: rapO4q9mTKKy0b2OlZNnxsSXyu8=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_pal_en_notLogin.png
+SHA1-Digest: ITfDHJoMjySFwUfsq8BRHFHh4gU=
+
+Name: res/drawable/dialog_body.xml
+SHA1-Digest: ZC0/IDWn5aC+fYeBa/vD95/gzME=
+
+Name: assets/mcres/respicsh/4401-1/Starting1280_bg.png
+SHA1-Digest: 5cwLNhBX5MAVje6Vs8XM3yZiWI0=
+
+Name: assets/mcres/respicsh/51-1/icon_home_fault_pal.png
+SHA1-Digest: pQazaIBx1WcOyd+3+/cvGblI21A=
+
+Name: res/layout/androidtv_dialog.xml
+SHA1-Digest: tdz/CZIiGUQz0okhnIfNZtjjCTk=
+
+Name: res/drawable-ldpi/bg_1280x720.jpg
+SHA1-Digest: d3fQxZJ8ubFFqWTp36yoFby7das=
+
+Name: res/drawable-ldpi/zte_popup_center_dark.9.png
+SHA1-Digest: oIBzJMMbn5IxSA8SUbjzupJec5M=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: Vj/qhxk8ic8FE0/kT6E3vgRJ4mE=
+

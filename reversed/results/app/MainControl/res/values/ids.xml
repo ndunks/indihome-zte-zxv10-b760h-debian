@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="parentPanel" />
+    <item type="id" name="contentPanel" />
+    <item type="id" name="title_template" />
+    <item type="id" name="icon" />
+    <item type="id" name="alertTitle" />
+    <item type="id" name="titleDivider" />
+    <item type="id" name="scrollView" />
+    <item type="id" name="message" />
+    <item type="id" name="customPanel" />
+    <item type="id" name="custom" />
+    <item type="id" name="leftSpacer" />
+    <item type="id" name="button1" />
+    <item type="id" name="button3" />
+    <item type="id" name="button2" />
+    <item type="id" name="rightSpacer" />
+    <item type="id" name="exitGameBackground" />
+    <item type="id" name="title" />
+    <item type="id" name="info" />
+    <item type="id" name="bottom_container" />
+    <item type="id" name="ok" />
+    <item type="id" name="cancel" />
+    <item type="id" name="infoQR" />
+    <item type="id" name="imageQR" />
+    <item type="id" name="imageText" />
+    <item type="id" name="textQR" />
+    <item type="id" name="textView_Timer" />
+    <item type="id" name="inputText" />
+    <item type="id" name="RecoveryText" />
+    <item type="id" name="autobrowse_dialog_settings_cycle_linear" />
+    <item type="id" name="CANCEL" />
+    <item type="id" name="OK" />
+    <item type="id" name="ScreenSaverView" />
+    <item type="id" name="my_select_dialog_listview" />
+</resources>

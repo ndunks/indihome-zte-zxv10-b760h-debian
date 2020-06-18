@@ -1,0 +1,49 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android SignApk)
+SHA1-Digest-Manifest: 1AmEpzemrsQDrgu99WzRXPKq6Qc=
+
+Name: res/drawable-xhdpi/ic_launcher.png
+SHA1-Digest-Manifest: HJWVdRCXqdgpLGGDT6Uzb5hkqQE=
+
+Name: res/drawable-hdpi/ic_launcher.png
+SHA1-Digest-Manifest: 0oRDYl4wUOm0bMq8eVLJG09zkTg=
+
+Name: assets/logcat
+SHA1-Digest-Manifest: rEEg6VEu5F9ONEC9ZUACMR+ICFo=
+
+Name: resources.arsc
+SHA1-Digest-Manifest: mcZWUINCygI9bFb/UNmRD+nQPv4=
+
+Name: classes.dex
+SHA1-Digest-Manifest: gm1HS89F6X8XF3WkOowg1IVswzY=
+
+Name: assets/liblogcatAPI21.so
+SHA1-Digest-Manifest: ZUr2PPfMyrkGh035+tFwzwaoVGY=
+
+Name: AndroidManifest.xml
+SHA1-Digest-Manifest: D4NGcrEo1GmU57ndWj54DkJ3ga0=
+
+Name: res/drawable-mdpi/ic_launcher.png
+SHA1-Digest-Manifest: 73TZoa+3ApYPkY+wbmr1XiAso58=
+
+Name: assets/liblogcatAPI14.so
+SHA1-Digest-Manifest: 6YsptZFGN3zybEvtCKtyDsvoAyg=
+
+Name: META-INF/com/android/otacert
+SHA1-Digest-Manifest: dGsbzSp1MChWHFcGOoWKvv45TJ8=
+
+Name: assets/libmcspadapter4.4.2.so
+SHA1-Digest-Manifest: F60QLjCDNj8MiOKSa09cDE0krik=
+
+Name: assets/mcsp_cfgexport
+SHA1-Digest-Manifest: d8v5ABAdlU/dfCTCA5agnaztKOk=
+
+Name: assets/zteKlog
+SHA1-Digest-Manifest: oyn+xyZjvmbi1TVavKMehwVqukk=
+
+Name: assets/mcsp_xmlimport
+SHA1-Digest-Manifest: WOC1mDUFpuFzBY4yHhEm7b1NXww=
+
+Name: assets/mcsp_cfgimport
+SHA1-Digest-Manifest: lv2fm1KK+YRwW8tK3HlGIApYMpc=
+

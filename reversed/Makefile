@@ -4,58 +4,16 @@ include $(ROOT)Makeconfig
 ifndef APK_TOOL
 $(error APK_TOOL undefined, see .env.example)
 endif
-
+ifndef APKS
 APKS= \
-app/dlna.apk \
-app/DLNAComponent.apk \
-app/Dlnagwapt.apk \
-app/dlnaMg.apk \
-app/EngineerMode.apk \
-app/EngineerModeSim.apk \
-app/FactoryTestTool.apk \
-app/IPTV.apk \
 app/MainControl.apk \
-app/mcspbase.apk \
-app/MSCAgent.apk \
-app/MSGAPK.apk \
-app/MTKLogger.apk \
-app/NaAgent.apk \
-app/netmanager.apk \
-app/nmAssistant.apk \
-app/OSDService.apk \
-app/sqm.apk \
-app/sqmprobe.apk \
-app/TVClient.apk \
-app/tvms-control-release-v0.0.0.3.16_signed.apk \
-app/xmpp.apk \
-app/ZeroCfgUI.apk \
-app/ZTEBrowser.apk \
-app/ZTEJavaWatch.apk \
-app/ZTEMonitor.apk \
-app/zteplayer.apk \
-app/ZTEStbCfg.apk \
-app/ZTEUpgrade.apk \
-app/ztehelper.apk \
-app/AccuWeathercom.apk \
-priv-app/CDS_INFO.apk
+app/mcspbase.apk
+endif
 
 TXTS= \
-lib/libmesqcs.so \
-lib/libzteqcs.so \
-lib/libztesqm.so \
-lib/libztemobileqcs.so \
-lib/libtvmsagent.so \
-lib/libtvclient.so \
-lib/libstvmsapk.so \
-lib/libnmassistant.so \
-lib/libmsciptvplugin.so \
-lib/libjavawatch_jni.so \
-lib/libjavaprocess.so \
-lib/libiptvkit4.4.2.so \
-lib/libiptvevtcenter.so \
-lib/libZTEPlayerDaemon.so \
 lib/libCrashRestore.so \
-lib/libProductCfg.so
+lib/libmcspevtmanager.so \
+lib/libmcspadapter4.4.2.so
 
 SYSTEM_IMG=$(ORIGINAL_DIR)/system.img
 SYSTEM_DIR=system
@@ -79,7 +37,7 @@ $(RESULTS_DIR)/%:
 
 makedir:
 	[ -d $(RESULTS_DIR) ] || mkdir -p $(RESULTS_DIR)
-	[ -n "$(shell grep /proc/mounts $(RESULTS_DIR) )" ] || sudo mount -t tmpfs none $(RESULTS_DIR)
+	#[ -n "$(shell grep /proc/mounts $(RESULTS_DIR) )" ] || sudo mount -t tmpfs none $(RESULTS_DIR)
 
 $(SYSTEM_DIR):
 	mkdir $(SYSTEM_DIR)
@@ -94,7 +52,7 @@ fast_system: $(SYSTEM_DIR)
 
 umount: 
 	sudo umount ./$(SYSTEM_DIR) || exit 0
-	sudo umount $(RESULTS_DIR) || exit 0
+	#sudo umount $(RESULTS_DIR) || exit 0
 
 clean: umount
 	rmdir $(SYSTEM_DIR) || exit 0

@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script src="video.js?sa"></script>
+		<style>
+			* {
+				padding : 0px;
+				margin : 0px;
+			}
+			li {
+				list-style-type:none;
+				position:absolute;
+				float:left;
+			}
+			#Progress_bar_ul {
+				height:30px;
+				/*background-color:red;*/
+				position:absolute;
+				float:left;
+				background-image:url(../media_images/bg2-x-sd.png);
+				display:none;
+				/*left:100px;
+				top:100px;*/
+			}
+			#TimeShiftImage {
+				position:absolute;
+				display:none;
+			}
+		</style>
+	</head>
+	<body bgcolor="transparent" onload="videoLoad()">
+		<!-- 频道号 -->
+		<p id="PDH" style="position:absolute;top:20px;left:130px;width:150px;height:100px;line-height:100px;text-align:center;font-size:60px;color:#FFFF55;">
+			
+		</p>
+		<p style="position:absolute;top:40%;left:25%;width:50%;font-size:24px;text-align:center;color:#FFFFFF;">
+			当前正在进行媒体测试如果要退出当前操作，请按菜单键返回，谢谢		</p>
+		<!-- 时移动图标 -->
+		<img id="TimeShiftImage" src="UpgradeSet_1.png" />
+		<!--直播当前时间-->
+		<p id="channelDanTime" style="position:absolute;top:80%;left:25%;width:50%;font-size:24px;text-align:center;color:#FFFFFF;">
+		    <!--显示直播当前播放时间-->
+		</p>
+		<!-- 进度条区域 -->
+		<ul id="Progress_bar_ul" style="width:563px;">
+			<li id="" style="width:30px;height:30px;left:10px;">
+				<!-- 按钮图片 -->
+				<img id="playimgid" src="../media_images/play.png" />
+			</li>
+			<li id="fforrwtext" style="width:30px;height:10px;left:40px;top:5px;color:#FFFFFF;">
+				<!-- 快进文字 -->
+			</li>
+			<li id="jindutiao" style="height:6px;background-image:url(../media_images/id2.png);left:79px;top:12px;">
+				<!-- 进度条 -->
+			</li>
+			<li id="timeli" style="width:30px;height:10px;left:450px;top:5px;color:#FFFFFF;">
+				<!-- 当前时间 / 总时间-->
+				00:00/00:00
+			</li>
+		</ul>
+	</body>
+</html>

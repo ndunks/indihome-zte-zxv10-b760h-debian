@@ -1,0 +1,84 @@
+diff props.before.txt props.after.txt 
+3a4,7
+> [box.audio.ddp.downmix.setting]: []
+> [box.audio.ddp.drc.setting]: []
+> [box.audio.ddp.logo.setting]: []
+> [box.audio.ddp.region.setting]: []
+4a9
+> [box.audio.hdmi.output.setting]: [decode]
+5a11
+> [box.audio.lrmixing]: []
+6a13
+> [box.audio.spdif.output.setting]: [decode]
+20a28,29
+> [debug.force_rtl]: [0]
+> [dev.bootcomplete]: [1]
+29,30c38,40
+< [init.svc.adbd]: [running]
+< [init.svc.bootanim]: [running]
+---
+> [init.svc.adbd]: [stopped]
+> [init.svc.bootanim]: [stopped]
+> [init.svc.bootvideo]: [stopped]
+36a47
+> [init.svc.fuse_sdcard0]: [running]
+44c55
+< [init.svc.nvram_daemon]: [running]
+---
+> [init.svc.nvram_daemon]: [stopped]
+61a73
+> [media.wfd.video-format]: [5]
+71c83
+< [net.change]: [net.hostname]
+---
+> [net.change]: [net.qtaguid_enabled]
+73c85,86
+< [net.ipv6.wlan0.dns1]: [fe80::1]
+---
+> [net.ipv6.wlan0.dns1]: []
+> [net.qtaguid_enabled]: [1]
+105a119
+> [prop.AudioIOtype]: [0]
+189a204
+> [ro.product.cpu.dolby]: [2]
+191a207,208
+> [ro.product.cpu.macrovison]: [1]
+> [ro.product.cpu.name]: [MT8685ABOA]
+222a240
+> [ro.runtime.firstboot]: [1592201879899]
+235c253
+< [service.bootanim.exit]: [0]
+---
+> [service.bootanim.exit]: [1]
+238a257,258
+> [sys.AccessMethod]: [DHCP]
+> [sys.AccessType]: [Cable]
+240a261
+> [sys.DHCPAccessUserName]: []
+242a264
+> [sys.PPPOEAccessUserName]: []
+244a267
+> [sys.ZTE_Services_OK]: [1]
+246a270,271
+> [sys.boot_completed]: [1]
+> [sys.evtmanager.started]: [1]
+249c274,282
+< [sys.powermanager.BootCompleted]: [0]
+---
+> [sys.osd.AreaMismatch.State]: [0]
+> [sys.powermanager.BootCompleted]: [1]
+> [sys.screen.height]: [1080]
+> [sys.screen.width]: [1920]
+> [sys.settings_global_version]: [17]
+> [sys.settings_secure_version]: [3]
+> [sys.settings_system_version]: [10]
+> [sys.stb.state]: [1]
+> [sys.stbmc_boot]: [1]
+250a284
+> [sys.telmaxKeyboard.forbid]: [0]
+251a286
+> [sys.usb.mtpConnect]: [noneMTPConnection]
+253a289
+> [sys.zte.cfgResolutionType]: [3]
+263a300
+> [wlan.wfd.security.image]: [1]

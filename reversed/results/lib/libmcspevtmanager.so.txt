@@ -1,0 +1,513 @@
+__cxa_finalize
+__cxa_atexit
+initAdapter
+memcpy
+memset
+__android_log_print
+dlopen
+strcat
+dlerror
+dlsym
+__aeabi_unwind_cpp_pr0
+MCSP_SrvEvt_Init
+MCSP_SrvEvt_Uninit
+__aeabi_unwind_cpp_pr1
+MCSP_EVTSubscribe
+MCSP_EVTUnsubscribe
+MCSP_EVTPost
+MCSP_QueryService
+MCSP_InvokeService
+MCSP_POST_START_EVT
+strchr
+strncmp
+atoi
+mcsp_log_init
+strcmp
+free
+strdup
+sprintf
+strlen
+mcsp_log_uninit
+mcsp_log_getlevel
+mcsp_log_out
+strncpy
+vsnprintf
+__android_log_write
+is_loggable
+mcsp_log_out_raw
+mcsp_log_sendkeycode
+gettimeofday
+mcsp_log_senderrcode
+localtime
+mcsp_log_sendstrerrcode
+memmove
+UserOptLog
+MCSP_SetCfgHandle
+PingCfg
+MCSP_pref_Contains
+strcpy
+MCSP_Pref_GetString
+MCSP_Pref_GetInt
+MCSP_Pref_GetFloat
+MCSP_Pref_GetBool
+MCSP_Pref_PutString
+MCSP_Pref_PutInt
+__aeabi_f2d
+MCSP_Pref_PutFloat
+MCSP_Pref_PutBoolean
+MCSP_Pref_PutString_Backup
+MCSP_Pref_PutInt_Backup
+MCSP_Pref_PutFloat_Backup
+MCSP_Pref_PutBoolean_Backup
+MCSP_Pref_RemoveKey
+MCSP_pref_clear
+UpdateConfigFromFs
+UpdateConfigFromFs_Backup
+DownLoadConfigIntoFs
+UpdateConfigFromBuffer
+malloc
+UpdateConfigFromBuffer_Backup
+DownLoadConfigIntoBuffer
+MCSP_UpdateXMLFromFs
+RestoreValidConfig
+UnRegisterKeyListener
+SetCfgUpdateMode
+puts
+SaveConfigtoFlash
+MCSP_pref_clearall
+MCSP_CfgDisp_RegCallback
+MCSP_CfgDisp_DeregCallback
+CfgWrite
+CfgRead
+PrintValidKeys
+__aeabi_drsub
+__subdf3
+__aeabi_dsub
+__adddf3
+__aeabi_dadd
+__floatunsidf
+__aeabi_ui2d
+__floatsidf
+__aeabi_i2d
+__extendsfdf2
+__floatundidf
+__aeabi_ul2d
+__floatdidf
+__aeabi_l2d
+__aeabi_unwind_cpp_pr2
+__gnu_Unwind_Find_exidx
+__exidx_end
+__exidx_start
+__gnu_Unwind_Restore_VFP_D
+__gnu_Unwind_Restore_VFP
+__gnu_Unwind_Restore_VFP_D_16_to_31
+__gnu_Unwind_Restore_WMMXD
+__gnu_Unwind_Restore_WMMXC
+abort
+_Unwind_GetCFA
+__gnu_Unwind_RaiseException
+__gnu_Unwind_ForcedUnwind
+__gnu_Unwind_Resume
+__gnu_Unwind_Resume_or_Rethrow
+_Unwind_Complete
+_Unwind_DeleteException
+_Unwind_VRS_Get
+__gnu_thumb1_case_uqi
+_Unwind_VRS_Set
+__gnu_Unwind_Backtrace
+__cxa_begin_cleanup
+__cxa_type_match
+__gnu_unwind_execute
+__cxa_call_unexpected
+_Unwind_VRS_Pop
+__gnu_Unwind_Save_WMMXD
+__gnu_Unwind_Save_WMMXC
+__gnu_Unwind_Save_VFP
+__gnu_Unwind_Save_VFP_D_16_to_31
+__gnu_Unwind_Save_VFP_D
+__restore_core_regs
+___Unwind_RaiseException
+___Unwind_Resume
+___Unwind_Resume_or_Rethrow
+___Unwind_ForcedUnwind
+___Unwind_Backtrace
+__gnu_unwind_frame
+_Unwind_GetRegionStart
+_Unwind_GetLanguageSpecificData
+_Unwind_GetDataRelBase
+_Unwind_GetTextRelBase
+liblog.so
+libcutils.so
+libc.so
+libstdc++.so
+libm.so
+libdl.so
+__data_start
+_edata
+__bss_start
+__bss_start__
+__bss_end__
+__end__
+libmcspevtmanager.so
+!)"iN
+iJ~D1
+&"@18
+JJzD
+IMJI 
+}DyD,`
+GIh` 
+AI(a 
+?Iha 
+#0L1M1J|D}D!
+zDkh
+zD+i
+zDki
+ +b5
+K	I	J{D
+ yDzD@3
+ @Bp
+ yDzDT3
+ yDzDh3
+ yDzD|3
+ yDzD
+ yDzD 3
+L|D%j
+ yDzD43
+ @B>
+ pGs
+K~DzD{D
+h=!(
+}D.h
+EIFJ3
+yDzD
+#+`@M}D+h
+(`=O
+!@"0
+?!zD0
+/I:h(
+yDzD
+}D.h
+yDhF
+#hF+`
+'K(I(J{DyDzD
+!@"0
+$!J?!0
+D`L`
+ yDzD
+h?!zD
+JCi !
+!@"0
+/K/J?!{D
+hzD0
+JCi !
+7N8L~D
+6K6I7J{D
+ yDzD43
+ @BT
+!@"(
+?!zD(
+%JCi
+J3h?!zD$
+!}Dd"(
+ @B>
+~D5x
+ |D!
+ |D!
+ @B{
+DBDA 
+#s`4#
+ @B=
+ @B=
+ Kc"{D
+$dB 
+c"#f K
+{D(3
+$dB 
+c"#f!K
+{D<3
+$dB 
+ !jF&OR
+"K"J1
+J{DP3
+ Kc"{D
+{Dh3
+$dB 
+c"#f K
+$dB 
+c"#f!K
+$dB 
+ !jF&OR
+"K"J1
+J{D83
+ @B{
+ @B{
+Dp`1
+ ~D1
+{DT3
+ @BK
+Dp`1
+ ~D1
+{Dh3
+ @BK
+ @BG
+ }D)
+$Kd"{D
+ |D!
+%mB(
+ }D)
+$Kd"{D
+ |D!
+%mB(
+xDzD#
+ @B	
+{D<3
+ @B{
+ @B{
+xDzD
+ ~D1
+ {DP3
+$,M-I
+ ~D1
+{Dd3
+{Dd3
+$dB 
+ |D!
+ |D!
+`K{D
+!ChI
+ }D)
+ |D!
+ }D)
+ |D!
+ |D!
+ ?4 p
+ @B>
+ }D)
+ {D$3
+ ~D1
+ {D$3
+xM}D/x
+wJ@!zD(
+ |D!
+ {D$3
+jJ@!0
+ |D!
+{D$3
+[L[M|D}D)
+ |D!
+ {D$3
+BKCHCJ	
+`xDc`@#
+ }D)
+ {D$3
+2K{D
+ |D!
+ {D$3
+#K{D
+ @B!K
+ }D)
+ {D@3
+ ~D1
+{D@3
+]M}D/x
+[J@!zD(
+ |D!
+ {D@3
+NJ@!0
+ |D!
+{D@3
+?O?K
+D{D8
+ |D!
+ {D@3
+s`@#
+ }D)
+ {D@3
+$dB 
+ |D!
+ {D\3
+@K{D
+ |D!
+{D\3
+(K(H)J
+xDzD	
+ }D)
+!{D\3
+$dB 
+ |D!
+ {Dh3
+<K{D
+ |D!
+{Dh3
+%K&H&J
+xDzD+
+ }D)
+!{Dh3
+"@0,
+$dB 
+!@"}D
+ }D)
+ {Dp3
+ |D!
+ {Dp3
+ }D)
+K{Dp3
+$dB 
+##a	$6
+H{DxD
+ aCBXA	$@B
+pG	 pGpGp
+#lka
+{B{A
+"ca1
+@lpG
+jF+i
+hF!l
+ iF"
+bcc+h
+CQ0+`
+)`H0
+:ZrZh
+libmcspadapter4.4.2.so
+/data/data/com.ztestb.basecomp/files/
+MCSP_SrvEvt_Init
+MCSP_SrvEvt_Uninit
+MCSP_EVTSubscribe
+MCSP_EVTUnsubscribe
+MCSP_EVTPost
+MCSP_QueryService
+MCSP_InvokeService
+CIntCompCommun
+adapter libname:%s
+ERROR:dlopen %s failed,%s; try dlopen %s
+ERROR:dlopen %s failed,%s
+dlopen %s OK
+CC_SrvEvt_Init
+CC_SrvEvt_Uninit
+CC_EVTSubscribe
+CC_EVTUnsubscribe
+CC_EVTPost
+CC_QueryService
+CC_InvokeService
+init adapter failed!
+PF_CC_SrvEvt_Init:%p
+PF_CC_SrvEvt_Uninit:%p
+PF_CC_EVTSubscribe:%p
+PF_CC_EVTUnsubscribe:%p
+PF_CC_EVTPost:%p
+PF_CC_QueryService:%p
+PF_CC_InvokeService:%p
+[%s]adapter lib has not init
+LogLevelUpdateEventCallBack
+mcsp_log_sendkeycode
+UserOptLog
+libmcsp_log
+%s receive event 0x%x
+set level =%d
+ERROR: MCSP_LOG_INIT() called more than once and module name not same! s_strModule=%s, module=%s
+logclt_%s
+MCSP_LogServer
+default log level: %s
+%s.%s
+[[%u]] 
+[%s]not register yet, can't send keycode
+gettimeofday failed
+MCSP_KEYLOG
+%04d%02d%02d%02d%02d%02d
+MCSP_USEROPTLOG
+MCSP_SetCfgHandle
+MCSP_Pref_PutString
+MCSP_Pref_PutInt
+MCSP_Pref_PutFloat
+MCSP_Pref_PutBoolean
+MCSP_Pref_PutString_Backup
+MCSP_Pref_PutInt_Backup
+MCSP_Pref_PutFloat_Backup
+MCSP_Pref_PutBoolean_Backup
+UpdateConfigFromFs
+UpdateConfigFromFs_Backup
+UpdateConfigFromBuffer
+UpdateConfigFromBuffer_Backup
+RestoreValidConfig
+SaveConfigtoFlash
+MCSP_pref_clearall
+CfgCInterface
+[%s]s_iCompHander=%s
+[mcspcfginterface]-[PingCfg]:please set Component Handle
+mcspcfg
+[mcspcfginterface]-[PingCfg]:CC_SyncSend err.returnNum=%d
+[%s]: Component=%s, Section=%s, Key=%s, Value=[%s]
+[%s]: Component=%s, Section=%s, Key=%s, Value=%d
+[%s]: Component=%s, Section=%s, Key=%s, Value=%f
+true
+false
+[%s]: Component=%s, Section=%s, Key=%s, Value=%s
+[%s]: Component=%s, File=[%s]
+[%s]malloc sendbuffer failed!
+[%s]: Component=(%s)
+[MCSP_NA_GetNetConnectInfo]malloc FAILED
+[%s]: [mcspcfginterface]-[SaveConfigtoFlash]:err number is %d.
+Mcsp_Remotecfgagent
+mcsp_cfgclear
+[%s]: Component=(%s) try to erase the config
+[%s]: Component=(%s) erase the config returned %d
+Mcsp_SyncService
+Mcsp_strncpy
+MCSP_CfgDisp_RegCallback
+MCSP_CfgDisp_DeregCallback
+CfgWrite
+CfgRead
+PrintValidKeys
+libdispatcher
+[%s](%d) [DispLib] Mcsp_SyncService error, pData or pReply is NULL !
+[%s](%d) [DispLib] Mcsp_SyncService error, ptMsg->pContent is NULL
+[%s](%d) [DispLib] Mcsp_SyncService error, ptMsg->iParaLen = %d
+[%s](%d) [DispLib] Mcsp_SyncService callback error, %d
+[%s](%d) Mcsp_Memcpy error, NULL == pDst || NULL == pInSrc
+[%s](%d) [DispLib] MCSP_CfgDisp_RegCallback: NULL == strModelName 
+[%s](%d) [DispLib] MCSP_CfgDisp_RegCallback: strModelName = %s
+Disp_From_%s
+[%s](%d) [DispLib] MCSP_CfgDisp_RegCallback, MCSP_SrvEvt_Init error 
+[%s](%d) [DispLib] MCSP_CfgDisp_RegCallback, strtmpcommname = %s, and before registered %s
+MCSP_Dispatcher_CFG_REG_UNREG
+[%s](%d) [DispLib] MCSP_CfgDisp_RegCallback, MCSP_QueryService error, %s
+[%s](%d) [DispLib] MCSP_CfgDisp_RegCallback,acKeys[dex] = %s
+[%s](%d) [DispLib] MCSP_CfgDisp_RegCallback, MCSP_InvokeService error
+[%s](%d) [DispLib] MCSP_CfgDisp_DeregCallback: NULL == pstrMyName 
+[%s](%d) [DispLib] MCSP_CfgDisp_DeregCallback: strModelName = %s 
+[%s](%d) [DispLib] MCSP_NM_RegModelName, MCSP_SrvEvt_Init error 
+[%s](%d) [DispLib] MCSP_CfgDisp_DeregCallback, strtmpcommname = %s, and before registered %s
+[%s](%d) [DispLib] MCSP_CfgDisp_DeregCallback, MCSP_QueryService error
+[%s](%d) [DispLib] MCSP_CfgDisp_DeregCallback, MCSP_InvokeService error
+[%s](%d) [DispLib]CfgWrite error,iSize must be 1, now is %d
+[DispLib] CfgWrite error,iSize must be 1, now is  %d
+[%s](%d) [DispLib] CfgWrite error, has never registered before
+MCSP_Dispatcher
+[%s](%d) [DispLib] CfgWrite, MCSP_InvokeService error
+[%s](%d) [DispLib]CfgRead error,iSize must be 1, now is %d
+[DispLib] CfgRead error,iSize must be 1, now is %d
+[%s](%d) [DispLib] CfgRead error, has never registered before
+[%s](%d) [DispLib] CfgRead, MCSP_InvokeService error
+[%s](%d) [DispLib] PrintValidKeys, has never registered before
+[%s](%d) [DispLib] PrintValidKeys, MCSP_QueryService error
+[%s](%d) [DispLib] PrintValidKeys, MCSP_InvokeService error
+GCC: (GNU) 4.9 20150123 (prerelease)
+aeabi
+.shstrtab
+.hash
+.dynsym
+.dynstr
+.rel.dyn
+.rel.plt
+.text
+.rodata
+.ARM.extab
+.ARM.exidx
+.init_array
+.fini_array
+.dynamic
+.got
+.data
+.bss
+.comment
+.ARM.attributes

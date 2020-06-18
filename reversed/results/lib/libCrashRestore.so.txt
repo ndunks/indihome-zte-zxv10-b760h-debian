@@ -1,0 +1,228 @@
+__cxa_finalize
+__cxa_atexit
+PORTNG_McKerCom
+socket
+memset
+getpid
+bind
+malloc
+__android_log_print
+strcpy
+sendmsg
+usleep
+recvmsg
+free
+__aeabi_unwind_cpp_pr0
+waitBaseComp
+property_get
+atoi
+CrashRestore_init
+MCSP_SrvEvt_Init
+MCSP_SetCfgHandle
+ZProcess_IsAlive
+system
+MCSP_Pref_PutInt
+Java_com_stbmc_maincontrol_CrashRestorerJniInterface_CrashRestorerInit
+__aeabi_unwind_cpp_pr1
+JNI_OnLoad
+JNU_GetEnv
+__aeabi_unwind_cpp_pr2
+__gnu_Unwind_Find_exidx
+__exidx_end
+__exidx_start
+__gnu_Unwind_Restore_VFP_D
+__gnu_Unwind_Restore_VFP
+__gnu_Unwind_Restore_VFP_D_16_to_31
+__gnu_Unwind_Restore_WMMXD
+__gnu_Unwind_Restore_WMMXC
+abort
+memcpy
+_Unwind_GetCFA
+__gnu_Unwind_RaiseException
+__gnu_Unwind_ForcedUnwind
+__gnu_Unwind_Resume
+__gnu_Unwind_Resume_or_Rethrow
+_Unwind_Complete
+_Unwind_DeleteException
+_Unwind_VRS_Get
+__gnu_thumb1_case_uqi
+_Unwind_VRS_Set
+__gnu_Unwind_Backtrace
+__cxa_begin_cleanup
+__cxa_type_match
+__gnu_unwind_execute
+__cxa_call_unexpected
+_Unwind_VRS_Pop
+__gnu_Unwind_Save_WMMXD
+__gnu_Unwind_Save_WMMXC
+__gnu_Unwind_Save_VFP
+__gnu_Unwind_Save_VFP_D_16_to_31
+__gnu_Unwind_Save_VFP_D
+__restore_core_regs
+___Unwind_RaiseException
+___Unwind_Resume
+___Unwind_Resume_or_Rethrow
+___Unwind_ForcedUnwind
+___Unwind_Backtrace
+__gnu_unwind_frame
+_Unwind_GetRegionStart
+_Unwind_GetLanguageSpecificData
+_Unwind_GetDataRelBase
+_Unwind_GetTextRelBase
+vsnprintf
+opendir
+readdir
+fopen
+__errno
+strerror
+closedir
+fread
+fclose
+strrchr
+sscanf
+strcmp
+ZProcess_KillApp9
+ZProcess_KillApp
+ZProcess_StartApp
+strncpy
+strlen
+strncat
+libmcspevtmanager.so
+libcutils.so
+libc.so
+libm.so
+libdl.so
+__data_start
+_edata
+__bss_start
+__bss_start__
+__bss_end__
+__end__
+libCrashRestore.so
+IIIJ
+ yDzD*
+ 4I5JyDzD
+ @BZ
+! "mF
+xDzD
+yDzD
+ yDzD
+ yDzD
+! " 
+! "(
+UIVJ
+ yDzD
+HHxD
+FIGJ
+ yDzD
+EHxD
+! " 
+! "(
+?H~D2
+xD<N
+;J~D1
+ zD;
+(JzD(M
+'I}D(
+%L%J
+ pGV
+##a	$6
+H{DxD
+ aCBXA	$@B
+pG	 pGpGp
+#lka
+{B{A
+"ca1
+@lpG
+jF+i
+hF!l
+ iF"
+bcc+h
+CQ0+`
+)`H0
+:ZrZh
+yDzD
+JHKIxDyD
+HLIH
+|DxD!
+FHxD
+|0;	+
+!zD(
+yDxD*
+xDyD
+zDhF
+yDxD
+zDhF
+yDxD(1#
+.I/HyDxD<1
+yDxD<1
+yDxD<1
+ZTE_CRS
+can not create a netlink socket
+malloc nlh error
+ztebw ok
+Send message : %s
+receive kernel messge now!
+receive message error,error = %d
+Received message: %s
+sys.evtmanager.started
+[waitBaseComp]BaseComp has started, iCount = %d
+[waitBaseComp] iCount = %d
+[waitBaseComp]not wait continue.
+===== enter Restore ====================
+MCSP_SrvEvt_Init failed
+===== MCSP_SetCfgHandle [ZTE_CRS] return:%d
+com.stbmc.maincontrol
+@@@===> com.stbmc.maincontrol alive.
+setprop sys.ZTE_Services_OK 1
+sys.boot_completed
+sys.ZTE_Services_OK
+bootcomplete = %s, criticApp = %s
+ibootcomplete = %d, icriticApp = %d
+===== shake hands with kernal success
+===== shake hands with kernal failed
+System
+SafeErrCode
+===== MCSP_Pref_PutInt SafeErrCode return:%d
+MonitorFailedNum
+===== MCSP_Pref_PutInt MonitorFailedNum return:%d
+===== exit Restore ====================
+ZProcess_IsAlive
+ZProcess_KillApp9
+ZProcess_KillApp
+ZProcess_StartApp
+ZTE_STB
+[%s] Bad param!
+[%s] Come in for Proc: %s---.
+/proc
+[%s] Can't open /proc.
+/proc/%d/stat
+[%s] Failed to open %s, errno = %d, errstr = %s.
+%d (%s
+[%s] Find the proceseor %s and pid = %d .
+kill -9 %d
+[%s] Find app '%s' process ID = %d and kill -9.
+kill %d
+[%s] Find app '%s' process ID = %d and kill.
+[%s] Params is too long, failed to start %s!
+[%s] System command:%s!
+GCC: (GNU) 4.9 20150123 (prerelease)
+aeabi
+.shstrtab
+.hash
+.dynsym
+.dynstr
+.rel.dyn
+.rel.plt
+.text
+.rodata
+.ARM.extab
+.ARM.exidx
+.init_array
+.fini_array
+.dynamic
+.got
+.data
+.bss
+.comment
+.ARM.attributes

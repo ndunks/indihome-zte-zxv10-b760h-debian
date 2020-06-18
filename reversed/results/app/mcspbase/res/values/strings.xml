@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZTEBaseComp</string>
+    <string name="s_DEVICE_NOT_FOUND">未找到USB设备，请插入USB设备后使用此功能。(USB device not found, please insert the USB device to use this function.)</string>
+    <string name="s_ULOG_START">U盘日志功能已开启。(U disk log function has started.)</string>
+    <string name="s_ULOG_STOP">U盘日志功能已停止。(U disk log function has stopped.)</string>
+    <string name="s_ULOG_CLEAR">U盘日志已清除。(U disk log has been cleared.)</string>
+    <string name="s_SPACE_NOT_ENOUGH">U盘空间不够，请清理U盘空间。(U disk space is not enough, please clean up the U disk space.)</string>
+</resources>

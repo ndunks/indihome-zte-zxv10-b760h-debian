@@ -1,0 +1,26 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: MainControl.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- assets/mcres/cfg/stbmaincontrol.cfg
+- png
+- jpg
+- gif
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '15'
+sharedLibrary: false
+sparseResources: true
+unknownFiles: {}
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.4.1
+versionInfo:
+  versionCode: null
+  versionName: null

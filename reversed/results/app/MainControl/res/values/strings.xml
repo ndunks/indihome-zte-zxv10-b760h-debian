@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MainControl</string>
+    <string name="CONNCTING_NET">Now connecting, please wait … Now connecting to network …</string>
+    <string name="RECONNCT_NET">Network is disconnected，now reconnecting, please wait …</string>
+    <string name="NET_CONNECTOUT">Network is not connected, Press “OK” to reconnect or press “Cancel” to ignore!</string>
+    <string name="ERROR_CODE">Fault Code:</string>
+    <string name="ERROR_INFO">Fault Info:</string>
+    <string name="ERROR_CODE_DXJC">Prompt Code:</string>
+    <string name="ERROR_INFO_DXJC">Information Tips:</string>
+    <string name="YNDX_NET_1305">"IPTV STB failed to get IP address.
+
+Please do the steps below:
+ 1. Make sure your internet connection working normally.
+ 2. Make sure STB LAN connected to port 4 on modem (ONT).
+ 3. Restart STB by press the power button.
+ 4. When the problem still occurred, please restart modem (ONT), after 3 minutes repeat the step 3.
+ 5. If the problem still occurred, please report on MyIndiHome application. You can download it on App Store or Play Store."</string>
+    <string name="YNDX_NET_1901">"Your Modem (ONT) and IPTV STB are disconnected.
+
+Please do the steps below:
+ 1. Make sure modem's (ONT) power is on.
+ 2. Make sure your Ethernet (LAN/UTP) cable has been connected corectly.
+ 3. If the problem still occurred, please report on MyIndiHome application. You can download it on App Store or Play Store."</string>
+    <string name="SDYD_NET_1305">Network access failed, please try again by reboot the STB or the wireless router. If still fails, please call the customer service hotline 10086.</string>
+    <string name="SDYD_1306">Please call the customer service hotline 10086.</string>
+    <string name="SDYD_NET_1401">Network access failed, dial-up again after 5 min. If still fails, please call the customer service hotline 10086.</string>
+    <string name="SDYD_NET_1402">Network access failed, dial-up again after 5 min. If still fails, please call the customer service hotline 10086.</string>
+    <string name="SDYD_NET_1403">PPPoE username or password error. Please input the right username and password. If still fails, please call the customer service hotline 10086.</string>
+    <string name="SDYD_NET_1404">Please check the network cable is off or the wireless router working OK.</string>
+    <string name="SDYD_NET_1901">Network access failed, please check the network cable is off or the network access device is on. If still fails, please call the customer service hotline 10086.</string>
+    <string name="SDYD_NET_1902">Please try again by reboot the STB. If still fails, please call the customer service hotline 10086.</string>
+    <string name="SDYD_NET_1903">Wireless network access failed. Please check the wireless network accessing status, check the wireless network access device is on, check the wiless network username and password is OK. If still fails, please call the customer service hotline 10086.</string>
+    <string name="AnHuiDX_1306">Please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NET_9999">The network is closed, press the setting key, and then open the eth or the wifi.</string>
+    <string name="AnHuiDX_NET_7777">Sorry, network access failed, press the setting key, and then check the network is configed correctly.</string>
+    <string name="AnHuiDX_HW_20001">STB HardWare Check Failed!</string>
+    <string name="AnHuiDX_NET_20011">Network access failed, please check the network cable is off or the network access device is on. If still fails, please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NET_20012">Wireless network access failed. Please check the wireless network accessing status, check the wireless network access device is on, check the wiless network username and password is OK. If still fails, please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NET_20013">Network access failed, dial-up again after 5 min. If still fails, please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NET_20014">Network access failed, dial-up again after 5 min. If still fails, please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NET_20015">PPPoE username or password error. Please input the right username and password. If still fails, please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NET_20016">Please check the network cable is off or the wireless router working OK.</string>
+    <string name="AnHuiDX_NET_20017">Please try again by reboot the STB. If still fails, please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NET_20018">Network access failed, please try again by reboot the STB or the wireless router. If still fails, please call the customer service hotline 10000.</string>
+    <string name="AnHuiDX_NTP_20031">Sorry, time is synchronised failed!</string>
+    <string name="AnHuiDX_NET_IPOE_20017">"IPOE dial-up is failed! 
+
+Please use the correct way of dial-up user name and password."</string>
+    <string name="XJ_NET_1305">"Sorry, network access failed! 
+
+Please check by the following steps:
+1.Check if the netwire acess OK.
+2.Power off the STB and reboot."</string>
+    <string name="XJ_NET_1901">"Sorry, network access failed! 
+
+Please check by the following steps:
+1.Please check the network cable is off or the network access device is on. 
+2.Power off the STB and reboot."</string>
+    <string name="XJ_NET_1902">"Sorry, no available wireless network 
+
+Please check by the following steps:
+1.Check the wireless network accessing status.
+2.If the wireless router working OK.
+3.Using wired network."</string>
+    <string name="XJ_NET_1903">"Sorry, no available wireless network 
+
+Please check by the following steps:
+1.Check the wireless network accessing status.
+2.If the wireless router working OK.
+3.Using wired network."</string>
+    <string name="XJ_CFG_1306">Equipment malfunction, unable to provide services! Please contact customer service.</string>
+    <string name="NET_1305">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="CFG_1306">Some important configuration item lost, unable to provide services!</string>
+    <string name="NET_9999">The network is closed, press the OK button, and then open the eth or the wifi.</string>
+    <string name="NET_7777">Sorry, network access failed, press the OK button, and then check the network is configed correctly.</string>
+    <string name="NET_1401">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="NET_1402">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="NET_1403">Sorry, broadband access account or password is wrong, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="NET_1404">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="SX_NET_691">"IPTV account name or password error!
+
+1. Power off the STB, and turn it on after 5 minutes.
+2.Or dial 10000 to contact customer service."</string>
+    <string name="SX_NET_678">"Please try to:
+
+1. Reboot the STB.
+2. Or dial 10000 to contact customer service."</string>
+    <string name="NET_1901">Sorry, abnormal connection! Please check the network cable is off or the network access device is on. Check and try again, if still fails, please call the customer service hotline for help.</string>
+    <string name="NET_0096">Get ip address failed, please try again, if still fails, please call the customer service!</string>
+    <string name="NET_0097">Get ip address failed, it can not work, please try again, if still fails, please call the customer service!</string>
+    <string name="NET_0098">Please access port 1 or port 3 of home gateway!</string>
+    <string name="NET_1902">Sorry, the wireless card failed to load! Please check the wireless card is connected properly, try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="NET_1903">Sorry, network access failed! Please check the network access device is on. Check and try again, if still fails, please call customer service hotline for help.</string>
+    <string name="DNS_DXJC_01303">"Network access failed, please try again,if still fails, please call customer service hotline for help!
+
+Suggested operation for User:
+1.Reboot the STB.
+2.Enter the configuration interface, view the configuration information."</string>
+    <string name="NET_DXJC_01301">"Network is not connected, please try again after checking it,if still fails, please call customer service hotline for help!
+
+Suggested operation for User:
+1.Check the STB network connection.
+2.Enter configuration interface, for STB network parameter configuration."</string>
+    <string name="NET_DXJC_01302">"ireless network access failed!
+uggested operation for User:
+1.Try to connect wireless.
+2.Enter configuration interface, for STB configuration."</string>
+    <string name="DNS_SH_01303">"Sorry, network access failed! 
+
+Suggested operation for User:
+1.Try to restart the STB. 
+2.If you press the above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="NET_SH_113">"Sorry, WIFI connect failed! 
+
+Suggested operation for User:
+1.Please confirm the WLAN key of broadband modem is opened, ensure WLAN lights lit.
+2.Try to reconnect WIFI.
+3.Enter the interface of Setting,view the STB configuration.
+4.If you press the above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="NET_SH_118">"Sorry, network cable of STB disconnected
+
+Suggested operation for User:
+1.Please check network cable of STB is connected .
+2.Enter the interface of Setting,view the STB configuration.
+3.If you press the above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="NET_1904">Network is not connected, Press “OK” to reconnect or press “Cancel” to ignore!</string>
+    <string name="NTP_1307">Sorry, time is synchronised failed!</string>
+    <string name="NTP_SC_DX_1307">Sorry, time is synchronised failed!</string>
+    <string name="ZJ_ERROR_CODE">Error Code：</string>
+    <string name="ZJ_ERROR_INFO">Error Message：</string>
+    <string name="ZJ_NET_10000">"Sorry, network connection failed! 
+
+1.Please check whether network cable is connected. 
+2.Please try to reboot your STB. 
+3.If all the above steps failed, please call 10000 to get more help."</string>
+    <string name="ZJ_NET_10001">"Abnormal network connection! 
+
+1.Please check whether the cable between your STB and HG is connected. 
+2.Please check whether the HG is working. 
+3.Please check whether your STB’s network settings is correct. 
+4.Please reboot your STB, if the error still exists, please contact the device vendor."</string>
+    <string name="ZJ_NET_10002">"Abnormal network connection! 
+
+1.Please check whether there are other devices that use this static IP address. 
+2.Please check this device information on the DHCP server. 
+3.Please check whether STB’s network settings is correct."</string>
+    <string name="ZJ_NET_10003_4">"Abnormal network connection! 
+
+1.Please check whether the DHCP server is reachable. 
+2.Please check whether the DHCP serve is normal. 
+3.Please check whether STB’s network settings is correct."</string>
+    <string name="ZJ_NET_10005">"Network account information error, no response! 
+
+Please check whether DHCP’s account and password is correct."</string>
+    <string name="ZJ_NET_10006_7">"Abnormal network connection! 
+
+1.Please try to reboot your STB. 
+2.Please check whether the network between STB and PPPoE server is reachable. 
+3.Please check whether PPPoE server is normal."</string>
+    <string name="ZJ_NET_10008">"Abnormal network connection! 
+
+Please check whether PPPoE settings is correct."</string>
+    <string name="ZJ_NET_10009">"Network account information error! 
+lease check whether PPPoE’s account or password is correct."</string>
+    <string name="ZJ_NTP_10010">"Time synchronization failed! 
+
+1.Please check whether the network between your STB and NTP server is reachable. 
+2.Please check whether NTP server is normal."</string>
+    <string name="ZJ_NTP_10011">"Time synchronization failed! 
+
+1.Please check whether the network between your STB and DNS server is reachable. 
+2.Please check whether your STB’s DNS address is correct."</string>
+    <string name="ZJ_NTP_10012">"Time synchronization failed! 
+lease check whether the parsing records on the DNS server are correct."</string>
+    <string name="ZJ_NET_10018">"Loading wireless network card failed! 
+
+1.Please check whether wireless network card works normally. 
+2.Please reboot your STB, if the error still exists, please contact the device vendor."</string>
+    <string name="ZJ_NET_10019">"No wireless network is available! 
+.Please check wireless network settings is correct. 
+2.Please reboot your STB, if the error still exists, please contact the device vendor."</string>
+    <string name="JS_ERROR_CODE">Error Code:</string>
+    <string name="JS_ERROR_INFO">Error message:</string>
+    <string name="JS_NET_1305">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Try to restart STB;
+2.If by the above operation, the problem is not resolved, call the 10000–4–2 customer service."</string>
+    <string name="JS_CFG_1306">"Sorry，Equipment malfunction, unable to provide services!
+
+ Please contact customer service."</string>
+    <string name="JS_NET_1401">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Turn off the STB power supply, 5 minutes then turn on the power;
+2.If you press the above operation, the problem is not resolved, call the 10000–4–2 customer service."</string>
+    <string name="JS_NET_1402">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Turn off the STB power supply, 5 minutes then turn on the power;
+2.If you press the above operation, the problem is not resolved, call the 10000–4–2 customer service."</string>
+    <string name="JS_NET_1403">"PPPoE username or password error!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Make sure the network cable of set-top box is connected to iTV port or LAN2 port of broadband modem;
+2.Turn off the STB power supply, 5 minutes then turn on the power;
+3.If you press the above operation, the problem is not resolved, call the 10000–4–2 customer service."</string>
+    <string name="JS_NET_1404">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Please make sure the modem or HUB is on;
+2.Make sure broadband modem phone line or network cable is plugged in tight;
+3.Make sure broadband modem DSL or LINK light is lit;
+4.Restart broadband modem, pending LINK DSL light is no longer flashing lights or after the restart STB;
+5.If you press above operation, the problem is not resolved, call the 10000–4–2 customer service."</string>
+    <string name="JS_NET_1901">"Network line abnormal!
+
+Please check error according to the following step:
+1. Please check whether HG is powered on or not;
+2. Please check cable between HG and STB is plugged in tight;
+3. Please check Internet is OK or not;
+4. If all the above steps failed, call the 10000–4–2 customer service."</string>
+    <string name="JS_NET_1902">"Sorry, the wireless card failed to load!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Make sure the wireless card is OK; 
+2.Make sure the WLAN button after broadband modem is on, ensuring WLAN lights is lit;
+3.Make sure the second DSL light or LINK light of broadband modem is lit;
+4. Please re-plug the USB wireless card;
+5.If you press the above operation, the problem is not resolved, call the 10000–4–2 customer service."</string>
+    <string name="JS_NET_1903">"Sorry, wireless network error!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Make sure modem is on;
+2.Make sure the wireless card is OK;
+3. Make sure the WLAN button after broadband modem is on, ensuring WLAN lights is lit;
+4. Make sure the second DSL light or LINK light of broadband modem is lit;
+5.Please re-plug the USB wireless card;
+6.If you press the above operation, the problem is not resolved, call the 10000–4–2 customer service."</string>
+    <string name="GD_ERROR_CODE">Error Code:</string>
+    <string name="GD_ERROR_INFO">Error message:</string>
+    <string name="GD_NET_1305">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Try to restart STB;
+2.If by the above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="GD_NET_1403">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Please make sure the modem or HUB is on;
+2.Make sure broadband modem phone line or network cable is plugged in tight;
+3.Make sure broadband modem DSL or LINK light is lit;
+4.Restart broadband modem, pending LINK DSL light is no longer flashing lights or after the restart STB;
+5.If you press above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="GD_NET_1404">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Please make sure the modem or HUB is on;
+2.Make sure broadband modem phone line or network cable is plugged in tight;
+3.Make sure broadband modem DSL or LINK light is lit;
+4.Restart broadband modem, pending LINK DSL light is no longer flashing lights or after the restart STB;
+5.If you press above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="GD_NET_1901">"Network line abnormal!
+
+Please check error according to the following step:
+1. Please check whether HG is powered on or not;
+2. Please check cable between HG and STB is plugged in tight;
+3. Please check Internet is OK or not;
+4. If all the above steps failed, call the 10000 customer service."</string>
+    <string name="GD_NET_1902">"Sorry, the wireless card failed to load!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Make sure the wireless card is OK; 
+2.Make sure the WLAN button after broadband modem is on, ensuring WLAN lights is lit;
+3.Make sure the second DSL light or LINK light of broadband modem is lit;
+4. Please re-plug the USB wireless card;
+5.If you press the above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="GD_NET_1903">"Sorry, wireless network error!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Make sure modem is on;
+2.Make sure the wireless card is OK;
+3. Make sure the WLAN button after broadband modem is on, ensuring WLAN lights is lit;
+4. Make sure the second DSL light or LINK light of broadband modem is lit;
+5.Please re-plug the USB wireless card;
+6.If you press the above operation, the problem is not resolved, call the 10000 customer service."</string>
+    <string name="GDYD_ERROR_CODE">Error Code:</string>
+    <string name="GDYD_NET_1305">"Owner, network error, my IP can not work...(*-*) Please try to reboot STB!
+
+ Not work? Please call 1008616."</string>
+    <string name="GDYD_NET_1901">"Owner, network error!(*-*)
+
+1.Please reboot STB!
+2.Please check the network cable is off ?
+Now work? Please call 1008616."</string>
+    <string name="GDYD_NET_10001">"Owner, network error, my IP is occupied...
+
+1.Please reboot STB!
+2.Please check the network cable is off ?
+Now work? Please call 1008616."</string>
+    <string name="SC_ERROR_CODE">Error Code:</string>
+    <string name="SC_ERROR_INFO">Error message:</string>
+    <string name="SC_NET_1305">Access or AAA autentication failed!</string>
+    <string name="SC_CFG_1306">"STB self-inspection failed!
+
+Please try again, if still fails, call customer service."</string>
+    <string name="SC_NET_1401">"Network access failed!
+
+Please click Retry button to try to re-connect, if still fails, call customer service."</string>
+    <string name="SC_NET_1402">"Network access failed!
+
+Please click Retry button to try to re-connect, if still fails, call customer service."</string>
+    <string name="SC_NET_1403">"Network access failed!
+
+Please click Retry button to try to re-connect, if still fails, call customer service."</string>
+    <string name="SC_NET_1404">"Network access failed!
+
+Please click Retry button to try to re-connect, if still fails, call customer service."</string>
+    <string name="SC_NET_1901">Network line abnormal!(network link outages or Line sequential error).</string>
+    <string name="SC_NET_1902">"The wireless card failed to load!n
+Please click Retry button to try to re-connect, if still fails, call customer service."</string>
+    <string name="SC_NET_1903">Wireless network error!</string>
+    <string name="SC_ERROR_1904">"Unknown error! 
+
+Please click Retry button to try to re-connect, if still fails, call customer service."</string>
+    <string name="YM_NET_1305">"Sorry, network access failed!
+
+Please reboot the Yue ME modem and the Router, and check the network, if the problem is not resolved, call the customer service."</string>
+    <string name="YM_CFG_1306">Sorry，Equipment malfunction, unable to provide services! Please contact customer service.</string>
+    <string name="YM_NET_1401">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Turn off the Yue ME modem power supply, 5 minutes then turn on the power;
+2.If you press the above operation, the problem is not resolved, call the customer service."</string>
+    <string name="YM_NET_1402">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Turn off the Yue ME modem power supply, 5 minutes then turn on the power;
+2.If you press the above operation, the problem is not resolved, call the customer service."</string>
+    <string name="YM_NET_1403">"PPPoE username or password error!
+
+Please click Retry button to try to re-connect, if still fails, check the following steps:
+1.Make sure the network cable of Yue ME modem is connected to iTV port or LAN2 port of broadband modem;
+2.Turn off the STB power supply, 5 minutes then turn on the power;
+3.If you press the above operation, the problem is not resolved, call the customer service."</string>
+    <string name="YM_NET_1404">"Sorry, network access failed!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Please make sure the modem or HUB is on;
+2.Make sure broadband modem phone line or network cable is plugged in tight;
+3.Make sure broadband modem DSL or LINK light is lit;
+4.Restart broadband modem, pending LINK DSL light is no longer flashing lights or after the restart STB;
+5.If you press above operation, the problem is not resolved, call the customer service."</string>
+    <string name="YM_NET_1901">"Network line abnormal!
+
+Please check error according to the following step:
+1. Please check whether HG is powered on or not;
+2. Please check cable between HG and Yue ME modem is plugged in tight;
+3. Please check Internet is OK or not;
+4. If all the above steps failed, call the customer service."</string>
+    <string name="YM_NET_1902">"Sorry, the wireless card failed to load!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Make sure the wireless card is OK; 
+2.Make sure the WLAN button after broadband modem is on, ensuring WLAN lights is lit;
+3.Make sure the second DSL light or LINK light of broadband modem is lit;
+4. Please re-plug the USB wireless card;
+5.If you press the above operation, the problem is not resolved, call the customer service."</string>
+    <string name="YM_NET_1903">"Sorry, wireless network error!
+
+Please click Retry button to try to re-connect, if still fails, follow these steps to try to solve the problem:
+1.Make sure modem is on;
+2.Make sure the wireless card is OK;
+3. Make sure the WLAN button after broadband modem is on, ensuring WLAN lights is lit;
+4. Make sure the second DSL light or LINK light of broadband modem is lit;
+5.Please re-plug the USB wireless card;
+6.If you press the above operation, the problem is not resolved, call the customer service."</string>
+    <string name="JSLT_NET_1404">"Network access failed!
+
+Please check the network."</string>
+    <string name="JSLT_NET_1901">"Ethernet is not connected!
+
+Please check the network."</string>
+    <string name="JSLT_NET_1305">"Get IP address failed!
+
+Please check the network."</string>
+    <string name="ZSGJ_NET_1401">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="ZSGJ_NET_1402">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="ZSGJ_NET_1403">Sorry, broadband access account or password is wrong, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="ZSGJ_NET_1404">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="ZSGJ_NET_1901">Sorry, abnormal connection! Please check the network cable is off or the network access device is on. Check and try again, if still fails, please call the customer service hotline for help.</string>
+    <string name="ZSGJ_NET_1902">Sorry, the wireless card failed to load! Please check the wireless card is connected properly, try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="ZSGJ_NET_1903">Sorry, network access failed! Please check the network access device is on. Check and try again, if still fails, please call customer service hotline for help.</string>
+    <string name="ZSGJ_NET_0096">Get ip address failed, please try again, if still fails, please call the customer service!</string>
+    <string name="ZSGJ_NET_0097">Get ip address failed, it can not work, please try again, if still fails, please call the customer service!</string>
+    <string name="ZSGJ_NET_0098">Please access port 1 or port 3 of home gateway!</string>
+    <string name="ZSGJ_NET_1305">Sorry, network access failed! Please try again later, if still fails, please call the customer service hotline for help.</string>
+    <string name="ZSGJ_CFG_1306">Some important configuration item lost, unable to provide services!</string>
+    <string name="BJLT_NET_10000">Network problems: the network is not connected. Please check if the cable is connected securely. If there is a problem, please call Beijing Unicom customer service phone 10010.</string>
+    <string name="BJLT_NET_10001">Network problem: IP address conflict. It is recommended to reboot the router, and reboot the set-top box after router booted. If there are problems, please call Beijing Unicom customer service phone 10010.</string>
+    <string name="BJLT_NET_10010">Network problem: get IP address failed. It is recommended to reboot the router, and reboot the set-top box after router booted. If there are problems, please call Beijing Unicom customer service phone 10010.</string>
+    <string name="HDMI_AUTO_STANDBY">"Check TV is power off or standby, STB will power off in 15 seconds. If you see this tip, you can turn off this feature in setting. 
+Press any key to cancel."</string>
+    <string name="HAVE_VERSION_UPGADE">Update is available. Press “OK” to download now or press “Cancel” to quit.</string>
+    <string name="USB_VERSION_UPGRADE">USB Update is available. Press “OK” to download now or press “Cancel” to quit.</string>
+    <string name="SCREEN_SAVER_INFO">Entering screensaver …</string>
+    <string name="POWER_OFF_INFO">You have a long time done nothing, STB will power off in one minute, you can press any key to cancel it!</string>
+    <string name="NO_USB_VERSION_UPGRADE">USB Update is not available.</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">Cancel</string>
+    <string name="YES">Yes</string>
+    <string name="NO">No</string>
+    <string name="CONFIRM">Confirm</string>
+    <string name="RETRY">Retry</string>
+    <string name="TITLE">Notice</string>
+    <string name="STANDBY">Standby</string>
+    <string name="SHUTDOWN">Shutdown</string>
+    <string name="SERIALNO_TITLE_FIRST">Serial number input</string>
+    <string name="SERIALNO_TITLE_AGAIN">Serial number input error!</string>
+    <string name="INPUT_SERIALNO_FIRST">Please input the serial number</string>
+    <string name="INPUT_SERIALNO_AGAIN">Serial number error, please input again!</string>
+    <string name="TIP_MESSAGE">Checking user config info now, please wait.</string>
+    <string name="TIP_TITLE">Tips:</string>
+    <string name="INPUT_RULE">Please input the serial number with 6 digits</string>
+    <string name="TIP_MESSAGE_TWO">Writing the config info now, do not power down! STB will reboot afer writing config success.</string>
+    <string name="REBOOT">Reboot</string>
+    <string name="CONF_UPDATE">Configuration has been modified, so need to reset the STB. Press “Reboot” to reset the STB or press “Cancel” to ignore!</string>
+    <string name="REBOOT_INFO">STB is resetting......</string>
+    <string name="AUTO_POWEROFF_REQUEST">You have watched TV for a long time, to protect your vision please watch TV alittle later. If you want to continue, press any key!</string>
+    <string name="HeibeiLT_AUTO_POWEROFF_REQUEST">Respect of customer, because you long time not to operate, the set-top box of Unicom Television will enter standby mode after 30 s, please press any key to cancel!</string>
+    <string name="AUTO_POWEROFF_REQUEST_TITILE">Warm Tips:</string>
+    <string name="TIME_REMAIN">seconds remaining:</string>
+    <string name="TIME_REMAIN_UNIT">s</string>
+    <string name="FACTORY_RESET">System is going to execute Factory Reset operation, Press “OK” to confirm or press “Cancel” to ignore!</string>
+    <string name="AUTO_POWEROFF_KEY">System is going to sleep, Press “OK” to confirm or press “Cancel” to ignore!</string>
+    <string name="AUTO_POWEROFF_KEY_TITILE">Warm Tips:</string>
+    <string name="CHANGE_TVSTANDARD_TO_720P">Already change to 720p</string>
+    <string name="Recovery">Recovery stb</string>
+    <string name="Human_POWEROFF_REQUEST">Entering standby，please wait...</string>
+    <string name="JXYD_POWEROFF_KEY_STANDBY_OR_SHUTDOWN_TITLE">Selecting operation :</string>
+    <string name="JXYD_POWEROFF_KEY_STANDBY_OR_SHUTDOWN">Standby or shutdown?</string>
+    <string name="JXYD_POWEROFF_KEY_STANDBY">Standby</string>
+    <string name="JXYD_POWEROFF_KEY_SHUTDOWN">Shutdown</string>
+    <string name="GXDX_10010">"STB automatically get IP address failed or invalid, network connection failed!
+Please check the following steps:
+ 1、Please check whether the network is connected between the STB and the home router or DHCP server;
+ 2、Please try to reset the STB;
+ 3、Please try to restart the router;
+ 4、If your STB use DHCP access method, please try to switch to PPPoE access method;
+ 5、If the problem has not been resolved, please call 10000 customer service hotline for consultation;"</string>
+    <string name="GXDX_10021">"STB network account dial failed, network connection failed！
+Please check the following steps:
+ 1、Please try to restart the STB to restart the dial;
+ 2、Please try restart modem to re dial;
+ 3、Please try to check whether the network cable between the STB, modem, and the separator is connected properly;
+ 4、If the problem has not been resolved, please call 10000 customer service hotline for consultation;"</string>
+    <string name="GXDX_10003">"Sorry, the STB physical self test error！
+Please check the following steps:
+ 1、Please try to reset the STB;
+ 2、If the problem has not been resolved, please call 10000 customer service hotline for consultation;"</string>
+    <string name="GXDX_10001">"IP address conflict, set-top box network connection failed！
+Please check the following steps:
+ 1、Please try to restart the STB to re obtain IP address;
+ 2、Please check if there are other devices in the home network occupy the address and replace the IP address in a static IP mode.;
+ 3、If the problem has not been resolved, please call 10000 customer service hotline for consultation;"</string>
+    <string name="GXDX_10030">"Time synchronization failure
+Some functions may be affected。"</string>
+    <string name="GXDX_10061">"No available wireless network！
+Please click menu or home key to try to re access, if still fails, please follow these steps to try to solve the fault:
+ 1、Please try to restart the STB to restart the dial;
+ 2、Please try to restart the modem to restart the dial;
+ 4、If the problem has not been resolved, please call 10000 customer service hotline for consultation;"</string>
+    <string name="GXDX_22102">Network account password input error, please re-enter. If the problem has not been resolved, please call 10000 customer service hotline for consultation.</string>
+    <string name="GXDX_10099">Invalid connection network account established, please wait 10 minutes after the restart shutdown. If you still can not login, please call the customer service hotline 10000 for consultation.</string>
+    <string name="Pakistan_CFG_1306">Set top box is not configured. Please call 1218 for assistance.</string>
+    <string name="Pakistan_NET_1401">Network is not accessible. Restart STB, If the problem still persists, call 1218 for assistance.</string>
+    <string name="Pakistan_NET_1402">Network is not accessible. Restart STB, If the problem still persists, call 1218 for assistance.</string>
+    <string name="Pakistan_NET_1305">Network is not accessible. Please try again later.</string>
+    <string name="Pakistan_NET_1403">Username or password is incorrect. Please call 1218 for assistance on STB Configuration.</string>
+    <string name="Pakistan_NET_1404">Check your ADSL connectivity. Call 1218 for assistance.</string>
+    <string name="Pakistan_NET_1901">The network cable is not connected. Reconnect the cable. If the problem still persists call 1218 for assistance.</string>
+    <string name="Pakistan_NET_1902">Wireless device cannot be detected.</string>
+    <string name="Pakistan_NET_1903">Network is not accessible. Restart STB, If the problem still persists, call 1218 for assistance.</string>
+    <string name="ZJYD_NET_92151">"Network is not connected, please check the network！
+ 1. Please check the terminal (modem or router) which connected to the set-top box is on.
+ 2. Please check network cable which connected to the set-top boxes and broadband is plugged in tight (the green of the set-top box lamp indicates normal).
+ 3. If the set-top box lamp does not light, please replace network cable and try again.
+ 4. The standby light of Set-top box is green, please reboot the set-top box to try again.
+ 5. Please contact our customer support staff and provide the error code displayed on the page."</string>
+    <string name="ZJYD_NET_92251">"Failed to obtain an IP address automatically！
+ 1. Please reboot the set-top box to try again.
+ 2. Configure the fixed IP in the set-top box to try.
+ 3. Please contact our customer support staff and provide the error code displayed on the page."</string>
+    <string name="ZJYD_NET_93151">"The password of Wireless Network is error ！
+ 1. Please enter the correct password and try again;
+ 2. Please contact our customer support staff and provide the error code displayed on the page."</string>
+    <string name="ZJYD_NET_93251">"Wireless network connect failed！
+ 1. Please reboot the wireless device to try again.
+ 2. Please contact our customer support staff and provide the error code displayed on the page."</string>
+    <string name="ZJYD_NET_94151">"The account or password of PPPoE is incorrect！
+ 1. Please reboot the set-top box to try again.
+ 2. Please contact our customer support staff and provide the error code displayed on the page."</string>
+    <string name="ZJYD_NET_94251">"PPPoE is failed to get IP address！
+ 1. Please reboot the set-top box to try again.
+ 2. Please contact our customer support staff and provide the error code displayed on the page."</string>
+    <string name="ZJYD_NET_95251">"Time synchronization failed！
+ 1. Please make sure a correct NTP sever address has been configured. 
+ 2. Please reboot the set-top box.
+ 3. Please contact our customer support staff and provide the error code displayed on the page."</string>
+    <string name="iptv_install_succ">Install success, ready to restart IPTV.</string>
+    <string name="mImageText">scan qr code, download the zhikuan life around you cowcatcher expert</string>
+    <string name="CQDX_NET_0010">"Home network disorder
+A failure is detected,please complete the following steps to check:
+1.Please check whether the cable connection normal
+2.Please try to restart the STB
+If follow the above operation,the problem is still not solved,Please scan qr code to failure."</string>
+    <string name="CQDX_NET_0006">"Circuit failure or AAA authentication failure
+ADSL account or password incorrect
+A failure is detected,please scan the qr code."</string>
+    <string name="CQDX_NET_0007">"Circuit failure or AAA authentication failure
+ADSL dial-up timeout no response
+A failure is detected,please scan the qr code."</string>
+    <string name="CQDX_NET_0013">"Circuit failure or AAA authentication failure
+The DHCP server no response
+A failure is detected,please scan the qr code."</string>
+    <string name="CQDX_INFO_0010">Home network obstacles (Broken cable or wire sequence is wrong)</string>
+    <string name="CQDX_INFO_0006">Circuit failure or AAA authentication failure</string>
+    <string name="fujianDX_err_code">Error Code:</string>
+    <string name="fujianDX_prompt_jianduan1">Network connection is disconnected, please check the cable between the set-top box and Modem or switch is loose, thank you!</string>
+    <string name="fujianDX_prompt_jianduan2">Set top box software load failed, please try to restart the set-top box, if invalid, please contact customer service, thank you!</string>
+    <string name="XJLT_NET_10000">"Sorry, network connection failed!
+
+Please complete the following steps to check:
+ 1. please check whether the cable is normal connection, check the network connection device is working properly.
+ 2. power and try to restart the set-top box.
+ 3. if the above operation, the problem is still not solved, please call customer service hotline at 10010 for consultation."</string>
+    <string name="XJLT_NET_10021">"The set-top box network connection failed!
+
+ Please complete the following steps to check:
+ 1. please check the network cable is normal connection.
+ 2. power and try to restart the set-top box.
+ 3. please try to check the set-top box, modem, and separator connection cable is normal."</string>
+    <string name="XJLT_NET_10061">"Not found the available wireless networks!
+
+ Please press set button to enter the network Settings, follow these steps to try to solve:
+ 1. please check the wireless network connection status.
+ 2. please check whether the wireless router to work normally.
+ 3. suggest to change the cable connection."</string>
+    <string name="Yinni_Restart_Message_One">Your set top box has not been turned off for a long time. It will automatically restart in 1 minute</string>
+    <string name="Yinni_Restart_Message_Two">Your set top box has not been turned off for a long time. It will automatically restart in 1 minute</string>
+    <string name="Yinni_Restart_Message_Three">Respect of customer, because you for a long time did not reboot , the set-top box will reboot after 1 minute, you can click on the Reboot to reboot immediately, or click the Delay for 4 hour after reboot!</string>
+    <string name="Yinni_Restart_Message_Four">Your Set-Top Box will restart automatically in 10 seconds...</string>
+    <string name="Yinni_Restart_Reboot">Restart Now</string>
+    <string name="Yinni_Restart_Delay">Later(2 hours)</string>
+</resources>
