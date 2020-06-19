@@ -1,17 +1,6 @@
 export ROOT=$(CURDIR)/
 include $(ROOT)Makeconfig
 
-ifndef FLASH_TOOL
-# you can change it using: make FLASH_TOOL=/path/to/sp_flash_tools or in .env file
-FLASH_TOOL = /ext4/SP-Flash-Tool/flash_tool.sh
-endif
-
-export FLASH_TOOL
-
-ifndef REBOOT_DELAY
-REBOOT_DELAY = 1
-endif
-export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
 FLASH_CONFIG_INITRAM=$(OUT_DIR)/flash_config_initram.xml
 FLASH_CONFIG_DEBIAN=$(OUT_DIR)/flash_config_debian.xml
 FLASH_CONFIG_ANDROID=$(OUT_DIR)/flash_config_android.xml

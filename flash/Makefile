@@ -1,6 +1,8 @@
 export ROOT=../
 include $(ROOT)Makeconfig
 
+export FLASH_TOOL_DIR = $(dir $(FLASH_TOOL))
+
 ifndef OUT
 $(error No output file specified)
 endif
