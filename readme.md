@@ -257,8 +257,8 @@ app/mcspbase.apk
 - [MainControl McService](reversed/results/app/MainControl/smali/com/stbmc/maincontrol/McService.smali) listen props `sys.stbmc_boot` until `1`
 - libCrashRestore watching `com.stbmc.maincontrol` process and should alive, then `setprop sys.ZTE_Services_OK 1`
 
-- Who set `sys.stbmc_boot = 1` ?
-- Who set `sys.stb.state = 1` ?
+- Who do `setprop sys.stbmc_boot 1` ?
+- Who do `setprop sys.stb.state 1` ?
 
 ## Reffs
 
