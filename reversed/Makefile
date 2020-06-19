@@ -48,7 +48,8 @@ $(SYSTEM_DIR):
 fast_system: $(SYSTEM_DIR)
 	[ -d system_ram ] || mkdir system_ram
 	[ -n "$(shell grep /proc/mounts system_ram )" ] || sudo mount -t tmpfs none system_ram
-	sudo cp -aRv $(SYSTEM_DIR)/* system_ram/
+	sudo cp -Rv $(SYSTEM_DIR)/* system_ram/
+	sudo chown -R $(USER):$(USER) system_ram/*
 
 umount: 
 	sudo umount ./$(SYSTEM_DIR) || exit 0
@@ -56,6 +57,6 @@ umount:
 
 clean: umount
 	rmdir $(SYSTEM_DIR) || exit 0
-	rm -rf $(RESULTS_DIR) || exit 0
+	git checkout -- $(RESULTS_DIR) || exit 0
 	[ -z "$(shell grep /proc/mounts system_ram )" ] || sudo umount ./system_ram
 	[ ! -d system_ram ] || rmdir system_ram
