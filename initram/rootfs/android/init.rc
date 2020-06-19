@@ -189,19 +189,6 @@ loglevel 6
 # change lk_env permission
     # chown root system /proc/lk_env
     # chmod 0660 /proc/lk_env
-    
-# mount different fs start
-
-# on fs_property:ro.mount.fs=YAFFS
-# # mount mtd partitions
-#     # Mount /system rw first to give the filesystem a chance to save a checkpoint
-#     write /proc/bootprof "INIT:NAND:Mount_START"
-#     mount yaffs2 mtd@system /system
-
-#     mount yaffs2 mtd@system /system ro remount
-#     mount yaffs2 mtd@userdata /data nosuid nodev
-#     mount yaffs2 mtd@cache /cache nosuid nodev
-#     write /proc/bootprof "INIT:NAND:Mount_END"
 
 on fs_property:ro.mount.fs=EXT4
     write /proc/bootprof "INIT:eMMC:Mount_system_START"
@@ -234,23 +221,10 @@ on fs_property:ro.mount.fs=EXT4
 
     write /proc/bootprof "INIT:eMMC:Mount_system_END"
 
-# on fs_property:ro.mount.fs=UBIFS
-#     write /proc/bootprof "INIT:NAND:Mount_START"
-#     mount ubifs ubi@system /system
-
-#     # Wifi thermal need to chmod before system is changed to read only
-#     chown root system /system/etc/throttle.sh
-#     chmod 0750 /system/etc/throttle.sh
-
-#     mount ubifs ubi@system /system ro remount
-#     mount ubifs ubi@userdata /data nosuid nodev
-#     mount ubifs ubi@cache /cache nosuid nodev
-#     write /proc/bootprof "INIT:NAND:Mount_END"   
-
 # mount different fs end
 
 # mount partition by some option
-on fs_property:ro.persist.partition.support=yes
+#on fs_property:ro.persist.partition.support=yes
     write /proc/bootprof "INIT:PERSISIT:Mount_START"
     exec /sbin/e2fsck -pfD /emmc@persist
     exec /sbin/tune2fs -O has_journal /emmc@persist
@@ -1002,10 +976,10 @@ on property:ro.debuggable=*
     start telnetd30 
     start console
     #activate wifi
-    write /dev/wmtWifi "1"
+    #write /dev/wmtWifi "1"
     #trigger other actions
-    setprop init.svc.bootanim stopped
-    start adbd
+    #setprop init.svc.bootanim stopped
+    #start adbd
 
 on property:init.svc.bootanim=stopped
     write /proc/bootprof "on property:init.svc.bootanim=stopped"
@@ -1037,6 +1011,9 @@ on property:init.svc.bootanim=stopped
 
     chown system system /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_base 
     chmod 0660 /sys/devices/system/cpu/cpufreq/hotplug/cpu_num_bas	#wjh Permission of cpu_num_base
+
+on property:sys.ZTE_Services_OK=1
+    exec /ready.sh
 
 #import /zte_init.rc
 

@@ -6,7 +6,7 @@ service ueventd /sbin/ueventd
     class core
     critical
 
-service kisd /system/bin/kisd
+# service kisd /system/bin/kisd
 
 service healthd /sbin/healthd
     class core
@@ -30,24 +30,24 @@ service console /system/bin/sh
     user root
     group log
 
-service telnetd30 /system/xbin/busybox telnetd -l /system/bin/sh -p 30
+service telnetd30 /system/xbin/busybox telnetd -l /system/bin/sh
     class main
     disabled
     oneshot
 
 # # adbd is controlled via property triggers in init.<platform>.usb.rc
-service adbd /sbin/adbd
-    class core
-    socket adbd stream 660 system system
-    disabled
+# service adbd /sbin/adbd
+#     class core
+#     socket adbd stream 660 system system
+#     disabled
 
 service drvbd /system/bin/drvbd
     class main
     user system
     group system
 
-service debuggerd /system/bin/debuggerd
-    class main
+# service debuggerd /system/bin/debuggerd
+#     class main
 
 # service mobile_log_d /system/bin/mobile_log_d
 #     class main
@@ -64,10 +64,10 @@ service servicemanager /system/bin/servicemanager
     onrestart restart drm
     onrestart restart aal
 
-# service vold /system/bin/vold
-#     class core
-#     socket vold stream 0660 root mount
-#     ioprio be 2
+service vold /system/bin/vold
+    class core
+    socket vold stream 0660 root mount
+    ioprio be 2
 
 service media /system/bin/mediaserver
     class main
@@ -93,19 +93,19 @@ service nvram_daemon /system/bin/nvram_daemon
     group nvram system
     oneshot
 
-service atcid-daemon-u /system/bin/atcid
-	socket adb_atci_socket stream 660 radio system
-	user system
-	group radio system media
-	disabled
-	oneshot
+# service atcid-daemon-u /system/bin/atcid
+# 	socket adb_atci_socket stream 660 radio system
+# 	user system
+# 	group radio system media
+# 	disabled
+# 	oneshot
 
-service atcid-daemon-e /system/bin/atcid
-	socket adb_atci_socket stream 660 radio system
-	user root 
-	group radio system
-	disabled
-	oneshot
+# service atcid-daemon-e /system/bin/atcid
+# 	socket adb_atci_socket stream 660 radio system
+# 	user root 
+# 	group radio system
+# 	disabled
+# 	oneshot
 
 # on early_property:ro.build.type=eng
 #     write /proc/bootprof "on early_property:ro.build.type=eng"
@@ -131,10 +131,10 @@ service surfaceflinger /system/bin/surfaceflinger
      group graphics drmrpc
      #onrestart restart zygote
 
-# service aal /system/bin/aal
-#     class main
-#     user system
-#     group system graphics radio
+service aal /system/bin/aal
+    class main
+    user system
+    group system graphics radio
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     class main
@@ -149,21 +149,21 @@ service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-sys
 # MT6620 related services (Begin)
 #
 # monitor property and power on/off wlan 
-on property:wlan.driver.status=ok
-    write /proc/bootprof "on property:wlan.driver.status=ok"
-	write /dev/wmtWifi "1"
+# on property:wlan.driver.status=ok
+#     write /proc/bootprof "on property:wlan.driver.status=ok"
+# 	write /dev/wmtWifi "1"
 
-on property:wlan.driver.status=unloaded
-    write /proc/bootprof "on property:wlan.driver.status=unloaded"
-	write /dev/wmtWifi "0"
+# on property:wlan.driver.status=unloaded
+#     write /proc/bootprof "on property:wlan.driver.status=unloaded"
+# 	write /dev/wmtWifi "0"
     
-service insmod insmod 
-    disabled
-    oneshot    
+# service insmod insmod 
+#     disabled
+#     oneshot    
     
-service rmmod rmmod 
-    disabled
-    oneshot        
+# service rmmod rmmod 
+#     disabled
+#     oneshot        
 
 #remove -puse_p2p_group_interface=1. our driver doesnot support this ffeature
 #    
@@ -215,26 +215,26 @@ service wlanLoader /system/bin/wlan_loader
 #
 
 
-service dhcpcd_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
-    class main
-	user dhcp
-	group net_admin net_raw 
-    disabled
-    oneshot
+# service dhcpcd_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
+#     class main
+# 	user dhcp
+# 	group net_admin net_raw 
+#     disabled
+#     oneshot
 
-service dhcpcd_eth0 /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
-    class main
-    user dhcp
-    group net_admin net_raw 
-    disabled
-    oneshot	
+# service dhcpcd_eth0 /system/bin/logwrapper /system/bin/dhcpcd -BK -dd
+#     class main
+#     user dhcp
+#     group net_admin net_raw 
+#     disabled
+#     oneshot	
 
-service iprenew_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -n
-    class main
-	user dhcp
-	group net_admin net_raw 
-    disabled
-    oneshot
+# service iprenew_wlan0 /system/bin/logwrapper /system/bin/dhcpcd -n
+#     class main
+# 	user dhcp
+# 	group net_admin net_raw 
+#     disabled
+#     oneshot
 
 #make sure drm server has rights to read and write sdcard
 service drm /system/bin/drmserver
@@ -257,9 +257,9 @@ service bootanim /system/bin/bootanimation
     oneshot
 
 
-service readahead /system/bin/sh /readahead.sh
-    disabled
-    oneshot
+# service readahead /system/bin/sh /readahead.sh
+#     disabled
+#     oneshot
 
 #service enableswap /system/bin/sh /enableswap.sh
 #    class core
@@ -308,19 +308,19 @@ service mtkbt /system/bin/mtkbt
 #
 
 
-service installd /system/bin/installd
-    class main
-    socket installd stream 600 system system
+# service installd /system/bin/installd
+#     class main
+#     socket installd stream 600 system system
 
 # service flash_recovery /system/etc/install-recovery.sh
 #     class main
 #     oneshot
 
-service sbchk /sbchk/sec_chk.sh
-    user nvram
-    group system
-    disabled
-    oneshot
+# service sbchk /sbchk/sec_chk.sh
+#     user nvram
+#     group system
+#     disabled
+#     oneshot
 
 # service racoon /system/bin/racoon
 #     class main
@@ -330,57 +330,57 @@ service sbchk /sbchk/sec_chk.sh
 #     disabled
 #     oneshot
 
-service mtpd /system/bin/mtpd
-    class main
-    socket mtpd stream 600 system system
-    user vpn
-    group vpn net_admin inet net_raw
-    disabled
-    oneshot
+# service mtpd /system/bin/mtpd
+#     class main
+#     socket mtpd stream 600 system system
+#     user vpn
+#     group vpn net_admin inet net_raw
+#     disabled
+#     oneshot
 
-service keystore /system/bin/keystore /data/misc/keystore
-    class main
-    user keystore
-    group keystore drmrpc
-    socket keystore stream 666
+# service keystore /system/bin/keystore /data/misc/keystore
+#     class main
+#     user keystore
+#     group keystore drmrpc
+#     socket keystore stream 666
 
-service dumpstate /system/bin/dumpstate -s
-    class main
-    socket dumpstate stream 0660 shell log
-    disabled
-    oneshot
+# service dumpstate /system/bin/dumpstate -s
+#     class main
+#     socket dumpstate stream 0660 shell log
+#     disabled
+#     oneshot
 
 #
 #emsvr service (start)
 #
-on property:ro.build.type=eng
-    write /proc/bootprof "on property:ro.build.type=eng"
-    start emsvr
+# on property:ro.build.type=eng
+#     write /proc/bootprof "on property:ro.build.type=eng"
+#     start emsvr
 
-on property:ro.build.type=user
-    write /proc/bootprof "on property:ro.build.type=user"
-    start emsvr_user
+# on property:ro.build.type=user
+#     write /proc/bootprof "on property:ro.build.type=user"
+#     start emsvr_user
 
-service emsvr_user /system/bin/em_svr
-    disabled
-    user nvram
-    group system nvram
+# service emsvr_user /system/bin/em_svr
+#     disabled
+#     user nvram
+#     group system nvram
 
-service emsvr /system/bin/em_svr
-    disabled
-    user root
+# service emsvr /system/bin/em_svr
+#     disabled
+#     user root
 
 #emsvr service (end)
 #
 
-service shutdown /system/bin/shutdown
-    user root
-    group root
-    disabled
+# service shutdown /system/bin/shutdown
+#     user root
+#     group root
+#     disabled
 
-service NvRAMAgent /system/bin/nvram_agent_binder
-		user system
-		group system nvram
+# service NvRAMAgent /system/bin/nvram_agent_binder
+# 		user system
+# 		group system nvram
 
 # service thermal_manager /system/bin/thermal_manager
 # 	user root
@@ -394,9 +394,9 @@ service NvRAMAgent /system/bin/nvram_agent_binder
 #     user system
 #     group system
 
-service sn /system/bin/sn
-    user root
-    oneshot
+# service sn /system/bin/sn
+#     user root
+#     oneshot
 
 service sysctl /system/xbin/sysctld
     user root
