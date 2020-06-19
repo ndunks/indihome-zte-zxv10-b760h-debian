@@ -264,6 +264,12 @@ app/mcspbase.apk
 
 - [@quantvc - Running Debian Linux on Android device natively](https://medium.com/@quantvc/running-debian-on-android-device-natively-73545c9b0757)
 - [lk boot](https://github.com/ariafan/lk_mtk/blob/master/bootable/bootloader/lk/app/mt_boot/mt_boot.c)
+
+## Bookmarks
+
+- https://github.com/neporood/device_RCA_RCT6213W87DK
+- 
+
 ## Usefull info for debug
 
 	[info.md](info.md)
