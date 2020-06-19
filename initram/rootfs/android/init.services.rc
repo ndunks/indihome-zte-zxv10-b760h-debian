@@ -4,7 +4,8 @@
 
 service ueventd /sbin/ueventd
     class core
-    critical
+    #critical
+    oneshot
 
 # service kisd /system/bin/kisd
 
@@ -12,6 +13,7 @@ service healthd /sbin/healthd
     class core
     critical
     seclabel u:r:healthd:s0
+    oneshot
 
 # service healthd-charger /sbin/healthd -n
 #     class charger
@@ -29,6 +31,7 @@ service console /system/bin/sh
     console
     user root
     group log
+    oneshot
 
 service telnetd30 /system/xbin/busybox telnetd -l /system/bin/sh
     class main
@@ -45,6 +48,7 @@ service drvbd /system/bin/drvbd
     class main
     user system
     group system
+    oneshot
 
 # service debuggerd /system/bin/debuggerd
 #     class main
@@ -56,30 +60,34 @@ service servicemanager /system/bin/servicemanager
     class core
     user system
     group system
+    oneshot
     #critical
-    onrestart restart healthd
-    onrestart restart zygote
-    onrestart restart media
-    onrestart restart surfaceflinger
-    onrestart restart drm
-    onrestart restart aal
+    #onrestart restart healthd
+    #onrestart restart zygote
+    #onrestart restart media
+    #onrestart restart surfaceflinger
+    #onrestart restart drm
+    #onrestart restart aal
 
 service vold /system/bin/vold
     class core
     socket vold stream 0660 root mount
     ioprio be 2
+    oneshot
 
 service media /system/bin/mediaserver
     class main
     user root
     group audio camera graphics inet net_bt net_bt_admin net_bw_acct drmrpc media sdcard_r nvram ccci radio system
     ioprio rt 4
+    oneshot
 
 service netd /system/bin/netd
     class main
     socket netd stream 0660 root system
     socket dnsproxyd stream 0660 root inet
     socket mdns stream 0660 root system
+    oneshot
 
 
 # service netdiag /system/bin/netdiag
@@ -130,20 +138,23 @@ service surfaceflinger /system/bin/surfaceflinger
 #    user system
      group graphics drmrpc
      #onrestart restart zygote
+     oneshot
 
 service aal /system/bin/aal
     class main
     user system
     group system graphics radio
+    oneshot
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     class main
     socket zygote stream 660 root system
     onrestart write /sys/android_power/request_state wake
     onrestart write /sys/power/state on
-    onrestart restart media
-    onrestart restart netd
-    onrestart restart surfaceflinger
+    #onrestart restart media
+    #onrestart restart netd
+    #onrestart restart surfaceflinger
+    oneshot
 
 #
 # MT6620 related services (Begin)
@@ -241,6 +252,7 @@ service drm /system/bin/drmserver
     class main
     user drm
     group drm system audio sdcard_rw net_raw inet drmrpc media sdcard_r media_rw
+    oneshot
 
 
 # service matv /system/bin/matv
@@ -270,6 +282,7 @@ service dbus /system/bin/dbus-daemon --system --nofork
     socket dbus stream 660 bluetooth bluetooth
     user bluetooth
     group bluetooth net_bt_admin
+    oneshot
 
 service bluetoothd /system/bin/bluetoothd -n
     class main
@@ -279,6 +292,7 @@ service bluetoothd /system/bin/bluetoothd -n
     # let bluetoothd drop uid to bluetooth with the right linux capabilities
     group bluetooth net_bt_admin misc
     disabled
+    oneshot
 
 service mtkbt /system/bin/mtkbt
 	socket bt.int.adp dgram 660 bluetooth net_bt
@@ -402,6 +416,7 @@ service sysctl /system/xbin/sysctld
     user root
     socket sysctl stream 0666 root root
     disabled
+    oneshot
 
 # service mdnsd /system/bin/mdnsd
 #     class main
@@ -421,6 +436,7 @@ service MtkCodecService /system/bin/MtkCodecService
     class main
     user root
     group audio media sdcard_r
+    oneshot
 
 
 service zte-post-boot /system/bin/sh /system/bin/init.zte.post_boot.sh
