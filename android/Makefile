@@ -19,19 +19,20 @@ tmpfs/system.img: $(ORIGINAL_SYSTEM) remove.txt $(wildcard custom/**/**) bootani
 	@[ -d $(SYSTEM_DIR) ] || mkdir $(SYSTEM_DIR)
 
 	sudo mount -t ext4 -o loop,sync,rw $(SYSTEM_IMG) $(SYSTEM_DIR)
+	@echo $(GREEN)Removing..
+	$(foreach f,$(REMOVE_LISTS),@sudo rm -rf $f)
+	@echo $(NORM)
+
 	@echo $(GREEN)Copying custom/**.. $(NORM)
 	sudo cp -ar custom/* $(SYSTEM_DIR)/
-
-
-	@echo $(GREEN)running scripts.sh$(NORM)
-	sudo bash -c "cd $(SYSTEM_DIR) && . ../../scripts.sh"
 
 	@echo $(GREEN)Copying bootanimation$(NORM)
 	sudo cp -f bootanimation/bootanimation.zip $(SYSTEM_DIR)/media/
 
-	@echo $(GREEN)Removing..
-	$(foreach f,$(REMOVE_LISTS),@sudo rm -rf $f)
-	@echo $(NORM)
+	@echo $(GREEN)running scripts.sh$(NORM)
+	sudo bash -c "cd $(SYSTEM_DIR) && . ../../scripts.sh"
+
+
 
 	@sync tmpfs/
 	sudo umount $(SYSTEM_DIR)

@@ -1,3 +1,7 @@
 #!/bin/bash
 
-# This script run in android system directory
+# $PWD is mounted android system image
+
+# vendor mv cannot move cross device link
+unlink bin/mv
+ln -s busybox xbin/mv
