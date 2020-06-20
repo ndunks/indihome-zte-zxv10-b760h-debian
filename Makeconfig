@@ -6,7 +6,7 @@ OUT_DIR=$(DIR)/result
 ORIGINAL_DIR=$(DIR)/original
 
 BOOT_IMG=$(OUT_DIR)/boot.img
-#DEBIAN_IMG=$(DIR)/debian/tmpfs/debian.img
+
 ANDROID_IMG=$(DIR)/android/tmpfs/android.img
 RECOVERY_IMG=$(OUT_DIR)/recovery.img
 

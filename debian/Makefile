@@ -6,12 +6,11 @@ ifndef DEBIAN_REPO
 override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 
-export DEBOOTSTRAP_DIR=$(TOOL_DIR)/debootstrap
-DEBOOTSTRAP = $(DEBOOTSTRAP_DIR)/debootstrap
-
-ifeq ($(wildcard $(DEBOOTSTRAP)),)
-$(error Please init submodule)
+DEBOOTSTRAP = $(shell which debootstrap)
+ifeq ($(DEBOOTSTRAP),)
+$(error Please install debootstrap)
 endif
+
 # Jika install binfmt setelah qemu, maka kamu perlu: sudo dpkg-reconfigure qemu-user-static
 ifeq ($(shell which update-binfmts),)
 $(error Please install binfmt-support)
@@ -20,6 +19,7 @@ ifeq ($(shell which qemu-arm-static),)
 $(error Please install qemu-user-static)
 endif
 
+export DEBOOTSTRAP_DIR=/usr/share/debootstrap
 export ARCH = armel
 export SUITE = buster
 export INCLUDE = base-files base-passwd dpkg adduser apt libc-bin libgcc1 \
@@ -28,9 +28,10 @@ liblzma5 zlib1g libacl1 libattr1 libapt-pkg5.0 liblz4-1 libsystemd0 \
 libgcrypt20 libgpg-error0 libudev1 libzstd1 libseccomp2 libgnutls30 \
 libgmp10 libhogweed4 libidn11 libnettle6 libp11-kit0 libtasn1-6 libidn2-0 \
 libunistring2 libffi6 perl-modules-5.28 perl-base gpgv tar coreutils \
-debian-archive-keyring debianutils passwd debconf libaudit1
+debian-archive-keyring debianutils passwd debconf libaudit1 libsemanage1 \
+dropbear-bin nano
 
-ARGS = --variant=minbase --arch=$(ARCH) --no-merged-usr \
+ARGS = --variant=minbase --arch=$(ARCH) \
 --no-check-gpg --no-check-certificate --download-only \
 --include=$(subst $(SPACE),$(COMMA),$(INCLUDE))
 
@@ -52,16 +53,15 @@ all: stage1 stage2
 stage1: $(TARGET)/etc/debian_version
 stage2: $(TARGET)/busybox-installed
 
-$(TARGET)/etc/debian_version:
-	sudo -E ./stage1.sh
 
 $(TARGET)/busybox-installed: $(TARGET)/etc/debian_version
 	sudo -E ./chroot.sh < stage2.sh
 
+$(TARGET)/etc/debian_version: $(TARGET)/debootstrap/debpaths
+	test -e $@ || sudo -E ./stage1.sh
 
-$(TARGET)/debootstrap/: $(TARGET)
-	$(info Building $(@F))
-	sudo -E $(DEBOOTSTRAP) $(ARGS) $(SUITE) $(TARGET) $(DEBIAN_REPO)
+$(TARGET)/debootstrap/debpaths: $(TARGET)
+	test -e $@ || sudo -e sudo -E $(DEBOOTSTRAP) $(ARGS) $(SUITE) $(TARGET) $(DEBIAN_REPO)
 
 $(TARGET): $(IMG)
 	mkdir -p $@
@@ -84,15 +84,15 @@ $(TMP):
 	fi
 
 clean:
-	@sudo umount $(TARGET)/dev/pts || exit 0
-	@sudo umount $(TARGET)/dev || exit 0
-	@sudo umount $(TARGET)/proc || exit 0
-	@sudo umount $(TARGET)/sys || exit 0
+	@sudo umount $(TARGET)/dev/pts 2>/dev/null || exit 0
+	@sudo umount $(TARGET)/dev 2>/dev/null || exit 0
+	@sudo umount $(TARGET)/proc 2>/dev/null || exit 0
+	@sudo umount $(TARGET)/sys 2>/dev/null || exit 0
 	@sudo rm -rf $(TARGET)/*
 
-clean_all: clean_rootfs
-	sudo umount $(TARGET) || exit 0
-	sudo umount $(TMP) || exit 0
-	sudo rm -rf $(TMP) || exit 0
+clean_all: clean
+	@sudo umount $(TARGET) 2>/dev/null || exit 0
+	@sudo umount $(TMP) 2>/dev/null || exit 0
+	@sudo rm -rf $(TMP) || exit 0
 
 .PHONY: clean clean_all all stage1 stage2

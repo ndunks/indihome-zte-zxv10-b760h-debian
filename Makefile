@@ -37,11 +37,7 @@ flash_initram: initram $(FLASH_CONFIG_INITRAM)
 		$(REBOOT_STB) \
 	done
 
-ifndef NO_BUILD
 flash_debian: debian $(FLASH_CONFIG_DEBIAN)
-else
-flash_debian: $(DEBIAN_IMG) $(FLASH_CONFIG_DEBIAN)
-endif
 	$(info Connect USB Devices)
 	$(REBOOT_STB)
 	$(FLASH_TOOL) -b -i $(FLASH_CONFIG_DEBIAN)
@@ -65,7 +61,7 @@ $(FLASH_CONFIG_INITRAM):
 	make -C flash OUT=$@ PART_BOOTIMG=$(BOOT_IMG)
 
 $(FLASH_CONFIG_DEBIAN):
-	make -C flash OUT=$@ PART_USRDATA=$(DEBIAN_IMG)
+	make -C flash OUT=$@ PART_USRDATA=$(DIR)/debian/tmpfs/debian.img
 
 $(FLASH_CONFIG_ANDROID):
 	make -C flash OUT=$@ PART_ANDROID=$(ANDROID_IMG)
@@ -99,14 +95,11 @@ clean_initram:
 	make -C initram clean > /dev/null || exit 0
 	rm -f $(BOOT_IMG) || exit 0
 
-clean_debian:
-	make -C debian clean > /dev/null || exit 0
-	rm -f $(DEBIAN_IMG) || exit 0
-
 update_initram: clean_initram flash_initram
 
-clean: clean_initram clean_debian
-	rm $(FLASH_CONFIG_INITRAM) backup/config.xml > /dev/null || exit 0
+clean: clean_initram
+	make -C debian clean_all
+	find result/ -type f -not -name Makefile -delete
 
 .PHONY: clean all tool flash_initramfs flash_debian clean_initram backup \
 debian initram reboot_stb android_under_debian android flash_android \

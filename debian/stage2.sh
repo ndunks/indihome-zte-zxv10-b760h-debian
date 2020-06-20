@@ -59,7 +59,7 @@ dpkg --configure --pending --force-configure-any --force-depends
 # System setup
 
 cat <<EOF >> /etc/apt/sources.list
-deb $DEBIAN_REPO $VERSION_CODENAME main
+deb [trusted=yes] $DEBIAN_REPO $VERSION_CODENAME main
 EOF
 
 cat <<EOF >> /etc/profile
@@ -72,12 +72,10 @@ busybox addgroup _apt
 busybox addgroup --gid 3003 android_inet
 usermod -g 3003 _apt
 
-apt updte
-apt install -y dropbear-bin
-
 # Save space
 rm -rf /usr/share/doc/
 rm -rf /usr/share/man/
 rm -rf /usr/share/locale/
+rm -rf /usr/share/initramfs-tools/
 rm -rf /lib/systemd/system/
 apt clean
