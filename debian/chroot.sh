@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOTFS="$PWD/tmp/rootfs"
+ROOTFS="$PWD/tmpfs/debian"
 QEMU_ARM=qemu-arm-static
 QEMU=$(which $QEMU_ARM)
 BINFMT=$(cat /proc/sys/fs/binfmt_misc/status 2> /dev/null)
@@ -12,9 +12,9 @@ fail(){
 
 [ -d "$ROOTFS" ] || fail "not exists! $ROOTFS"
 
-[ -x "$ROOTFS/bin/sh" ] || fail "no shell in $ROOTFS"
+[ -x "$ROOTFS/bin/busybox" ] || fail "no shell in $ROOTFS"
 
-[ -n "$QEMU" ] || fail "Require $QEMU_ARM to chroot into rootfs"
+[ -n "$QEMU" ] || fail "Require $QEMU_ARM to chroot into debian"
 
 [ -n "$BINFMT" ] || fail "Require binfmt_support"
 
@@ -40,14 +40,14 @@ mkdir $ROOTFS/dev/pts
 mount -o bind /dev/pts $ROOTFS/dev/pts
 
 if [ -n "$1" ]; then
-    echo "$@" | chroot $ROOTFS /bin/bash
+    echo "$@" | chroot $ROOTFS /bin/busybox sh
 else
     if [ -t 0 ]; then
         # interactive
-        chroot $ROOTFS
+        chroot $ROOTFS /bin/busybox sh -i
     else
         # pipe stdin
-        chroot $ROOTFS /bin/bash < /dev/stdin
+        chroot $ROOTFS /bin/busybox sh < /dev/stdin
     fi
 fi
 echo "chroot.sh: Cleaning up.." 1>&2

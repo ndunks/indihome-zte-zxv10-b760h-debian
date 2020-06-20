@@ -6,32 +6,12 @@ ifndef DEBIAN_REPO
 override DEBIAN_REPO=http://kambing.ui.ac.id/debian/
 endif
 
-ifndef INCLUDE_PACKAGES
-override INCLUDE_PACKAGES = sysvinit-core,net-tools,openbox,xorg
+export DEBOOTSTRAP_DIR=$(TOOL_DIR)/debootstrap
+DEBOOTSTRAP = $(DEBOOTSTRAP_DIR)/debootstrap
+
+ifeq ($(wildcard $(DEBOOTSTRAP)),)
+$(error Please init submodule)
 endif
-
-ifndef EXCLUDE_PACKAGES
-override EXCLUDE_PACKAGES =
-endif
-
-ifndef DEBIAN_VER
-override DEBIAN_VER = buster
-endif
-
-ARGS = --variant=minbase --arch armel
-
-ifneq ($(INCLUDE_PACKAGES),)
-ARGS += --include $(INCLUDE_PACKAGES)
-endif
-
-ifneq ($(EXCLUDE_PACKAGES),)
-ARGS += --exclude $(EXCLUDE_PACKAGES)
-endif
-
-ifeq ($(shell which debootstrap),)
-$(error Please install debootstrap)
-endif
-
 # Jika install binfmt setelah qemu, maka kamu perlu: sudo dpkg-reconfigure qemu-user-static
 ifeq ($(shell which update-binfmts),)
 $(error Please install binfmt-support)
@@ -40,52 +20,79 @@ ifeq ($(shell which qemu-arm-static),)
 $(error Please install qemu-user-static)
 endif
 
+export ARCH = armel
+export SUITE = buster
+export INCLUDE = base-files base-passwd dpkg adduser apt libc-bin libgcc1 \
+libc6 gcc-8-base libstdc++6 libbz2-1.0 libselinux1 libpcre3 libdebconfclient0 \
+liblzma5 zlib1g libacl1 libattr1 libapt-pkg5.0 liblz4-1 libsystemd0 \
+libgcrypt20 libgpg-error0 libudev1 libzstd1 libseccomp2 libgnutls30 \
+libgmp10 libhogweed4 libidn11 libnettle6 libp11-kit0 libtasn1-6 libidn2-0 \
+libunistring2 libffi6 perl-modules-5.28 perl-base gpgv tar coreutils \
+debian-archive-keyring debianutils passwd debconf libaudit1
 
-TMP=$(shell pwd)/tmp
-TMP_IMG=$(TMP)/debian.img
-TMP_ROOTFS=$(TMP)/rootfs/
+ARGS = --variant=minbase --arch=$(ARCH) --no-merged-usr \
+--no-check-gpg --no-check-certificate --download-only \
+--include=$(subst $(SPACE),$(COMMA),$(INCLUDE))
+
 FS_FEATURE_ENABLE=has_journal,ext_attr,resize_inode,filetype,extent,sparse_super,large_file,uninit_bg
 FS_FEATURE_DISABLE=^dir_index,^64bit,^flex_bg,^huge_file,^dir_nlink,^extra_isize,^metadata_csum
 
-$(DEBIAN_IMG): $(TMP) $(TMP_IMG) $(TMP_ROOTFS)
-	cp $(TMP_IMG) $(DEBIAN_IMG)
+export TMP=$(PWD)/tmpfs
+export IMG=$(TMP)/debian.img
+export TARGET=$(TMP)/debian
+export DEBIAN_IMG := $(IMG)
+export DEBIAN_REPO
 
-print_packages: $(TMP)
-	[ -d $(TMP)/debs ] || mkdir $(TMP)/debs
-	$(write Please wait..)
-	sudo debootstrap $(ARGS) --print-debs $(DEBIAN_VER) $(TMP)/debs $(DEBIAN_REPO) 2>/dev/null
+all: stage1 stage2
+# Display the size of system rootfs dir
+	@sudo du -sh $(TARGET)
+	$(info Done, image in $(IMG))
+#	cp $(IMG) $(IMG)
 
-$(TMP_ROOTFS):
-	@[ -d $@ ] || mkdir $@
-	@if [ -z "$$(losetup -l | grep $(TMP_IMG))" ]; then \
-		echo Mounting $(TMP_IMG) ; \
-		sudo mount -o loop,sync,noatime $(TMP_IMG) $@ ;\
+stage1: $(TARGET)/etc/debian_version
+stage2: $(TARGET)/busybox-installed
+
+$(TARGET)/etc/debian_version:
+	sudo -E ./stage1.sh
+
+$(TARGET)/busybox-installed: $(TARGET)/etc/debian_version
+	sudo -E ./chroot.sh < stage2.sh
+
+
+$(TARGET)/debootstrap/: $(TARGET)
+	$(info Building $(@F))
+	sudo -E $(DEBOOTSTRAP) $(ARGS) $(SUITE) $(TARGET) $(DEBIAN_REPO)
+
+$(TARGET): $(IMG)
+	mkdir -p $@
+	@if [ -z "$$(losetup -l | grep $(IMG))" ]; then \
+		echo Mounting $(IMG) ; \
+		sudo mount -o loop,sync,noatime $(IMG) $@ ;\
 	fi
-	$(info Debootstrap $(@F))
-	sudo debootstrap $(ARGS) --foreign $(DEBIAN_VER) $(TMP_ROOTFS) $(DEBIAN_REPO)
-	sudo ./chroot.sh < stage2.sh
-	@sudo du -sh $@
 
-$(TMP_IMG):
+$(IMG): $(TMP)
+	$(info Creating $(@F))
 	dd if=/dev/zero bs=1M count=753 of=$@
 	mkfs.ext4 -O $(FS_FEATURE_ENABLE),$(FS_FEATURE_DISABLE) $@
 
 $(TMP):
-	@test -d $@ || mkdir $@
+	$(info Creating $(@F))
+	mkdir -p $@
 	@if [ -z "$$(grep $@ /proc/mounts)" ]; then \
 		echo Mount tmpfs for fast build ;\
 		sudo mount -t tmpfs none $@ ;\
 	fi
 
-clean_rootfs:
-	@sudo umount $(TMP_ROOTFS) || exit 0
-	@sudo rm -f $(TMP_IMG) || exit 0
-	@sudo rm -rf $(TMP_ROOTFS) || exit 0
-	@rm -f $(OUT_DIR)/debian.img || exit 0
-
 clean:
-	@test ! -d $(TMP_ROOTFS) || sudo umount $(TMP_ROOTFS) || exit 0
-	sudo umount $(TMP) || exit 0
-	rm -rf $(TMP) || exit 0
+	@sudo umount $(TARGET)/dev/pts || exit 0
+	@sudo umount $(TARGET)/dev || exit 0
+	@sudo umount $(TARGET)/proc || exit 0
+	@sudo umount $(TARGET)/sys || exit 0
+	@sudo rm -rf $(TARGET)/*
 
-.PHONY: clean clean_rootfs all image print_packages
+clean_all: clean_rootfs
+	sudo umount $(TARGET) || exit 0
+	sudo umount $(TMP) || exit 0
+	sudo rm -rf $(TMP) || exit 0
+
+.PHONY: clean clean_all all stage1 stage2

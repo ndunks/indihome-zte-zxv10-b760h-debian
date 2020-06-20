@@ -1,15 +1,20 @@
 #Local config
-DIR=$(abspath $(ROOT))
+export ROOT_DIR=$(abspath $(ROOT))
+DIR=$(ROOT_DIR)
 TOOL_DIR=$(DIR)/tool
 OUT_DIR=$(DIR)/result
 ORIGINAL_DIR=$(DIR)/original
 
 BOOT_IMG=$(OUT_DIR)/boot.img
-DEBIAN_IMG=$(OUT_DIR)/debian.img
+#DEBIAN_IMG=$(DIR)/debian/tmpfs/debian.img
 ANDROID_IMG=$(DIR)/android/tmpfs/android.img
 RECOVERY_IMG=$(OUT_DIR)/recovery.img
 
 GREEN=$(shell echo "\033[32m")
 NORM=$(shell echo "\033[0m")
+PWD=$(shell pwd)
+EMPTY =
+COMMA = ,
+SPACE = $(EMPTY) $(EMPTY)
 
 include $(DIR)/.env
