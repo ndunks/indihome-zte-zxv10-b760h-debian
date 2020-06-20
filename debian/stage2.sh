@@ -45,7 +45,7 @@ EOF
 
 #dirty_install dpkg
 
-predepends="dpkg"
+predepends="dpkg "
 required=$(without "$INCLUDE" "$predepends")
 
 for pkg in $(debfor $predepends); do
@@ -67,12 +67,23 @@ export LANG=C
 export LANGUAGE=C
 export LC_ALL=C
 EOF
+
+. /etc/profile
+
 # inet for apt
-busybox addgroup _apt
+dpkg-reconfigure apt
 busybox addgroup --gid 3003 android_inet
 usermod -g 3003 _apt
 
+# fix package
+apt update
+apt install -f -y
+
+echo -e "root\nroot" | busybox passwd root
+mkdir -p 
+
 # Save space
+rm -rf /debootstrap
 rm -rf /usr/share/doc/
 rm -rf /usr/share/man/
 rm -rf /usr/share/locale/

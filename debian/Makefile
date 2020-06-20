@@ -25,15 +25,15 @@ export SUITE = buster
 export INCLUDE = base-files base-passwd dpkg adduser apt libc-bin libgcc1 \
 libc6 gcc-8-base libstdc++6 libbz2-1.0 libselinux1 libpcre3 libdebconfclient0 \
 liblzma5 zlib1g libacl1 libattr1 libapt-pkg5.0 liblz4-1 libsystemd0 \
-libgcrypt20 libgpg-error0 libudev1 libzstd1 libseccomp2 libgnutls30 \
+libgcrypt20 libgpg-error0 libudev1 libzstd1 libseccomp2 libgnutls30 libcap-ng0 \
 libgmp10 libhogweed4 libidn11 libnettle6 libp11-kit0 libtasn1-6 libidn2-0 \
-libunistring2 libffi6 perl-modules-5.28 perl-base gpgv tar coreutils \
+libunistring2 libffi6 perl-modules-5.28 perl-base gpgv tar coreutils libsepol1 \
 debian-archive-keyring debianutils passwd debconf libaudit1 libsemanage1 \
-dropbear-bin nano
+libsemanage-common init-system-helpers diffutils dropbear-bin nano 
 
 ARGS = --variant=minbase --arch=$(ARCH) \
 --no-check-gpg --no-check-certificate --download-only \
---include=$(subst $(SPACE),$(COMMA),$(INCLUDE))
+--no-resolve-deps --include=$(subst $(SPACE),$(COMMA),$(INCLUDE))
 
 FS_FEATURE_ENABLE=has_journal,ext_attr,resize_inode,filetype,extent,sparse_super,large_file,uninit_bg
 FS_FEATURE_DISABLE=^dir_index,^64bit,^flex_bg,^huge_file,^dir_nlink,^extra_isize,^metadata_csum
@@ -61,7 +61,7 @@ $(TARGET)/etc/debian_version: $(TARGET)/debootstrap/debpaths
 	test -e $@ || sudo -E ./stage1.sh
 
 $(TARGET)/debootstrap/debpaths: $(TARGET)
-	test -e $@ || sudo -e sudo -E $(DEBOOTSTRAP) $(ARGS) $(SUITE) $(TARGET) $(DEBIAN_REPO)
+	test -e $@ || sudo -E $(DEBOOTSTRAP) $(ARGS) $(SUITE) $(TARGET) $(DEBIAN_REPO)
 
 $(TARGET): $(IMG)
 	mkdir -p $@

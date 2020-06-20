@@ -17,5 +17,3 @@ while [ ! -e /sys/class/net/wlan0 ]; do
     sleep 1
 done
 echo  'wlan0: ready'  > /proc/bootprof
-setprop ctl.start wpa_supplicant
-dhcpcd -BK -dd wlan0 &
