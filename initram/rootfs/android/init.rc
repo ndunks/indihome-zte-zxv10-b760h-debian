@@ -30,8 +30,8 @@ on early-init
 
 on early_property:ro.build.type=*
     write /proc/bootprof "INIT: user build setting *"
-    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/conscrypt.jar:/system/framework/okhttp.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework2.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/mms-common.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/webviewchromium.jar:/system/framework/mediatek-common.jar:/system/framework/mediatek-framework.jar:/system/framework/CustomProperties.jar:/system/framework/mediatek-telephony-common.jar:/system/framework/mediatek-tablet.jar:/system/framework/ethernet.jar:/system/framework/McspCompCommun.jar:/system/framework/McspCfgmanager.jar:/system/framework/MCSPLog.jar:/system/framework/McspEvt.jar:/system/framework/CompCommun.jar:/system/framework/jcfgmanager.jar:/system/framework/ZTEDisplaySetting.jar:/system/framework/DialogActivity.jar:/system/framework/ProductEvtClass.jar:/system/framework/OSDCompIface.jar:/system/framework/GifView.jar:/system/framework/McspCfgDispatcher.jar:/system/framework/MCPorting.jar:/system/framework/ZTESettingImpl.jar:/system/framework/baseclient.jar
-    #:/system/framework/exoplayerlib.jar:/system/framework/exogluelib.jar
+    export BOOTCLASSPATH /system/framework/core.jar:/system/framework/conscrypt.jar:/system/framework/okhttp.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework2.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/mms-common.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/webviewchromium.jar:/system/framework/mediatek-common.jar:/system/framework/mediatek-framework.jar:/system/framework/CustomProperties.jar:/system/framework/mediatek-telephony-common.jar:/system/framework/mediatek-tablet.jar:/system/framework/ethernet.jar:/system/framework/McspCompCommun.jar:/system/framework/McspCfgmanager.jar:/system/framework/MCSPLog.jar:/system/framework/McspEvt.jar:/system/framework/CompCommun.jar:/system/framework/jcfgmanager.jar:/system/framework/ZTEDisplaySetting.jar:/system/framework/DialogActivity.jar:/system/framework/ProductEvtClass.jar:/system/framework/OSDCompIface.jar:/system/framework/GifView.jar:/system/framework/McspCfgDispatcher.jar:/system/framework/MCPorting.jar:/system/framework/baseclient.jar
+    #:/system/framework/ZTESettingImpl.jar:/system/framework/exoplayerlib.jar:/system/framework/exogluelib.jar
 #    export CLASSPATH /system/framework/mediatek-op.jar
     export BOOTCLASSPATH_EX /system/framework/mediatek-op.jar
 
@@ -55,7 +55,7 @@ on init
 
 sysclktz 0
 
-loglevel 6
+loglevel 8
     write /proc/bootprof "INIT: on init start"
 
 # setup the global environment

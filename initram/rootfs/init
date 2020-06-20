@@ -4,7 +4,7 @@ L(){
     echo -e "\033[33m$@\033[0;0m"
 }
 # UART MAIN CONSOLE linux/android
-export SERIAL_CONSOLE=linux
+export SERIAL_CONSOLE=android
 
 init(){
     mkdir proc sys linux
