@@ -29,7 +29,7 @@ libgcrypt20 libgpg-error0 libudev1 libzstd1 libseccomp2 libgnutls30 libcap-ng0 \
 libgmp10 libhogweed4 libidn11 libnettle6 libp11-kit0 libtasn1-6 libidn2-0 \
 libunistring2 libffi6 perl-modules-5.28 perl-base gpgv tar coreutils libsepol1 \
 debian-archive-keyring debianutils passwd debconf libaudit1 libsemanage1 \
-libsemanage-common init-system-helpers diffutils dropbear-bin nano 
+libsemanage-common init-system-helpers diffutils dropbear-bin nano curl
 
 ARGS = --variant=minbase --arch=$(ARCH) \
 --no-check-gpg --no-check-certificate --download-only \

@@ -391,10 +391,10 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -BK wlan0 -c /system/etc/dhcpcd/dhcpcd-r
 #emsvr service (end)
 #
 
-# service shutdown /system/bin/shutdown
-#     user root
-#     group root
-#     disabled
+service shutdown /system/bin/shutdown
+    user root
+    group root
+    disabled
 
 # service NvRAMAgent /system/bin/nvram_agent_binder
 # 		user system
@@ -412,15 +412,15 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -BK wlan0 -c /system/etc/dhcpcd/dhcpcd-r
 #     user system
 #     group system
 
-# service sn /system/bin/sn
-#     user root
-#     oneshot
+service sn /system/bin/sn
+    user root
+    oneshot
 
-# service sysctl /system/xbin/sysctld
-#     user root
-#     socket sysctl stream 0666 root root
-#     disabled
-#     oneshot
+service sysctl /system/xbin/sysctld
+    user root
+    socket sysctl stream 0666 root root
+    disabled
+    oneshot
 
 # service mdnsd /system/bin/mdnsd
 #     class main
@@ -431,10 +431,10 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -BK wlan0 -c /system/etc/dhcpcd/dhcpcd-r
 #     oneshot
 
 #add for power-off alarm
-# service poad /system/bin/poad
-#     user system
-#     group system
-#     oneshot
+service poad /system/bin/poad
+    user system
+    group system
+    oneshot
 
 # service MtkCodecService /system/bin/MtkCodecService
 #     class main

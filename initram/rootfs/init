@@ -13,7 +13,7 @@ init(){
     mdev -s
     mount -t ext4 /dev/mmcblk0p7 /linux
     # uncoment if you want terminal before boot, Ctrl+D to continue
-    #busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
+    # busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
 
     if [ $SERIAL_CONSOLE == linux ] && grep '^\s*start\s\+console' android/init.rc > /dev/null; then
         L "Disabling android console"
@@ -34,7 +34,7 @@ init(){
     mv android/* linux/android/
     chmod 744 linux/android/wpa_supplicant.conf
     mv emmc@* /linux/android/
-
+    source /.env
 
     if [ -x /linux/android/init ] ; then
         cp -a /init /linux/init_switch
@@ -101,6 +101,31 @@ EOF
     # Serial Terminal
     test $SERIAL_CONSOLE = 'linux' && exec busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
     L "Not starting tty, console is $SERIAL_CONSOLE"
+
+    NEED_UPDATE_DDNS=true
+    COUNTER=0
+    while true; do
+        while ! ping -c 1 -q -4 -W 5 1.1.1.1 > /dev/null 2>&1; do
+            NEED_UPDATE_DDNS=true
+            COUNTER=$(($COUNTER+1))
+            if [ $COUNTER -ge 10 ]; then
+                L "Tired waiting.."
+                break 2
+            fi
+            L "Wait inet $COUNTER"
+            sleep 5
+        done
+        
+
+        if [ "$NEED_UPDATE_DDNS" = "true" ]; then
+            echo "Updating Kiraboshi DNS"
+            ddns_kiraboshi
+            NEED_UPDATE_DDNS=false
+            sleep 10
+        else
+            sleep 30
+        fi
+    done
     exec busybox nc -l -e /bin/sh 
 }
 
@@ -108,6 +133,45 @@ clean_cache(){
     mkdir cache
     mount -t ext4 /dev/mmcblk0p6 /cache
     rm -rf /cache/*
+}
+
+ddns_kiraboshi(){
+
+    if [ -z "$ACCOUNT_ID" ]; then
+        echo "NO CloudFlare ACCOUNT_ID!"
+        exit 1
+    fi
+
+    # GET ZONE DETAILS
+    #curl -skH "$TOKEN_HEADER" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID"
+
+    # GET ZONE RECORD LIST
+    #curl -skH "$TOKEN_HEADER" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records"
+    # GET ZONE RECORD DETAIL
+    #"
+    CURRENT_IP=$( curl -skH "$TOKEN_HEADER" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID" | grep -o '\(\d\+\.\d\+\.\d\+\.\d\+\)')
+    echo "CURRENT_IP: $CURRENT_IP"
+
+    # UPDATE RECORD CURRENT IP
+    MYIP=$(curl -s api.ipify.org)
+    if [ "$CURRENT_IP" = "$MYIP" ]; then
+        L "Not updating IP, still same"
+        exit 0
+    fi
+    if [ "$?" != "0" ]; then
+        echo "Fail Get IP"
+        exit 1
+    fi
+    if [ -z "$MYIP" ]; then
+        echo "Empty IP"
+        exit 1
+    fi
+    echo "Updating $RECORD_NAME to $MYIP"
+    cat <<EOF | curl -skX PUT -H "$TOKEN_HEADER" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID" > /dev/null \
+        -H "Content-Type: application/json" --data @-
+{"type":"A","name":"$RECORD_NAME","content":"$MYIP","ttl":120,"proxied":false}
+EOF
+
 }
 
 # call function based on this filename
