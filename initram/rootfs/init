@@ -32,6 +32,7 @@ init(){
     mount -t tmpfs none /linux/android
     mount -t tmpfs none /linux/dev
     mv android/* linux/android/
+    chmod 744 linux/android/wpa_supplicant.conf
     mv emmc@* /linux/android/
 
 

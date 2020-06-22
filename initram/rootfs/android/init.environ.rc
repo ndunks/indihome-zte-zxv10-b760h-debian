@@ -1,5 +1,6 @@
 # set up the global environment
 on init
+    write /proc/bootprof "on init: init.environ.rc"
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
     export LD_LIBRARY_PATH /vendor/lib:/system/lib
     export ANDROID_BOOTLOGO 1

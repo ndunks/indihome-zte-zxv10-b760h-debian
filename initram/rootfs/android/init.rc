@@ -22,7 +22,7 @@ on early-init
     setcon u:r:init:s0
 
     start ueventd
-    write /proc/mtprintk 1
+    write /proc/mtprintk 0
 
 # create mountpoints
     mkdir /mnt 0775 root system
@@ -55,7 +55,7 @@ on init
 
 sysclktz 0
 
-loglevel 6
+loglevel 3
     write /proc/bootprof "INIT: on init start"
 
 # setup the global environment
