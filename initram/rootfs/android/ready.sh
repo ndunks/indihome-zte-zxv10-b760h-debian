@@ -10,9 +10,10 @@ cek_wifi(){
     #pidof dhcpcd || setprop ctl.start dhcpcd_wlan0
 }
 cek_wifi
+
 setprop ctl.stop zygote &
 setprop ctl.stop media &
-setprop ctl.stop servicemanager &
+#setprop ctl.stop servicemanager &
 setprop ctl.stop surfaceflinger &
 killall app_process mediaserver surfaceflinger netd &
 sleep 5 && killall autotest || true
@@ -39,7 +40,8 @@ sleep 60
 # libCrashRestore should set sys.ZTE_Services_OK 1
 # then this script must be retriggered again
 echo -e "\n\033[32mRestarting Android\033[0m" > /dev/console
+mediaserver &
 setprop ctl.start media &
-setprop ctl.start servicemanager &
+#setprop ctl.start servicemanager &
 setprop ctl.start surfaceflinger &
 setprop ctl.start zygote &

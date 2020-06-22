@@ -103,16 +103,9 @@ EOF
     L "Not starting tty, console is $SERIAL_CONSOLE"
 
     NEED_UPDATE_DDNS=true
-    COUNTER=0
     while true; do
         while ! ping -c 1 -q -4 -W 5 1.1.1.1 > /dev/null 2>&1; do
             NEED_UPDATE_DDNS=true
-            COUNTER=$(($COUNTER+1))
-            if [ $COUNTER -ge 10 ]; then
-                L "Tired waiting.."
-                break 2
-            fi
-            L "Wait inet $COUNTER"
             sleep 5
         done
         
@@ -123,7 +116,7 @@ EOF
             NEED_UPDATE_DDNS=false
             sleep 10
         else
-            sleep 30
+            sleep 60
         fi
     done
     exec busybox nc -l -e /bin/sh 
