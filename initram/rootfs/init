@@ -101,23 +101,14 @@ EOF
     # Serial Terminal
     test $SERIAL_CONSOLE = 'linux' && exec busybox getty -L -nl /bin/sh 115200 /dev/ttyMT0 linux
     L "Not starting tty, console is $SERIAL_CONSOLE"
-
-    NEED_UPDATE_DDNS=true
     while true; do
         while ! ping -c 1 -q -4 -W 5 1.1.1.1 > /dev/null 2>&1; do
-            NEED_UPDATE_DDNS=true
             sleep 5
         done
-        
-
-        if [ "$NEED_UPDATE_DDNS" = "true" ]; then
-            echo "Updating Kiraboshi DNS"
-            ddns_kiraboshi
-            NEED_UPDATE_DDNS=false
-            sleep 10
-        else
-            sleep 60
-        fi
+        ddns_kiraboshi
+        uptime > /dev/last-ddns-check
+        sleep 60
+        echo 
     done
     exec busybox nc -l -e /bin/sh 
 }
@@ -140,8 +131,8 @@ ddns_kiraboshi(){
 
     # GET ZONE RECORD LIST
     #curl -skH "$TOKEN_HEADER" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records"
+
     # GET ZONE RECORD DETAIL
-    #"
     CURRENT_IP=$( curl -skH "$TOKEN_HEADER" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID" | grep -o '\(\d\+\.\d\+\.\d\+\.\d\+\)')
     echo "CURRENT_IP: $CURRENT_IP"
 
@@ -149,15 +140,15 @@ ddns_kiraboshi(){
     MYIP=$(curl -s api.ipify.org)
     if [ "$CURRENT_IP" = "$MYIP" ]; then
         L "Not updating IP, still same"
-        exit 0
+        return 0
     fi
     if [ "$?" != "0" ]; then
         echo "Fail Get IP"
-        exit 1
+        return 1
     fi
     if [ -z "$MYIP" ]; then
         echo "Empty IP"
-        exit 1
+        return 1
     fi
     echo "Updating $RECORD_NAME to $MYIP"
     cat <<EOF | curl -skX PUT -H "$TOKEN_HEADER" "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records/$RECORD_ID" > /dev/null \
